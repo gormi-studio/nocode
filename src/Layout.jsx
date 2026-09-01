@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <header
       className={`sticky top-0 z-30 w-full transition-all duration-300 border-b ${
-        scrolled ? 'bg-[#FBF7F0]/95 backdrop-blur-md border-[#e7dcc9] shadow-sm' : 'bg-[#FBF7F0] border-transparent'
+        scrolled ? 'bg-[#F2F1EE]/95 backdrop-blur-md border-[#DCD8CE] shadow-sm' : 'bg-[#F2F1EE] border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ function Navbar() {
                   key={item.to}
                   to={item.to}
                   className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    active ? 'text-[#D84E0B]' : 'text-[#4a3f36] hover:text-[#D84E0B] hover:bg-[#D84E0B]/5'
+                    active ? 'text-[#A97C3F]' : 'text-[#433E36] hover:text-[#A97C3F] hover:bg-[#A97C3F]/5'
                   }`}
                 >
                   {item.label}
@@ -52,14 +52,14 @@ function Navbar() {
           <div className="hidden lg:flex items-center">
             <Link
               to="/tray-builder"
-              className="px-5 py-2.5 rounded-xl bg-[#D84E0B] text-white text-sm font-semibold hover:bg-[#b8420a] active:scale-95 transition-all"
+              className="px-5 py-2.5 rounded-xl bg-[#A97C3F] text-white text-sm font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all"
             >
               트레이 만들기
             </Link>
           </div>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-[#4a3f36] hover:bg-[#D84E0B]/5"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-[#433E36] hover:bg-[#A97C3F]/5"
             aria-label="메뉴 열기"
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -67,20 +67,20 @@ function Navbar() {
         </div>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-[#e7dcc9] bg-[#FBF7F0]">
+        <div className="lg:hidden border-t border-[#DCD8CE] bg-[#F2F1EE]">
           <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                className="px-3 py-3 rounded-lg text-[#4a3f36] font-medium hover:bg-[#D84E0B]/5 hover:text-[#D84E0B]"
+                className="px-3 py-3 rounded-lg text-[#433E36] font-medium hover:bg-[#A97C3F]/5 hover:text-[#A97C3F]"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               to="/tray-builder"
-              className="mt-2 px-4 py-3 rounded-xl bg-[#D84E0B] text-white text-center font-semibold"
+              className="mt-2 px-4 py-3 rounded-xl bg-[#A97C3F] text-white text-center font-semibold"
             >
               트레이 만들기
             </Link>
@@ -92,7 +92,7 @@ function Navbar() {
 }
 function Footer() {
   return (
-    <footer className="w-full bg-[#2A211C] text-[#e6ddd2]">
+    <footer className="w-full bg-[#1E1B18] text-[#DAD6CC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
@@ -108,11 +108,11 @@ function Footer() {
           <div className="hidden md:block">
             <h4 className="font-serif-kr font-semibold text-white mb-4">둘러보기</h4>
             <ul className="space-y-2.5 text-sm text-white/60">
-              <li><Link to="/tray-builder" className="hover:text-[#f0a97e]">커스텀 트레이</Link></li>
-              <li><Link to="/products" className="hover:text-[#f0a97e]">헤어 살롱 용품</Link></li>
-              <li><Link to="/curation" className="hover:text-[#f0a97e]">추천 구성</Link></li>
-              <li><Link to="/insights" className="hover:text-[#f0a97e]">미용 인사이트</Link></li>
-              <li><Link to="/reviews" className="hover:text-[#f0a97e]">고객 후기</Link></li>
+              <li><Link to="/tray-builder" className="hover:text-[#D9BE93]">커스텀 트레이</Link></li>
+              <li><Link to="/products" className="hover:text-[#D9BE93]">헤어 살롱 용품</Link></li>
+              <li><Link to="/curation" className="hover:text-[#D9BE93]">추천 구성</Link></li>
+              <li><Link to="/insights" className="hover:text-[#D9BE93]">미용 인사이트</Link></li>
+              <li><Link to="/reviews" className="hover:text-[#D9BE93]">고객 후기</Link></li>
             </ul>
           </div>
           <div>
@@ -144,7 +144,7 @@ function Footer() {
 }
 export default function Layout({ currentPageName }) {
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden bg-[#FBF7F0]">
+    <div className="min-h-screen flex flex-col overflow-x-hidden bg-[#F2F1EE]">
       <Navbar />
       <main className="flex-1">
         <Outlet />

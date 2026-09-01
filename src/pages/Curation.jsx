@@ -68,12 +68,12 @@ export default function Curation() {
     setResult(null);
   };
   return (
-    <div className="w-full bg-[#FBF7F0]">
-      <section className="w-full bg-[#2A211C] text-white overflow-hidden relative">
-        <div className="absolute -top-20 right-0 w-96 h-96 rounded-full bg-[#D84E0B]/25 blur-3xl" />
+    <div className="w-full bg-[#F2F1EE]">
+      <section className="w-full bg-[#1E1B18] text-white overflow-hidden relative">
+        <div className="absolute -top-20 right-0 w-96 h-96 rounded-full bg-[#A97C3F]/25 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20">
           <Reveal className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#f0a97e] text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#D9BE93] text-sm font-semibold">
               <Sparkles className="w-4 h-4" /> 추천 구성 · 진단 퀴즈
             </span>
             <h1 className="font-serif-kr text-3xl md:text-5xl font-bold mt-6 leading-tight">
@@ -90,20 +90,20 @@ export default function Curation() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {step === -1 && (
             <Reveal>
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-8 md:p-12 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-[#D84E0B]/10 flex items-center justify-center mx-auto mb-6">
-                  <Sparkles className="w-8 h-8 text-[#D84E0B]" />
+              <div className="rounded-3xl bg-white border border-[#DAD6CC] p-8 md:p-12 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-[#A97C3F]/10 flex items-center justify-center mx-auto mb-6">
+                  <Sparkles className="w-8 h-8 text-[#A97C3F]" />
                 </div>
-                <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#2A211C]">진단을 시작해 볼까요?</h2>
-                <p className="mt-4 text-[#5a4d42] leading-relaxed">4개의 간단한 질문에 답하면 상황에 맞는 구성을 추천해 드립니다.</p>
+                <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#1E1B18]">진단을 시작해 볼까요?</h2>
+                <p className="mt-4 text-[#4F4A40] leading-relaxed">4개의 간단한 질문에 답하면 상황에 맞는 구성을 추천해 드립니다.</p>
                 <button
                   onClick={() => setStep(0)}
-                  className="mt-8 px-8 py-3.5 rounded-xl bg-[#D84E0B] text-white font-semibold hover:bg-[#b8420a] active:scale-95 transition-all inline-flex items-center gap-2"
+                  className="mt-8 px-8 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all inline-flex items-center gap-2"
                 >
                   진단 시작 <ArrowRight className="w-4 h-4" />
                 </button>
                 <div className="mt-6">
-                  <Link to="/tray-builder" className="text-sm text-[#a98c5b] hover:text-[#D84E0B]">
+                  <Link to="/tray-builder" className="text-sm text-[#948A76] hover:text-[#A97C3F]">
                     이미 구성이 정해졌다면? 커스텀 트레이로 바로 이동
                   </Link>
                 </div>
@@ -111,28 +111,28 @@ export default function Curation() {
             </Reveal>
           )}
           {step >= 0 && step < QUESTIONS.length && (
-            <div className="rounded-3xl bg-white border border-[#eadfce] p-8 md:p-10">
+            <div className="rounded-3xl bg-white border border-[#DAD6CC] p-8 md:p-10">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-sm font-semibold text-[#D84E0B]">Q{step + 1} / {QUESTIONS.length}</span>
+                <span className="text-sm font-semibold text-[#A97C3F]">Q{step + 1} / {QUESTIONS.length}</span>
                 {step > 0 && (
-                  <button onClick={() => setStep(step - 1)} className="text-sm text-[#a98c5b] hover:text-[#D84E0B] flex items-center gap-1">
+                  <button onClick={() => setStep(step - 1)} className="text-sm text-[#948A76] hover:text-[#A97C3F] flex items-center gap-1">
                     <ArrowLeft className="w-4 h-4" /> 이전
                   </button>
                 )}
               </div>
-              <div className="w-full h-1.5 bg-[#F1E8D8] rounded-full mb-8 overflow-hidden">
-                <div className="h-full bg-[#D84E0B] rounded-full transition-all duration-500" style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }} />
+              <div className="w-full h-1.5 bg-[#E4E1DA] rounded-full mb-8 overflow-hidden">
+                <div className="h-full bg-[#A97C3F] rounded-full transition-all duration-500" style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }} />
               </div>
-              <h2 className="font-serif-kr text-2xl font-bold text-[#2A211C] mb-6">{QUESTIONS[step].q}</h2>
+              <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18] mb-6">{QUESTIONS[step].q}</h2>
               <div className="space-y-3">
                 {QUESTIONS[step].options.map((opt, i) => (
                   <button
                     key={i}
                     onClick={() => answer(opt.type)}
-                    className="w-full text-left rounded-2xl border-2 border-[#eadfce] p-4 hover:border-[#D84E0B] hover:bg-[#D84E0B]/5 transition-all font-medium text-[#2A211C] flex items-center justify-between group"
+                    className="w-full text-left rounded-2xl border-2 border-[#DAD6CC] p-4 hover:border-[#A97C3F] hover:bg-[#A97C3F]/5 transition-all font-medium text-[#1E1B18] flex items-center justify-between group"
                   >
                     {opt.label}
-                    <ArrowRight className="w-4 h-4 text-[#c9a86f] group-hover:text-[#D84E0B] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-[#B3A489] group-hover:text-[#A97C3F] group-hover:translate-x-1 transition-all" />
                   </button>
                 ))}
               </div>
@@ -141,8 +141,8 @@ export default function Curation() {
           {step === QUESTIONS.length && (
             <Reveal>
               {result ? (
-                <div className="rounded-3xl bg-white border border-[#eadfce] overflow-hidden">
-                  <div className="bg-gradient-to-br from-[#D84E0B] to-[#a63c08] text-white p-8">
+                <div className="rounded-3xl bg-white border border-[#DAD6CC] overflow-hidden">
+                  <div className="bg-gradient-to-br from-[#A97C3F] to-[#6E5228] text-white p-8">
                     <p className="text-white/70 font-semibold mb-2">추천 구성</p>
                     <h2 className="font-serif-kr text-3xl font-bold">{result.name}</h2>
                     <p className="mt-3 text-white/85 leading-relaxed">{result.summary}</p>
@@ -151,52 +151,52 @@ export default function Curation() {
                     </p>
                   </div>
                   <div className="p-8">
-                    <p className="text-[#4a3f36] leading-relaxed">{result.contextCopy}</p>
+                    <p className="text-[#433E36] leading-relaxed">{result.contextCopy}</p>
                     {Array.isArray(result.items) && (
                       <div className="mt-6">
-                        <p className="font-semibold text-[#2A211C] mb-3">구성 예시</p>
+                        <p className="font-semibold text-[#1E1B18] mb-3">구성 예시</p>
                         <div className="flex flex-wrap gap-2">
                           {result.items.map((it, i) => (
-                            <span key={i} className="px-3 py-1.5 rounded-full bg-[#F7F1E8] border border-[#e7dcc9] text-sm text-[#6b5d50]">{it}</span>
+                            <span key={i} className="px-3 py-1.5 rounded-full bg-[#EBE9E3] border border-[#DCD8CE] text-sm text-[#5C574C]">{it}</span>
                           ))}
                         </div>
                       </div>
                     )}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                      <div className="rounded-2xl bg-[#FBF7F0] p-5">
-                        <p className="font-semibold text-[#2A211C] mb-3 flex items-center gap-2"><ThumbsUp className="w-4 h-4 text-[#D84E0B]" /> 추천 상황</p>
+                      <div className="rounded-2xl bg-[#F2F1EE] p-5">
+                        <p className="font-semibold text-[#1E1B18] mb-3 flex items-center gap-2"><ThumbsUp className="w-4 h-4 text-[#A97C3F]" /> 추천 상황</p>
                         <ul className="space-y-2">
                           {(result.recommendSituations || []).map((s, i) => (
-                            <li key={i} className="text-sm text-[#4a3f36] flex items-start gap-2"><Check className="w-4 h-4 text-[#D84E0B] mt-0.5 flex-shrink-0" /> {s}</li>
+                            <li key={i} className="text-sm text-[#433E36] flex items-start gap-2"><Check className="w-4 h-4 text-[#A97C3F] mt-0.5 flex-shrink-0" /> {s}</li>
                           ))}
                         </ul>
                       </div>
-                      <div className="rounded-2xl bg-[#F7F1E8]/70 border border-[#e7dcc9] p-5">
-                        <p className="font-semibold text-[#2A211C] mb-3 flex items-center gap-2"><Ban className="w-4 h-4 text-[#8B5E3C]" /> 예외 상황</p>
+                      <div className="rounded-2xl bg-[#EBE9E3]/70 border border-[#DCD8CE] p-5">
+                        <p className="font-semibold text-[#1E1B18] mb-3 flex items-center gap-2"><Ban className="w-4 h-4 text-[#6E6155]" /> 예외 상황</p>
                         <ul className="space-y-2">
                           {(result.exceptSituations || []).map((s, i) => (
-                            <li key={i} className="text-sm text-[#4a3f36] flex items-start gap-2"><Ban className="w-4 h-4 text-[#8B5E3C] mt-0.5 flex-shrink-0" /> {s}</li>
+                            <li key={i} className="text-sm text-[#433E36] flex items-start gap-2"><Ban className="w-4 h-4 text-[#6E6155] mt-0.5 flex-shrink-0" /> {s}</li>
                           ))}
                         </ul>
                       </div>
                     </div>
                     <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                      <Link to="/tray-builder" className="flex-1 px-6 py-3.5 rounded-xl bg-[#D84E0B] text-white text-center font-semibold hover:bg-[#b8420a] active:scale-95 transition-all">
+                      <Link to="/tray-builder" className="flex-1 px-6 py-3.5 rounded-xl bg-[#A97C3F] text-white text-center font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all">
                         세부 커스터마이징
                       </Link>
-                      <Link to="/support" className="flex-1 px-6 py-3.5 rounded-xl bg-white text-[#2A211C] text-center font-semibold border border-[#e0d3bd] hover:bg-[#FBF7F0] transition-all">
+                      <Link to="/support" className="flex-1 px-6 py-3.5 rounded-xl bg-white text-[#1E1B18] text-center font-semibold border border-[#D6D1C4] hover:bg-[#F2F1EE] transition-all">
                         이 구성 문의
                       </Link>
-                      <button onClick={restart} className="px-4 py-3.5 rounded-xl bg-[#F7F1E8] text-[#6b5d50] hover:bg-[#efe4d2] transition-colors flex items-center justify-center gap-1.5">
+                      <button onClick={restart} className="px-4 py-3.5 rounded-xl bg-[#EBE9E3] text-[#5C574C] hover:bg-[#E6E3DC] transition-colors flex items-center justify-center gap-1.5">
                         <RotateCcw className="w-4 h-4" /> 다시
                       </button>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="rounded-3xl bg-white border border-[#eadfce] p-10 text-center">
-                  <h2 className="font-serif-kr text-2xl font-bold text-[#2A211C]">추천 구성을 불러오는 중입니다</h2>
-                  <button onClick={restart} className="mt-6 px-6 py-3 rounded-xl bg-[#D84E0B] text-white font-semibold">다시 진단하기</button>
+                <div className="rounded-3xl bg-white border border-[#DAD6CC] p-10 text-center">
+                  <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">추천 구성을 불러오는 중입니다</h2>
+                  <button onClick={restart} className="mt-6 px-6 py-3 rounded-xl bg-[#A97C3F] text-white font-semibold">다시 진단하기</button>
                 </div>
               )}
             </Reveal>
@@ -204,17 +204,17 @@ export default function Curation() {
           {/* all sets */}
           {sets.length > 0 && (
             <div className="mt-14">
-              <h3 className="font-serif-kr text-2xl font-bold text-[#2A211C] mb-6 text-center">전체 추천 세트</h3>
+              <h3 className="font-serif-kr text-2xl font-bold text-[#1E1B18] mb-6 text-center">전체 추천 세트</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {sets.map((s, i) => (
                   <Reveal key={s.id} delay={i * 0.08}>
-                    <div className="h-full rounded-3xl bg-white border border-[#eadfce] p-6">
-                      <span className="text-xs font-semibold text-[#D84E0B]">
+                    <div className="h-full rounded-3xl bg-white border border-[#DAD6CC] p-6">
+                      <span className="text-xs font-semibold text-[#A97C3F]">
                         {s.targetType === 'solo' ? '1인 미용실용' : s.targetType === 'mobile' ? '출장미용용' : '홈케어용'}
                       </span>
-                      <h4 className="font-serif-kr text-lg font-bold text-[#2A211C] mt-2 mb-2">{s.name}</h4>
-                      <p className="text-sm text-[#6b5d50] leading-relaxed line-clamp-3">{s.summary}</p>
-                      <p className="mt-3 font-bold text-[#D84E0B]">{Number(s.price || 0).toLocaleString('ko-KR')}원</p>
+                      <h4 className="font-serif-kr text-lg font-bold text-[#1E1B18] mt-2 mb-2">{s.name}</h4>
+                      <p className="text-sm text-[#5C574C] leading-relaxed line-clamp-3">{s.summary}</p>
+                      <p className="mt-3 font-bold text-[#A97C3F]">{Number(s.price || 0).toLocaleString('ko-KR')}원</p>
                     </div>
                   </Reveal>
                 ))}

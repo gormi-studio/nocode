@@ -45,12 +45,12 @@ export default function Support() {
     }
   };
   return (
-    <div className="w-full bg-[#FBF7F0]">
-      <section className="w-full bg-[#2A211C] text-white overflow-hidden relative">
-        <div className="absolute -top-20 -left-16 w-96 h-96 rounded-full bg-[#D84E0B]/25 blur-3xl" />
+    <div className="w-full bg-[#F2F1EE]">
+      <section className="w-full bg-[#1E1B18] text-white overflow-hidden relative">
+        <div className="absolute -top-20 -left-16 w-96 h-96 rounded-full bg-[#A97C3F]/25 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20">
           <Reveal className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#f0a97e] text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#D9BE93] text-sm font-semibold">
               <Sparkles className="w-4 h-4" /> 고객센터
             </span>
             <h1 className="font-serif-kr text-3xl md:text-5xl font-bold mt-6">무엇이든 물어보세요</h1>
@@ -64,18 +64,18 @@ export default function Support() {
       <section className="w-full py-14 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-10">
-            <p className="text-[#D84E0B] font-semibold mb-3">배송 · 교환 · 반품</p>
-            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#2A211C]">주문 전에 확인하세요</h2>
+            <p className="text-[#A97C3F] font-semibold mb-3">배송 · 교환 · 반품</p>
+            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#1E1B18]">주문 전에 확인하세요</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {SHIPPING.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl border border-[#eadfce] p-7">
-                  <div className="w-14 h-14 rounded-2xl bg-[#D84E0B]/10 flex items-center justify-center mb-4">
-                    <s.icon className="w-7 h-7 text-[#D84E0B]" />
+                <div className="h-full rounded-3xl border border-[#DAD6CC] p-7">
+                  <div className="w-14 h-14 rounded-2xl bg-[#A97C3F]/10 flex items-center justify-center mb-4">
+                    <s.icon className="w-7 h-7 text-[#A97C3F]" />
                   </div>
-                  <h3 className="font-serif-kr text-lg font-bold text-[#2A211C] mb-2">{s.title}</h3>
-                  <p className="text-sm text-[#6b5d50] leading-relaxed">{s.desc}</p>
+                  <h3 className="font-serif-kr text-lg font-bold text-[#1E1B18] mb-2">{s.title}</h3>
+                  <p className="text-sm text-[#5C574C] leading-relaxed">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -83,28 +83,28 @@ export default function Support() {
         </div>
       </section>
       {/* FAQ */}
-      <section className="w-full py-14 md:py-20 bg-[#FBF7F0]">
+      <section className="w-full py-14 md:py-20 bg-[#F2F1EE]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8 text-center">
-            <p className="text-[#D84E0B] font-semibold mb-3">자주 묻는 질문</p>
-            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#2A211C]">FAQ</h2>
+            <p className="text-[#A97C3F] font-semibold mb-3">자주 묻는 질문</p>
+            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#1E1B18]">FAQ</h2>
           </Reveal>
           <div className="space-y-3">
             {faqs.map((f) => {
               const open = openId === f.id;
               return (
-                <div key={f.id} className="rounded-2xl bg-white border border-[#eadfce] overflow-hidden">
+                <div key={f.id} className="rounded-2xl bg-white border border-[#DAD6CC] overflow-hidden">
                   <button
                     onClick={() => setOpenId(open ? null : f.id)}
                     className="w-full flex items-center justify-between gap-4 p-5 text-left"
                   >
-                    <span className="font-semibold text-[#2A211C] flex items-center gap-2">
-                      <span className="text-[#D84E0B]">Q.</span> {f.question}
+                    <span className="font-semibold text-[#1E1B18] flex items-center gap-2">
+                      <span className="text-[#A97C3F]">Q.</span> {f.question}
                     </span>
-                    <ChevronDown className={`w-5 h-5 text-[#a98c5b] flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 text-[#948A76] flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
                   </button>
                   {open && (
-                    <div className="px-5 pb-5 text-[#4a3f36] leading-relaxed border-t border-[#f0e8da] pt-4">
+                    <div className="px-5 pb-5 text-[#433E36] leading-relaxed border-t border-[#E2DFD6] pt-4">
                       {f.answer}
                     </div>
                   )}
@@ -118,18 +118,18 @@ export default function Support() {
       <section className="w-full py-14 md:py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8">
-            <p className="text-[#D84E0B] font-semibold mb-3">1:1 · B2B 문의</p>
-            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#2A211C]">문의 남기기</h2>
-            <p className="mt-3 text-[#6b5d50]">대량 구매·창업 문의는 유형에서 B2B를 선택해 주세요.</p>
+            <p className="text-[#A97C3F] font-semibold mb-3">1:1 · B2B 문의</p>
+            <h2 className="font-serif-kr text-2xl md:text-3xl font-bold text-[#1E1B18]">문의 남기기</h2>
+            <p className="mt-3 text-[#5C574C]">대량 구매·창업 문의는 유형에서 B2B를 선택해 주세요.</p>
           </Reveal>
-          <div className="rounded-3xl bg-[#FBF7F0] border border-[#eadfce] p-6 md:p-8" role="form" aria-label="문의 폼">
+          <div className="rounded-3xl bg-[#F2F1EE] border border-[#DAD6CC] p-6 md:p-8" role="form" aria-label="문의 폼">
             <div className="flex gap-2 mb-5">
               {[{ id: 'general', label: '1:1 문의' }, { id: 'b2b', label: 'B2B / 창업' }].map((t) => (
                 <button
                   key={t.id}
                   onClick={() => setForm({ ...form, type: t.id })}
                   className={`flex-1 py-2.5 rounded-xl font-medium transition-colors ${
-                    form.type === t.id ? 'bg-[#D84E0B] text-white' : 'bg-white text-[#6b5d50] border border-[#e0d3bd]'
+                    form.type === t.id ? 'bg-[#A97C3F] text-white' : 'bg-white text-[#5C574C] border border-[#D6D1C4]'
                   }`}
                 >
                   {t.label}
@@ -138,41 +138,41 @@ export default function Support() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">이름 *</label>
+                <label className="block text-sm font-medium text-[#433E36] mb-1.5">이름 *</label>
                 <input
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="이름을 입력해 주세요"
-                  className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-white"
+                  className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-white"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">연락처</label>
+                <label className="block text-sm font-medium text-[#433E36] mb-1.5">연락처</label>
                 <input
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="010-0000-0000"
-                  className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-white"
+                  className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-white"
                 />
               </div>
             </div>
             <div className="mt-4">
-              <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">이메일</label>
+              <label className="block text-sm font-medium text-[#433E36] mb-1.5">이메일</label>
               <input
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="example@email.com"
-                className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-white"
+                className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-white"
               />
             </div>
             <div className="mt-4">
-              <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">문의 내용 *</label>
+              <label className="block text-sm font-medium text-[#433E36] mb-1.5">문의 내용 *</label>
               <textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 rows={5}
                 placeholder="궁금하신 내용을 자유롭게 남겨주세요"
-                className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-white resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-white resize-none"
               />
             </div>
             {notice && (
@@ -184,7 +184,7 @@ export default function Support() {
             <button
               onClick={handleSubmit}
               disabled={submitting}
-              className="w-full mt-5 py-3.5 rounded-xl bg-[#D84E0B] text-white font-semibold hover:bg-[#b8420a] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
+              className="w-full mt-5 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
               {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> 접수 중…</> : <><Send className="w-4 h-4" /> 문의 접수</>}
             </button>

@@ -36,30 +36,30 @@ export default function AIChatWidget() {
     <>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#D84E0B] text-white shadow-[0_12px_30px_-8px_rgba(216,78,11,0.6)] flex items-center justify-center hover:bg-[#b8420a] active:scale-95 transition-all"
+        className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#A97C3F] text-white shadow-[0_12px_30px_-8px_rgba(169,124,63,0.6)] flex items-center justify-center hover:bg-[#7D5D2E] active:scale-95 transition-all"
         aria-label="제품 추천 도우미 열기"
       >
         {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
       </button>
       {open && (
-        <div className="fixed bottom-24 right-5 z-40 w-[calc(100vw-2.5rem)] max-w-sm h-[520px] max-h-[70vh] rounded-3xl overflow-hidden bg-white shadow-2xl border border-[#e7dcc9] flex flex-col">
-          <div className="px-5 py-4 bg-[#2A211C] text-white flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#D84E0B]/20 flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-[#f0a97e]" />
+        <div className="fixed bottom-24 right-5 z-40 w-[calc(100vw-2.5rem)] max-w-sm h-[520px] max-h-[70vh] rounded-3xl overflow-hidden bg-white shadow-2xl border border-[#DCD8CE] flex flex-col">
+          <div className="px-5 py-4 bg-[#1E1B18] text-white flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-[#A97C3F]/20 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-[#D9BE93]" />
             </div>
             <div>
               <p className="font-serif-kr font-bold leading-tight">제품 추천 도우미</p>
               <p className="text-xs text-white/60">추천·예외 상황을 함께 안내해요</p>
             </div>
           </div>
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#FBF7F0]">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#F2F1EE]">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                     m.role === 'user'
-                      ? 'bg-[#D84E0B] text-white rounded-br-md'
-                      : 'bg-white text-[#2A211C] border border-[#e7dcc9] rounded-bl-md'
+                      ? 'bg-[#A97C3F] text-white rounded-br-md'
+                      : 'bg-white text-[#1E1B18] border border-[#DCD8CE] rounded-bl-md'
                   }`}
                 >
                   {m.content}
@@ -68,13 +68,13 @@ export default function AIChatWidget() {
             ))}
             {sending && (
               <div className="flex justify-start">
-                <div className="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-bl-md text-sm bg-white text-[#a98c5b] border border-[#e7dcc9]">
+                <div className="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-bl-md text-sm bg-white text-[#948A76] border border-[#DCD8CE]">
                   …
                 </div>
               </div>
             )}
           </div>
-          <div className="p-3 border-t border-[#e7dcc9] bg-white" role="form" aria-label="제품 추천 도우미 입력">
+          <div className="p-3 border-t border-[#DCD8CE] bg-white" role="form" aria-label="제품 추천 도우미 입력">
             <div className="flex items-end gap-2">
               <textarea
                 value={input}
@@ -89,12 +89,12 @@ export default function AIChatWidget() {
                 }}
                 rows={1}
                 placeholder="예: 출장 미용을 시작하는데 뭘 골라야 할까요?"
-                className="flex-1 resize-none max-h-24 px-3 py-2 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none text-sm bg-[#FBF7F0]"
+                className="flex-1 resize-none max-h-24 px-3 py-2 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none text-sm bg-[#F2F1EE]"
               />
               <button
                 onClick={send}
                 disabled={sending || !input.trim()}
-                className="w-10 h-10 flex-shrink-0 rounded-xl bg-[#D84E0B] text-white flex items-center justify-center hover:bg-[#b8420a] disabled:opacity-40 active:scale-95 transition-all"
+                className="w-10 h-10 flex-shrink-0 rounded-xl bg-[#A97C3F] text-white flex items-center justify-center hover:bg-[#7D5D2E] disabled:opacity-40 active:scale-95 transition-all"
                 aria-label="전송"
               >
                 <Send className="w-4 h-4" />

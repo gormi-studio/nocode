@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="고르미 커스텀 트레이 일러스트">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F7F1E8"/>
-      <stop offset="100%" stop-color="#F1E3CC"/>
+      <stop offset="0%" stop-color="#EBE9E3"/>
+      <stop offset="100%" stop-color="#E4E1DA"/>
     </linearGradient>
     <linearGradient id="tray" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8875A"/>
-      <stop offset="100%" stop-color="#D84E0B"/>
+      <stop offset="0%" stop-color="#C9A876"/>
+      <stop offset="100%" stop-color="#A97C3F"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <circle cx="640" cy="120" r="140" fill="#D84E0B" opacity="0.08"/>
-  <circle cx="120" cy="480" r="110" fill="#8B5E3C" opacity="0.08"/>
+  <circle cx="640" cy="120" r="140" fill="#A97C3F" opacity="0.08"/>
+  <circle cx="120" cy="480" r="110" fill="#6E6155" opacity="0.08"/>
   <g transform="translate(120,180)">
     <rect x="0" y="120" width="560" height="220" rx="32" fill="url(#tray)"/>
-    <rect x="20" y="140" width="520" height="180" rx="20" fill="#2A211C" opacity="0.12"/>
-    <rect x="40" y="160" width="150" height="140" rx="14" fill="#FBF7F0" opacity="0.9"/>
-    <rect x="205" y="160" width="150" height="140" rx="14" fill="#FBF7F0" opacity="0.7"/>
-    <rect x="370" y="160" width="150" height="140" rx="14" fill="#FBF7F0" opacity="0.55"/>
-    <circle cx="115" cy="230" r="34" fill="#D84E0B"/>
-    <rect x="260" y="205" width="40" height="90" rx="10" fill="#8B5E3C"/>
-    <rect x="410" y="200" width="70" height="12" rx="6" fill="#c9852b"/>
-    <rect x="410" y="222" width="70" height="12" rx="6" fill="#c9852b"/>
-    <rect x="410" y="244" width="70" height="12" rx="6" fill="#c9852b"/>
-    <rect x="-10" y="90" width="580" height="18" rx="9" fill="#2A211C"/>
+    <rect x="20" y="140" width="520" height="180" rx="20" fill="#1E1B18" opacity="0.12"/>
+    <rect x="40" y="160" width="150" height="140" rx="14" fill="#F2F1EE" opacity="0.9"/>
+    <rect x="205" y="160" width="150" height="140" rx="14" fill="#F2F1EE" opacity="0.7"/>
+    <rect x="370" y="160" width="150" height="140" rx="14" fill="#F2F1EE" opacity="0.55"/>
+    <circle cx="115" cy="230" r="34" fill="#A97C3F"/>
+    <rect x="260" y="205" width="40" height="90" rx="10" fill="#6E6155"/>
+    <rect x="410" y="200" width="70" height="12" rx="6" fill="#A67C3D"/>
+    <rect x="410" y="222" width="70" height="12" rx="6" fill="#A67C3D"/>
+    <rect x="410" y="244" width="70" height="12" rx="6" fill="#A67C3D"/>
+    <rect x="-10" y="90" width="580" height="18" rx="9" fill="#1E1B18"/>
   </g>
 </svg>

@@ -23,11 +23,11 @@ const MODULES = [
   { id: 'brush', name: '브러쉬 홀더', en: 'brush holder', price: 16000 },
   { id: 'clip', name: '핀·클립 트레이', en: 'clip tray', price: 12000 },
 ];
-const PRESET = { material: 'synthetic', color: 'orange', toolbox: true, modules: ['scissors', 'brush'] };
+const PRESET = { material: 'synthetic', color: 'camel', toolbox: true, modules: ['scissors', 'brush'] };
 const won = (n) => n.toLocaleString('ko-KR') + '원';
 export default function TrayBuilder() {
   const [material, setMaterial] = useState('synthetic');
-  const [color, setColor] = useState('orange');
+  const [color, setColor] = useState('camel');
   const [hasToolbox, setHasToolbox] = useState(false);
   const [modules, setModules] = useState([]);
   const selectedMaterial = MATERIALS.find((m) => m.id === material);
@@ -64,38 +64,38 @@ export default function TrayBuilder() {
   };
   return (
     <div className="w-full">
-      <section className="w-full bg-[#FBF7F0] overflow-hidden relative">
-        <div className="absolute -top-32 right-0 w-96 h-96 rounded-full bg-[#D84E0B]/12 blur-3xl" />
+      <section className="w-full bg-[#F2F1EE] overflow-hidden relative">
+        <div className="absolute -top-32 right-0 w-96 h-96 rounded-full bg-[#A97C3F]/12 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 md:pt-16">
           <Reveal className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D84E0B]/10 text-[#D84E0B] text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
               <Sparkles className="w-4 h-4" /> 커스텀 트레이 빌더
             </span>
-            <h1 className="font-serif-kr text-3xl md:text-5xl font-bold text-[#2A211C] mt-5 leading-tight">
+            <h1 className="font-serif-kr text-3xl md:text-5xl font-bold text-[#1E1B18] mt-5 leading-tight">
               소재부터 모듈까지<br />직접 조합해 보세요
             </h1>
-            <p className="mt-5 text-[#5a4d42] leading-relaxed">
+            <p className="mt-5 text-[#4F4A40] leading-relaxed">
               소재 → 색상 → 도구함 → 모듈 4단계로 구성하며 실시간 미리보기와 예상 가격을 확인합니다.
             </p>
           </Reveal>
         </div>
       </section>
-      <section className="w-full pb-20 bg-[#FBF7F0]">
+      <section className="w-full pb-20 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* preset banner */}
-          <div className="mb-8 rounded-3xl bg-[#2A211C] text-white p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mb-8 rounded-3xl bg-[#1E1B18] text-white p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3 text-center sm:text-left">
-              <div className="w-11 h-11 rounded-full bg-[#D84E0B]/20 flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-[#f0a97e]" />
+              <div className="w-11 h-11 rounded-full bg-[#A97C3F]/20 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-5 h-5 text-[#D9BE93]" />
               </div>
               <div>
                 <p className="font-serif-kr font-bold">많이 선택한 구성으로 시작하기</p>
-                <p className="text-sm text-white/60">합성가죽 · 선셋 오렌지 · 도구함 + 가위/브러쉬 정리</p>
+                <p className="text-sm text-white/60">합성가죽 · 카멜 · 도구함 + 가위/브러쉬 정리</p>
               </div>
             </div>
             <button
               onClick={applyPreset}
-              className="px-5 py-2.5 rounded-xl bg-white text-[#2A211C] font-semibold hover:bg-[#f0e9dd] active:scale-95 transition-all"
+              className="px-5 py-2.5 rounded-xl bg-white text-[#1E1B18] font-semibold hover:bg-[#E2DFD6] active:scale-95 transition-all"
             >
               이 구성 적용
             </button>
@@ -104,7 +104,7 @@ export default function TrayBuilder() {
             {/* STEPS */}
             <div className="space-y-6">
               {/* STEP 1 */}
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-6">
+              <div className="rounded-3xl bg-white border border-[#DAD6CC] p-6">
                 <StepTitle n="01" title="소재 선택" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                   {MATERIALS.map((m) => (
@@ -112,25 +112,25 @@ export default function TrayBuilder() {
                       key={m.id}
                       onClick={() => setMaterial(m.id)}
                       className={`text-left rounded-2xl border-2 p-4 transition-all ${
-                        material === m.id ? 'border-[#D84E0B] bg-[#D84E0B]/5' : 'border-[#eadfce] hover:border-[#D84E0B]/40'
+                        material === m.id ? 'border-[#A97C3F] bg-[#A97C3F]/5' : 'border-[#DAD6CC] hover:border-[#A97C3F]/40'
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-serif-kr font-bold text-[#2A211C]">{m.name}</span>
-                        {material === m.id && <Check className="w-5 h-5 text-[#D84E0B]" />}
+                        <span className="font-serif-kr font-bold text-[#1E1B18]">{m.name}</span>
+                        {material === m.id && <Check className="w-5 h-5 text-[#A97C3F]" />}
                       </div>
-                      <p className="text-xs text-[#6b5d50] mt-2 leading-relaxed">{m.desc}</p>
-                      <p className="text-sm font-semibold text-[#D84E0B] mt-2">{won(m.price)}</p>
+                      <p className="text-xs text-[#5C574C] mt-2 leading-relaxed">{m.desc}</p>
+                      <p className="text-sm font-semibold text-[#A97C3F] mt-2">{won(m.price)}</p>
                     </button>
                   ))}
                 </div>
-                <p className="mt-3 text-xs text-[#a98c5b] flex items-start gap-1.5">
+                <p className="mt-3 text-xs text-[#948A76] flex items-start gap-1.5">
                   <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
                   천연가죽은 습기·직사광선 관리가 필요합니다. 매일 물세척이 필요한 환경에는 합성가죽을 권장합니다.
                 </p>
               </div>
               {/* STEP 2 */}
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-6">
+              <div className="rounded-3xl bg-white border border-[#DAD6CC] p-6">
                 <StepTitle n="02" title="색상 선택" />
                 <div className="flex flex-wrap gap-3 mt-4">
                   {COLORS.map((c) => (
@@ -142,32 +142,32 @@ export default function TrayBuilder() {
                     >
                       <span
                         className={`w-12 h-12 rounded-full border-2 transition-all ${
-                          color === c.id ? 'border-[#2A211C] scale-110' : 'border-[#e0d3bd]'
+                          color === c.id ? 'border-[#1E1B18] scale-110' : 'border-[#D6D1C4]'
                         }`}
                         style={{ backgroundColor: c.hex }}
                       />
-                      <span className={`text-xs ${color === c.id ? 'text-[#2A211C] font-semibold' : 'text-[#a98c5b]'}`}>{c.name}</span>
+                      <span className={`text-xs ${color === c.id ? 'text-[#1E1B18] font-semibold' : 'text-[#948A76]'}`}>{c.name}</span>
                     </button>
                   ))}
                 </div>
               </div>
               {/* STEP 3 */}
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-6">
+              <div className="rounded-3xl bg-white border border-[#DAD6CC] p-6">
                 <StepTitle n="03" title="도구함 추가" />
                 <button
                   onClick={() => setHasToolbox((v) => !v)}
                   className={`w-full text-left rounded-2xl border-2 p-4 mt-4 transition-all flex items-center justify-between ${
-                    hasToolbox ? 'border-[#D84E0B] bg-[#D84E0B]/5' : 'border-[#eadfce] hover:border-[#D84E0B]/40'
+                    hasToolbox ? 'border-[#A97C3F] bg-[#A97C3F]/5' : 'border-[#DAD6CC] hover:border-[#A97C3F]/40'
                   }`}
                 >
                   <div>
-                    <span className="font-serif-kr font-bold text-[#2A211C]">도구함 포함</span>
-                    <p className="text-xs text-[#6b5d50] mt-1">자주 쓰는 도구를 한 곳에 모아두는 별도 함</p>
-                    <p className="text-sm font-semibold text-[#D84E0B] mt-1">+ {won(TOOLBOX.price)}</p>
+                    <span className="font-serif-kr font-bold text-[#1E1B18]">도구함 포함</span>
+                    <p className="text-xs text-[#5C574C] mt-1">자주 쓰는 도구를 한 곳에 모아두는 별도 함</p>
+                    <p className="text-sm font-semibold text-[#A97C3F] mt-1">+ {won(TOOLBOX.price)}</p>
                   </div>
                   <span
                     className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-colors ${
-                      hasToolbox ? 'bg-[#D84E0B] justify-end' : 'bg-[#e0d3bd] justify-start'
+                      hasToolbox ? 'bg-[#A97C3F] justify-end' : 'bg-[#D6D1C4] justify-start'
                     }`}
                   >
                     <span className="w-5 h-5 rounded-full bg-white" />
@@ -175,7 +175,7 @@ export default function TrayBuilder() {
                 </button>
               </div>
               {/* STEP 4 */}
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-6">
+              <div className="rounded-3xl bg-white border border-[#DAD6CC] p-6">
                 <StepTitle n="04" title="모듈 조합" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                   {MODULES.map((mod) => {
@@ -185,14 +185,14 @@ export default function TrayBuilder() {
                         key={mod.id}
                         onClick={() => toggleModule(mod.id)}
                         className={`text-left rounded-2xl border-2 p-4 transition-all ${
-                          on ? 'border-[#D84E0B] bg-[#D84E0B]/5' : 'border-[#eadfce] hover:border-[#D84E0B]/40'
+                          on ? 'border-[#A97C3F] bg-[#A97C3F]/5' : 'border-[#DAD6CC] hover:border-[#A97C3F]/40'
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <span className="font-semibold text-[#2A211C]">{mod.name}</span>
-                          {on && <Check className="w-4 h-4 text-[#D84E0B]" />}
+                          <span className="font-semibold text-[#1E1B18]">{mod.name}</span>
+                          {on && <Check className="w-4 h-4 text-[#A97C3F]" />}
                         </div>
-                        <p className="text-sm font-semibold text-[#D84E0B] mt-2">+ {won(mod.price)}</p>
+                        <p className="text-sm font-semibold text-[#A97C3F] mt-2">+ {won(mod.price)}</p>
                       </button>
                     );
                   })}
@@ -201,10 +201,10 @@ export default function TrayBuilder() {
             </div>
             {/* PREVIEW / SUMMARY */}
             <div className="lg:sticky lg:top-24 h-fit space-y-6">
-              <div className="rounded-3xl bg-[#F7F1E8]/70 border border-[#e7dcc9] p-6 shadow-[0_20px_60px_-30px_rgba(216,78,11,0.3)]">
-                <p className="font-serif-kr font-bold text-[#2A211C] mb-4">실시간 미리보기</p>
+              <div className="rounded-3xl bg-[#EBE9E3]/70 border border-[#DCD8CE] p-6 shadow-[0_20px_60px_-30px_rgba(169,124,63,0.3)]">
+                <p className="font-serif-kr font-bold text-[#1E1B18] mb-4">실시간 미리보기</p>
                 {/* CSS preview */}
-                <div className="rounded-2xl bg-gradient-to-b from-[#F7F1E8] to-[#efe4d2] p-6 flex items-center justify-center">
+                <div className="rounded-2xl bg-gradient-to-b from-[#EBE9E3] to-[#E6E3DC] p-6 flex items-center justify-center">
                   <div
                     className="w-full max-w-xs aspect-[3/2] rounded-2xl relative shadow-[inset_0_2px_8px_rgba(0,0,0,0.15),0_10px_25px_-10px_rgba(0,0,0,0.3)] transition-colors duration-500"
                     style={{ backgroundColor: selectedColor.hex }}
@@ -225,13 +225,13 @@ export default function TrayBuilder() {
                       ))}
                     </div>
                     {hasToolbox && (
-                      <span className="absolute -right-2 -bottom-2 w-10 h-10 rounded-lg bg-[#4a3f36] shadow-lg" />
+                      <span className="absolute -right-2 -bottom-2 w-10 h-10 rounded-lg bg-[#433E36] shadow-lg" />
                     )}
                   </div>
                 </div>
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#a98c5b]">
+                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#948A76]">
                   <span
-                    className="w-3 h-3 rounded-full border border-[#e0d3bd]"
+                    className="w-3 h-3 rounded-full border border-[#D6D1C4]"
                     style={{ backgroundColor: selectedColor.hex }}
                   />
                   {selectedMaterial.name} · {selectedColor.name}
@@ -240,9 +240,9 @@ export default function TrayBuilder() {
                 </div>
               </div>
               {/* Summary */}
-              <div className="rounded-3xl bg-[#2A211C] text-white p-6">
+              <div className="rounded-3xl bg-[#1E1B18] text-white p-6">
                 <p className="text-white/60 text-sm mb-1">예상 구성 가격</p>
-                <p className="font-serif-kr text-3xl font-bold text-[#f0a97e]">{won(total)}</p>
+                <p className="font-serif-kr text-3xl font-bold text-[#D9BE93]">{won(total)}</p>
                 <div className="mt-4 space-y-1.5 text-sm text-white/70 border-t border-white/10 pt-4">
                   <div className="flex justify-between"><span>{selectedMaterial.name}</span><span>{won(selectedMaterial.price)}</span></div>
                   {hasToolbox && <div className="flex justify-between"><span>도구함</span><span>{won(TOOLBOX.price)}</span></div>}
@@ -254,7 +254,7 @@ export default function TrayBuilder() {
                 <div className="mt-5 flex gap-2">
                   <Link
                     to="/support"
-                    className="flex-1 px-5 py-3 rounded-xl bg-[#D84E0B] text-white text-center font-semibold hover:bg-[#b8420a] active:scale-95 transition-all flex items-center justify-center gap-1.5"
+                    className="flex-1 px-5 py-3 rounded-xl bg-[#A97C3F] text-white text-center font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all flex items-center justify-center gap-1.5"
                   >
                     구성 문의하기 <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -280,8 +280,8 @@ export default function TrayBuilder() {
 function StepTitle({ n, title }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="font-serif-kr text-2xl font-bold text-[#D84E0B]">{n}</span>
-      <h3 className="font-serif-kr text-xl font-bold text-[#2A211C]">{title}</h3>
+      <span className="font-serif-kr text-2xl font-bold text-[#A97C3F]">{n}</span>
+      <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18]">{title}</h3>
     </div>
   );
 }

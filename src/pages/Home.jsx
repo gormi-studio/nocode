@@ -47,24 +47,24 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* HERO — gradient-float */}
-      <section className="relative w-full overflow-hidden bg-[#FBF7F0]">
-        <div className="absolute -top-40 -right-24 w-[34rem] h-[34rem] rounded-full bg-[#D84E0B]/15 blur-3xl" />
-        <div className="absolute top-40 -left-28 w-96 h-96 rounded-full bg-amber-300/25 blur-3xl" />
+      <section className="relative w-full overflow-hidden bg-[#F2F1EE]">
+        <div className="absolute -top-40 -right-24 w-[34rem] h-[34rem] rounded-full bg-[#A97C3F]/15 blur-3xl" />
+        <div className="absolute top-40 -left-28 w-96 h-96 rounded-full bg-[#1E1B18]/10 blur-3xl" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-16 pb-20">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 text-center md:text-left">
               <Reveal>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D84E0B]/10 text-[#D84E0B] text-sm font-semibold">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
                   <Sparkles className="w-4 h-4" /> 맞춤 헤어미용도구 브랜드
                 </span>
               </Reveal>
               <Reveal delay={0.1}>
-                <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold text-[#2A211C] mt-6 leading-tight">
+                <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E1B18] mt-6 leading-tight">
                   보고 · 비교하고<br />조합하는 도구
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-6 text-lg text-[#5a4d42] leading-relaxed max-w-xl mx-auto md:mx-0">
+                <p className="mt-6 text-lg text-[#4F4A40] leading-relaxed max-w-xl mx-auto md:mx-0">
                   전문가용 미용재료를 일반 소비자도 쉽게 이해하도록.
                   소재·색상·도구함·모듈을 직접 조합해 나에게 꼭 맞는 구성을 만들어 보세요.
                 </p>
@@ -73,13 +73,13 @@ export default function Home() {
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
                   <Link
                     to="/tray-builder"
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#D84E0B] text-white font-semibold hover:bg-[#b8420a] active:scale-95 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all flex items-center justify-center gap-2"
                   >
                     커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
                     to="/curation"
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-transparent text-[#D84E0B] font-semibold border-2 border-[#D84E0B] hover:bg-[#D84E0B] hover:text-white transition-all text-center"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-transparent text-[#A97C3F] font-semibold border-2 border-[#A97C3F] hover:bg-[#A97C3F] hover:text-white transition-all text-center"
                   >
                     추천 구성 진단
                   </Link>
@@ -89,14 +89,14 @@ export default function Home() {
             <div className="w-full md:w-1/2">
               <Reveal delay={0.2} y={30}>
                 <div className="relative">
-                  <div className="rounded-[2rem] overflow-hidden bg-[#F7F1E8]/70 backdrop-blur-sm border border-[#e7dcc9] shadow-[0_30px_80px_-30px_rgba(216,78,11,0.4)]">
+                  <div className="rounded-[2rem] overflow-hidden bg-[#EBE9E3]/70 backdrop-blur-sm border border-[#DCD8CE] shadow-[0_30px_80px_-30px_rgba(169,124,63,0.4)]">
                     <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
                   </div>
-                  <div className="absolute -bottom-5 -left-3 md:-left-6 bg-white rounded-2xl shadow-xl border border-[#e7dcc9] px-5 py-4">
-                    <p className="text-xs text-[#a98c5b] mb-1">실시간 예상 구성</p>
-                    <p className="font-serif-kr font-bold text-[#2A211C]">4단계 커스터마이징</p>
+                  <div className="absolute -bottom-5 -left-3 md:-left-6 bg-white rounded-2xl shadow-xl border border-[#DCD8CE] px-5 py-4">
+                    <p className="text-xs text-[#948A76] mb-1">실시간 예상 구성</p>
+                    <p className="font-serif-kr font-bold text-[#1E1B18]">4단계 커스터마이징</p>
                   </div>
-                  <div className="absolute -top-4 -right-2 md:-right-5 bg-[#2A211C] text-white rounded-2xl shadow-xl px-4 py-3">
+                  <div className="absolute -top-4 -right-2 md:-right-5 bg-[#1E1B18] text-white rounded-2xl shadow-xl px-4 py-3">
                     <p className="text-xs text-white/60">전문가 · 일반</p>
                     <p className="text-sm font-semibold">구분 안내</p>
                   </div>
@@ -110,23 +110,23 @@ export default function Home() {
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[#D84E0B] font-semibold mb-3">핵심 차별점</p>
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#2A211C]">
+            <p className="text-[#A97C3F] font-semibold mb-3">핵심 차별점</p>
+            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">
               직접 조합할 수 있는 커스터마이징 시스템
             </h2>
-            <p className="mt-4 text-[#5a4d42] leading-relaxed">
+            <p className="mt-4 text-[#4F4A40] leading-relaxed">
               트레이 색상·소재부터 도구함, 정리대 모듈까지 조합해 작업 흐름에 맞춘 구성을 만듭니다.
             </p>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {DIFF.map((d, i) => (
               <Reveal key={d.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl border border-[#eadfce] p-8 hover:border-[#D84E0B]/40 transition-colors">
-                  <div className="w-14 h-14 rounded-2xl bg-[#D84E0B]/10 flex items-center justify-center mb-5">
-                    <d.icon className="w-7 h-7 text-[#D84E0B]" />
+                <div className="h-full rounded-3xl border border-[#DAD6CC] p-8 hover:border-[#A97C3F]/40 transition-colors">
+                  <div className="w-14 h-14 rounded-2xl bg-[#A97C3F]/10 flex items-center justify-center mb-5">
+                    <d.icon className="w-7 h-7 text-[#A97C3F]" />
                   </div>
-                  <h3 className="font-serif-kr text-xl font-bold text-[#2A211C] mb-2">{d.title}</h3>
-                  <p className="text-[#6b5d50] leading-relaxed">{d.desc}</p>
+                  <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18] mb-2">{d.title}</h3>
+                  <p className="text-[#5C574C] leading-relaxed">{d.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -134,11 +134,11 @@ export default function Home() {
         </div>
       </section>
       {/* PURCHASE PROCESS — numbered steps (DOMINANT dark band) */}
-      <section className="w-full py-16 md:py-24 bg-[#2A211C] text-white overflow-hidden relative">
-        <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[#D84E0B]/20 blur-3xl" />
+      <section className="w-full py-16 md:py-24 bg-[#1E1B18] text-white overflow-hidden relative">
+        <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[#A97C3F]/20 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[#f0a97e] font-semibold mb-3">구매 프로세스</p>
+            <p className="text-[#D9BE93] font-semibold mb-3">구매 프로세스</p>
             <h2 className="font-serif-kr text-3xl md:text-4xl font-bold">보고 → 비교 → 조합 → 구매</h2>
             <p className="mt-4 text-white/60 leading-relaxed">
               스펙 나열이 아니라 실제 사용 맥락을 기준으로 도구를 선택하는 흐름입니다.
@@ -149,7 +149,7 @@ export default function Home() {
               <Reveal key={s.n} delay={i * 0.1}>
                 <div className="h-full rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 p-7">
                   <div className="flex items-center justify-between mb-5">
-                    <span className="font-serif-kr text-4xl font-bold text-[#D84E0B]">{s.n}</span>
+                    <span className="font-serif-kr text-4xl font-bold text-[#A97C3F]">{s.n}</span>
                     <s.icon className="w-6 h-6 text-white/40" />
                   </div>
                   <h3 className="font-serif-kr text-xl font-bold mb-2">{s.title}</h3>
@@ -161,26 +161,26 @@ export default function Home() {
         </div>
       </section>
       {/* FEATURED PRODUCTS */}
-      <section className="w-full py-16 md:py-24 bg-[#FBF7F0]">
+      <section className="w-full py-16 md:py-24 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#D84E0B] font-semibold mb-3">대표 상품</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#2A211C]">현장에서 자주 선택되는 구성</h2>
+              <p className="text-[#A97C3F] font-semibold mb-3">대표 상품</p>
+              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">현장에서 자주 선택되는 구성</h2>
             </Reveal>
-            <Link to="/products" className="text-[#D84E0B] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <Link to="/products" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
               전체 보기 <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="rounded-3xl overflow-hidden bg-white border border-[#eadfce] animate-pulse">
-                  <div className="aspect-square bg-[#efe4d2]" />
+                <div key={i} className="rounded-3xl overflow-hidden bg-white border border-[#DAD6CC] animate-pulse">
+                  <div className="aspect-square bg-[#E6E3DC]" />
                   <div className="p-5 space-y-3">
-                    <div className="h-3 bg-[#efe4d2] rounded w-1/3" />
-                    <div className="h-4 bg-[#efe4d2] rounded w-2/3" />
-                    <div className="h-4 bg-[#efe4d2] rounded w-1/2" />
+                    <div className="h-3 bg-[#E6E3DC] rounded w-1/3" />
+                    <div className="h-4 bg-[#E6E3DC] rounded w-2/3" />
+                    <div className="h-4 bg-[#E6E3DC] rounded w-1/2" />
                   </div>
                 </div>
               ))}
@@ -199,7 +199,7 @@ export default function Home() {
       {/* CURATION PREVIEW */}
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2.5rem] bg-gradient-to-br from-[#D84E0B] to-[#a63c08] text-white p-8 md:p-14 overflow-hidden relative">
+          <div className="rounded-[2.5rem] bg-gradient-to-br from-[#A97C3F] to-[#6E5228] text-white p-8 md:p-14 overflow-hidden relative">
             <div className="absolute -bottom-16 -right-10 w-72 h-72 rounded-full bg-white/10 blur-2xl" />
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
@@ -213,7 +213,7 @@ export default function Home() {
                 </p>
                 <Link
                   to="/curation"
-                  className="inline-flex items-center gap-2 mt-7 px-6 py-3.5 rounded-xl bg-white text-[#D84E0B] font-semibold hover:bg-[#FBF7F0] active:scale-95 transition-all"
+                  className="inline-flex items-center gap-2 mt-7 px-6 py-3.5 rounded-xl bg-white text-[#A97C3F] font-semibold hover:bg-[#F2F1EE] active:scale-95 transition-all"
                 >
                   진단 시작하기 <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -231,39 +231,39 @@ export default function Home() {
         </div>
       </section>
       {/* REVIEWS */}
-      <section className="w-full py-16 md:py-24 bg-[#FBF7F0]">
+      <section className="w-full py-16 md:py-24 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#D84E0B] font-semibold mb-3">고객 후기</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#2A211C]">전문가와 일반 소비자의 이야기</h2>
+              <p className="text-[#A97C3F] font-semibold mb-3">고객 후기</p>
+              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">전문가와 일반 소비자의 이야기</h2>
             </Reveal>
-            <Link to="/reviews" className="text-[#D84E0B] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <Link to="/reviews" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
               전체 후기 <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
               <Reveal key={r.id} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-white border border-[#eadfce] p-7 shadow-[0_20px_60px_-30px_rgba(216,78,11,0.25)]">
-                  <Quote className="w-8 h-8 text-[#D84E0B]/30 mb-4" />
+                <div className="h-full rounded-3xl bg-white border border-[#DAD6CC] p-7 shadow-[0_20px_60px_-30px_rgba(169,124,63,0.25)]">
+                  <Quote className="w-8 h-8 text-[#A97C3F]/30 mb-4" />
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: 5 }).map((_, k) => (
-                      <Star key={k} className={`w-4 h-4 ${k < (r.rating || 5) ? 'text-[#D84E0B] fill-[#D84E0B]' : 'text-[#e0d3bd]'}`} />
+                      <Star key={k} className={`w-4 h-4 ${k < (r.rating || 5) ? 'text-[#A97C3F] fill-[#A97C3F]' : 'text-[#D6D1C4]'}`} />
                     ))}
                   </div>
-                  <p className="text-[#4a3f36] leading-relaxed mb-5 line-clamp-5">{r.content}</p>
+                  <p className="text-[#433E36] leading-relaxed mb-5 line-clamp-5">{r.content}</p>
                   <div className="flex items-center gap-3">
                     {r.avatar ? (
                       <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
                     ) : (
-                      <div className="w-10 h-10 rounded-full bg-[#D84E0B]/10 flex items-center justify-center text-[#D84E0B] font-bold">
+                      <div className="w-10 h-10 rounded-full bg-[#A97C3F]/10 flex items-center justify-center text-[#A97C3F] font-bold">
                         {r.authorName?.[0]}
                       </div>
                     )}
                     <div>
-                      <p className="font-semibold text-[#2A211C] text-sm">{r.authorName}</p>
-                      <p className="text-xs text-[#a98c5b]">
+                      <p className="font-semibold text-[#1E1B18] text-sm">{r.authorName}</p>
+                      <p className="text-xs text-[#948A76]">
                         {r.authorType === 'professional' ? '전문가' : '일반 소비자'} · {r.authorRole}
                       </p>
                     </div>
@@ -279,10 +279,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#D84E0B] font-semibold mb-3">미용 인사이트</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#2A211C]">도구를 고르는 관점</h2>
+              <p className="text-[#A97C3F] font-semibold mb-3">미용 인사이트</p>
+              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">도구를 고르는 관점</h2>
             </Reveal>
-            <Link to="/insights" className="text-[#D84E0B] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <Link to="/insights" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
               전체 보기 <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -290,20 +290,20 @@ export default function Home() {
             {insights.map((it, i) => (
               <Reveal key={it.id} delay={i * 0.1}>
                 <Link to={`/insights/${it.slug}`} className="group block h-full">
-                  <div className="h-full rounded-3xl overflow-hidden border border-[#eadfce] hover:-translate-y-1 hover:shadow-lg transition-all">
-                    <div className="aspect-[16/10] bg-[#F1E8D8] overflow-hidden">
+                  <div className="h-full rounded-3xl overflow-hidden border border-[#DAD6CC] hover:-translate-y-1 hover:shadow-lg transition-all">
+                    <div className="aspect-[16/10] bg-[#E4E1DA] overflow-hidden">
                       {it.image ? (
                         <FallbackImg src={it.image} fallback={it.imageFallback} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-[#c9a86f]">
+                        <div className="w-full h-full flex items-center justify-center text-[#B3A489]">
                           <BookMark />
                         </div>
                       )}
                     </div>
                     <div className="p-6">
-                      <span className="text-xs font-semibold text-[#D84E0B]">{it.category}</span>
-                      <h3 className="font-serif-kr text-lg font-bold text-[#2A211C] mt-2 mb-2 line-clamp-2">{it.title}</h3>
-                      <p className="text-sm text-[#6b5d50] leading-relaxed line-clamp-2">{it.excerpt}</p>
+                      <span className="text-xs font-semibold text-[#A97C3F]">{it.category}</span>
+                      <h3 className="font-serif-kr text-lg font-bold text-[#1E1B18] mt-2 mb-2 line-clamp-2">{it.title}</h3>
+                      <p className="text-sm text-[#5C574C] leading-relaxed line-clamp-2">{it.excerpt}</p>
                     </div>
                   </div>
                 </Link>
@@ -313,21 +313,21 @@ export default function Home() {
         </div>
       </section>
       {/* CTA */}
-      <section className="w-full py-16 md:py-24 bg-[#F7F1E8]">
+      <section className="w-full py-16 md:py-24 bg-[#EBE9E3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
-            <Sparkles className="w-10 h-10 text-[#D84E0B] mx-auto mb-5" />
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#2A211C]">
+            <Sparkles className="w-10 h-10 text-[#A97C3F] mx-auto mb-5" />
+            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">
               나에게 맞는 구성을 지금 만들어 보세요
             </h2>
-            <p className="mt-5 text-[#5a4d42] leading-relaxed">
+            <p className="mt-5 text-[#4F4A40] leading-relaxed">
               소재부터 모듈까지 직접 조합하고, 궁금한 점은 AI 어시스턴트와 고객센터가 함께 안내합니다.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link to="/tray-builder" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#D84E0B] text-white font-semibold hover:bg-[#b8420a] active:scale-95 transition-all">
+              <Link to="/tray-builder" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all">
                 트레이 만들기
               </Link>
-              <Link to="/support" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#2A211C] font-semibold border border-[#e0d3bd] hover:bg-[#FBF7F0] transition-all">
+              <Link to="/support" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#1E1B18] font-semibold border border-[#D6D1C4] hover:bg-[#F2F1EE] transition-all">
                 고객센터 · 문의
               </Link>
             </div>

@@ -44,43 +44,43 @@ export default function Login() {
   };
   if (checking) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-[#FBF7F0]">
-        <div className="w-8 h-8 border-4 border-[#e7dcc9] border-t-[#D84E0B] rounded-full animate-spin" />
+      <div className="fixed inset-0 flex items-center justify-center bg-[#F2F1EE]">
+        <div className="w-8 h-8 border-4 border-[#DCD8CE] border-t-[#A97C3F] rounded-full animate-spin" />
       </div>
     );
   }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FBF7F0] px-4 relative overflow-hidden">
-      <div className="absolute -top-32 -right-24 w-96 h-96 rounded-full bg-[#D84E0B]/12 blur-3xl" />
+    <div className="min-h-screen flex items-center justify-center bg-[#F2F1EE] px-4 relative overflow-hidden">
+      <div className="absolute -top-32 -right-24 w-96 h-96 rounded-full bg-[#A97C3F]/12 blur-3xl" />
       <div className="relative w-full max-w-md">
-        <div className="bg-white rounded-3xl shadow-[0_30px_80px_-30px_rgba(216,78,11,0.3)] border border-[#eadfce] p-8">
+        <div className="bg-white rounded-3xl shadow-[0_30px_80px_-30px_rgba(169,124,63,0.3)] border border-[#DAD6CC] p-8">
           <div className="flex flex-col items-center mb-8">
             <Logo className="mb-4" />
-            <div className="flex items-center gap-2 text-[#a98c5b] text-sm">
+            <div className="flex items-center gap-2 text-[#948A76] text-sm">
               <Lock className="w-4 h-4" /> 관리자 로그인
             </div>
           </div>
           <div role="form" aria-label="관리자 로그인">
             <div className="mb-4">
-              <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">이메일</label>
+              <label className="block text-sm font-medium text-[#433E36] mb-1.5">이메일</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.nativeEvent.isComposing) handleLogin(); }}
                 placeholder="이메일 주소를 입력해 주세요"
-                className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-[#FBF7F0]"
+                className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-[#F2F1EE]"
               />
             </div>
             <div className="mb-5">
-              <label className="block text-sm font-medium text-[#4a3f36] mb-1.5">비밀번호</label>
+              <label className="block text-sm font-medium text-[#433E36] mb-1.5">비밀번호</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.nativeEvent.isComposing) handleLogin(); }}
                 placeholder="비밀번호를 입력해 주세요"
-                className="w-full px-4 py-3 rounded-xl border border-[#e0d3bd] focus:border-[#D84E0B] focus:ring-2 focus:ring-[#D84E0B]/20 outline-none bg-[#FBF7F0]"
+                className="w-full px-4 py-3 rounded-xl border border-[#D6D1C4] focus:border-[#A97C3F] focus:ring-2 focus:ring-[#A97C3F]/20 outline-none bg-[#F2F1EE]"
               />
             </div>
             {error && (
@@ -91,7 +91,7 @@ export default function Login() {
             <button
               onClick={handleLogin}
               disabled={loading}
-              className="w-full py-3.5 rounded-xl bg-[#D84E0B] text-white font-semibold hover:bg-[#b8420a] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
               {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> 로그인 중…</> : '로그인'}
             </button>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="가위 제품 이미지">
-  <rect width="400" height="400" fill="#F1E8D8"/>
-  <circle cx="320" cy="80" r="90" fill="#D84E0B" opacity="0.10"/>
-  <g transform="translate(200,200) rotate(-20)" fill="none" stroke="#2A211C" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="-70" cy="60" r="22" fill="#FBF7F0"/>
-    <circle cx="70" cy="60" r="22" fill="#FBF7F0"/>
+  <rect width="400" height="400" fill="#E4E1DA"/>
+  <circle cx="320" cy="80" r="90" fill="#A97C3F" opacity="0.10"/>
+  <g transform="translate(200,200) rotate(-20)" fill="none" stroke="#1E1B18" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="-70" cy="60" r="22" fill="#F2F1EE"/>
+    <circle cx="70" cy="60" r="22" fill="#F2F1EE"/>
     <path d="M-55 45 L40 -80"/>
     <path d="M55 45 L-40 -80"/>
   </g>
-  <text x="200" y="360" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#a98c5b">고르미</text>
+  <text x="200" y="360" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#948A76">고르미</text>
 </svg>

@@ -6,14 +6,14 @@ export default function Logo({ variant = 'default', className = '' }) {
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <span
         className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${
-          inverted ? 'bg-white/10' : 'bg-[#D84E0B]/10'
+          inverted ? 'bg-white/10' : 'bg-[#A97C3F]/10'
         }`}
       >
-        <Scissors className={`w-4 h-4 ${inverted ? 'text-[#f0a97e]' : 'text-[#D84E0B]'}`} />
+        <Scissors className={`w-4 h-4 ${inverted ? 'text-[#D9BE93]' : 'text-[#A97C3F]'}`} />
       </span>
       <span
         className={`font-serif-kr font-bold text-xl leading-none tracking-tight ${
-          inverted ? 'text-white' : 'text-[#2A211C]'
+          inverted ? 'text-white' : 'text-[#1E1B18]'
         }`}
       >
         고르미
