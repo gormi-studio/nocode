@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Mail, Phone, MapPin } from 'lucide-react';
 import AIChatWidget from '@/components/AIChatWidget';
+import Logo from '@/components/Logo';
 const NAV = [
   { to: '/brand-story', label: '브랜드 스토리' },
   { to: '/tray-builder', label: '커스텀 트레이' },
@@ -10,7 +11,6 @@ const NAV = [
   { to: '/insights', label: '인사이트' },
   { to: '/support', label: '고객센터' },
 ];
-const LOGO = 'https://cdn.vibe-x.app/apps/2993f287600805ee57940d76/assets/original/logo-0-104477.png';
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +31,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
           <Link to="/" className="flex items-center">
-            <img src={LOGO} alt="고르미" className="h-9 md:h-10 w-auto object-contain" />
+            <Logo />
           </Link>
           <nav className="hidden lg:flex items-center gap-1">
             {NAV.map((item) => {
@@ -96,12 +96,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <img
-              src={LOGO}
-              alt="고르미"
-              className="h-9 w-auto object-contain mb-4"
-              style={{ filter: 'brightness(100) invert(30%)' }}
-            />
+            <Logo variant="inverted" className="mb-4" />
             <p className="text-sm text-white/60 leading-relaxed max-w-md">
               헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
               보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.

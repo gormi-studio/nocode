@@ -1,10 +1,11 @@
-import { vibex } from './vibexClient';
-export const User = vibex.entities.User;
-export const Category = vibex.entities.Category;
-export const Product = vibex.entities.Product;
-export const CurationSet = vibex.entities.CurationSet;
-export const Review = vibex.entities.Review;
-export const Insight = vibex.entities.Insight;
-export const Faq = vibex.entities.Faq;
-export const Inquiry = vibex.entities.Inquiry;
-export const Auth = vibex.auth;
+import { categories, products, reviews, insights, curationSets, faqs } from '@/data/fixtures';
+import { createReadOnlyEntity } from '@/lib/localData';
+import { Inquiry as InquiryStore } from '@/lib/inquiryStore';
+
+export const Category = createReadOnlyEntity(() => categories);
+export const Product = createReadOnlyEntity(() => products, { searchFields: ['name', 'tags'] });
+export const Review = createReadOnlyEntity(() => reviews);
+export const Insight = createReadOnlyEntity(() => insights);
+export const CurationSet = createReadOnlyEntity(() => curationSets);
+export const Faq = createReadOnlyEntity(() => faqs);
+export const Inquiry = InquiryStore;

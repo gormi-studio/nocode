@@ -3,8 +3,6 @@ import React, { Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClientInstance } from "@/lib/query-client";
-import VisualEditAgent from "@/lib/VisualEditAgent";
-import NavigationTracker from "@/lib/NavigationTracker";
 import { pagesConfig } from "./pages.config";
 import {
   createBrowserRouter,
@@ -16,15 +14,10 @@ import {
   useLocation,
 } from "react-router-dom";
 import PageNotFound from "./lib/PageNotFound";
-import { AuthProvider } from "./lib/AuthProvider";
-import { useAuth } from "./lib/useAuth";
-import UserNotRegisteredError from "@/components/UserNotRegisteredError";
-import IpAccessRestricted from "@/components/IpAccessRestricted";
 import Login from "./pages/admin/Login";
 import ErrorBoundary from "@/components/ui/error-boundary";
 import RouterErrorBoundary from "@/components/ui/router-error-boundary";
 import DefaultHome from "./pages/Home";
-import PoweredByBadge from "@/components/PoweredByBadge";
 
 const { Pages, Layout, mainPage, Admins, adminMainPage, AdminLayout } = pagesConfig;
 
@@ -35,11 +28,11 @@ const MainPage = Pages[mainPageKey] ?? DefaultHome;
 const adminMainPageKey = adminMainPage ?? Object.keys(Admins)[0];
 const AdminMainPage = adminMainPageKey ? Admins[adminMainPageKey] : () => <></>;
 
-const LayoutWrapper = ({ children, currentPageName }) =>
-  Layout ? <Layout currentPageName={currentPageName}>{children}</Layout> : <></>;
+const LayoutWrapper = ({ currentPageName }) =>
+  Layout ? <Layout currentPageName={currentPageName} /> : null;
 
-const AdminLayoutWrapper = ({ children, currentPageName }) =>
-  AdminLayout ? <AdminLayout currentPageName={currentPageName}>{children}</AdminLayout> : <></>;
+const AdminLayoutWrapper = ({ currentPageName }) =>
+  AdminLayout ? <AdminLayout currentPageName={currentPageName} /> : null;
 
 /**
  * PUSH/REPLACE -> scroll top
@@ -60,41 +53,17 @@ function ScrollBehavior() {
   return null;
 }
 
-const AuthenticatedApp = () => {
-  const { isLoadingAuth, isLoadingPublicSettings, authError, isAuthenticated, navigateToLogin, ipBlocked } =
-    useAuth();
+function PageFallback() {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+    </div>
+  );
+}
 
-  // HIGHEST PRIORITY — before loading, before authError, before any route.
-  // The app owner has restricted access by IP and this visitor is not on the
-  // list, so there is nothing else worth rendering: every request returns 403,
-  // a spinner here would never resolve, and the auth branch below would send
-  // them to a login page they cannot get past either. The flag is sticky in
-  // AuthProvider, so nothing that happens later can demote this screen.
-  if (ipBlocked || authError?.type === "ip_not_allowed") {
-    return <IpAccessRestricted />;
-  }
-
-  if (isLoadingPublicSettings || isLoadingAuth) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
-  if (authError) {
-    if (authError.type === "user_not_registered") {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === "auth_required" || !isAuthenticated) {
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("refresh_token");
-      navigateToLogin();
-      return null;
-    } else {
-      return <>Error</>;
-    }
-  }
-
+// The public site needs no login — only /admin is gated, and it checks its
+// own local session (see AdminLayout / lib/localAuth) independently of this.
+function AppRoutes() {
   return (
     <Suspense fallback={<PageFallback />}>
       <Routes>
@@ -122,14 +91,6 @@ const AuthenticatedApp = () => {
       </Routes>
     </Suspense>
   );
-};
-
-function PageFallback() {
-  return (
-    <div className="fixed inset-0 flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
-    </div>
-  );
 }
 
 function RootShell() {
@@ -140,8 +101,7 @@ function RootShell() {
       {/* Force top on PUSH/REPLACE */}
       <ScrollBehavior />
 
-      <NavigationTracker />
-      <AuthenticatedApp />
+      <AppRoutes />
     </>
   );
 }
@@ -157,14 +117,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ErrorBoundary>
-      <AuthProvider>
-        <QueryClientProvider client={queryClientInstance}>
-          <RouterProvider router={router} />
-          <Toaster />
-          <VisualEditAgent />
-          <PoweredByBadge />
-        </QueryClientProvider>
-      </AuthProvider>
+      <QueryClientProvider client={queryClientInstance}>
+        <RouterProvider router={router} />
+        <Toaster />
+      </QueryClientProvider>
     </ErrorBoundary>
   );
 }

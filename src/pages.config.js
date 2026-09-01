@@ -13,7 +13,6 @@ const Support = lazy(() => import('./pages/Support.jsx'));
 import AdminLayout from './pages/admin/AdminLayout.jsx';
 const Dashboard = lazy(() => import('./pages/admin/Dashboard.jsx'));
 const Inquiries = lazy(() => import('./pages/admin/Inquiries.jsx'));
-const AIFlowSettings = lazy(() => import('./pages/admin/AIFlowSettings.jsx'));
 export const PAGES = {
   Home,
   'brand-story': BrandStory,
@@ -29,7 +28,6 @@ export const PAGES = {
 export const ADMINS = {
   Dashboard,
   inquiries: Inquiries,
-  'ai-settings': AIFlowSettings,
 };
 export const PRIVATE_PAGES = {};
 export const pagesConfig = {

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="이동식 정리함 제품 이미지">
+  <rect width="400" height="400" fill="#F1E8D8"/>
+  <circle cx="330" cy="90" r="90" fill="#D84E0B" opacity="0.10"/>
+  <g transform="translate(110,110)">
+    <rect x="0" y="40" width="180" height="140" rx="18" fill="#8B5E3C"/>
+    <rect x="50" y="0" width="80" height="50" rx="14" fill="#2A211C"/>
+    <rect x="16" y="60" width="60" height="50" rx="8" fill="#FBF7F0" opacity="0.85"/>
+    <rect x="90" y="60" width="74" height="50" rx="8" fill="#FBF7F0" opacity="0.65"/>
+    <rect x="16" y="122" width="148" height="38" rx="8" fill="#FBF7F0" opacity="0.5"/>
+  </g>
+  <text x="200" y="370" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#a98c5b">고르미</text>
+</svg>

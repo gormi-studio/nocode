@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="고르미">
+  <rect width="64" height="64" rx="16" fill="#D84E0B"/>
+  <g transform="translate(32,34) rotate(-20)" fill="none" stroke="#FBF7F0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="-11" cy="10" r="7" fill="none"/>
+    <circle cx="11" cy="10" r="7" fill="none"/>
+    <path d="M-8 6 L13 -14"/>
+    <path d="M8 6 L-13 -14"/>
+  </g>
+</svg>

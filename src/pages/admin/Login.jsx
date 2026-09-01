@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Loader2, AlertCircle, Lock } from 'lucide-react';
-import { vibex } from '@/api/vibexClient';
-const LOGO = 'https://cdn.vibe-x.app/apps/2993f287600805ee57940d76/assets/original/logo-0-104477.png';
+import { localAuth } from '@/lib/localAuth';
+import Logo from '@/components/Logo';
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -15,15 +15,12 @@ export default function Login() {
     if (!token) { setChecking(false); return; }
     (async () => {
       try {
-        const res = await vibex.auth.me();
+        const res = await localAuth.me();
         const user = res?.data;
-        const isAdmin = user?.type === 'admin' || (user?.type == null && user?.role === 'admin');
-        if (isAdmin) { navigate('/admin', { replace: true }); return; }
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('user');
+        if (user?.type === 'admin') { navigate('/admin', { replace: true }); return; }
+        localAuth.logout();
       } catch {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('user');
+        localAuth.logout();
       } finally {
         setChecking(false);
       }
@@ -37,23 +34,10 @@ export default function Login() {
     setLoading(true);
     setError('');
     try {
-      const res = await vibex.auth.login({ email: email.trim(), password });
-      const { user } = res.data.data;
-      const meRes = await vibex.auth.me();
-      const meUser = meRes?.data;
-      const isAdmin = meUser?.type === 'admin' || (meUser?.type == null && meUser?.role === 'admin');
-      if (!isAdmin) {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('user');
-        setError('관리자 계정이 아닙니다.');
-        setLoading(false);
-        return;
-      }
-      localStorage.setItem('user', JSON.stringify(user));
-      if (user?.id) localStorage.setItem('user_id', String(user.id));
+      await localAuth.login({ email: email.trim(), password });
       navigate('/admin', { replace: true });
     } catch (err) {
-      setError(err?.data?.message || err?.message || '로그인에 실패했습니다.');
+      setError(err?.message || '로그인에 실패했습니다.');
     } finally {
       setLoading(false);
     }
@@ -71,7 +55,7 @@ export default function Login() {
       <div className="relative w-full max-w-md">
         <div className="bg-white rounded-3xl shadow-[0_30px_80px_-30px_rgba(216,78,11,0.3)] border border-[#eadfce] p-8">
           <div className="flex flex-col items-center mb-8">
-            <img src={LOGO} alt="고르미" className="h-9 w-auto object-contain mb-4" />
+            <Logo className="mb-4" />
             <div className="flex items-center gap-2 text-[#a98c5b] text-sm">
               <Lock className="w-4 h-4" /> 관리자 로그인
             </div>

@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, MessageCircle, Sparkles, LogOut, Menu, X } from 'lucide-react';
-import { vibex } from '@/api/vibexClient';
-const LOGO = 'https://cdn.vibe-x.app/apps/2993f287600805ee57940d76/assets/original/logo-0-104477.png';
+import { LayoutDashboard, MessageCircle, LogOut, Menu, X } from 'lucide-react';
+import { localAuth } from '@/lib/localAuth';
+import Logo from '@/components/Logo';
 const NAV = [
   { to: '/admin', label: '대시보드', icon: LayoutDashboard, exact: true },
   { to: '/admin/inquiries', label: '문의 관리', icon: MessageCircle },
-  { to: '/admin/ai-settings', label: 'AI 설정', icon: Sparkles },
 ];
 export default function AdminLayout({ currentPageName }) {
   const navigate = useNavigate();
@@ -23,20 +22,17 @@ export default function AdminLayout({ currentPageName }) {
     }
     (async () => {
       try {
-        const res = await vibex.auth.me();
+        const res = await localAuth.me();
         const user = res?.data;
-        const isAdminAccount = user?.type === 'admin' || (user?.type == null && user?.role === 'admin');
-        if (!isAdminAccount) {
-          localStorage.removeItem('access_token');
-          localStorage.removeItem('user');
+        if (user?.type !== 'admin') {
+          localAuth.logout();
           navigate('/admin/login', { replace: true });
           return;
         }
         setMe(user);
         setIsAuthenticated(true);
       } catch {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('user');
+        localAuth.logout();
         navigate('/admin/login', { replace: true });
       } finally {
         setLoading(false);
@@ -44,10 +40,7 @@ export default function AdminLayout({ currentPageName }) {
     })();
   }, [navigate]);
   const logout = () => {
-    try { vibex.auth.logout(); } catch (e) { console.error(e); }
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('user');
-    localStorage.removeItem('user_id');
+    localAuth.logout();
     navigate('/admin/login', { replace: true });
   };
   if (loading || !isAuthenticated) {
@@ -66,7 +59,7 @@ export default function AdminLayout({ currentPageName }) {
   const SidebarInner = (
     <>
       <div className="p-6 border-b border-[#eadfce]">
-        <img src={LOGO} alt="고르미" className="h-8 w-auto object-contain" />
+        <Logo />
       </div>
       <nav className="flex-1 p-4 space-y-1">
         {NAV.map((item) => (

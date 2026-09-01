@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Check, Sparkles, ImageIcon, Loader2, ArrowRight, Info, AlertCircle, RotateCcw,
+  Check, Sparkles, ArrowRight, Info, RotateCcw,
 } from 'lucide-react';
 import Reveal from '@/components/Reveal';
-import { aiflow1974 } from '@/lib/aiflow';
 const MATERIALS = [
   { id: 'natural', name: '천연가죽', en: 'natural leather', price: 89000, desc: '고급스러운 질감이 특징이나 습기·직사광선 관리가 필요합니다.', note: '관리 여건이 되고 질감을 중시하는 경우' },
   { id: 'synthetic', name: '합성가죽', en: 'synthetic leather', price: 49000, desc: '물세척이 간편해 매일 사용하는 작업대에도 부담 없는 소재입니다.', note: '습기 많은 환경, 매일 사용하는 경우' },
@@ -31,9 +30,6 @@ export default function TrayBuilder() {
   const [color, setColor] = useState('orange');
   const [hasToolbox, setHasToolbox] = useState(false);
   const [modules, setModules] = useState([]);
-  const [preview, setPreview] = useState('');
-  const [genLoading, setGenLoading] = useState(false);
-  const [genError, setGenError] = useState('');
   const selectedMaterial = MATERIALS.find((m) => m.id === material);
   const selectedColor = COLORS.find((c) => c.id === color);
   const total = useMemo(() => {
@@ -59,27 +55,6 @@ export default function TrayBuilder() {
     setColor('orange');
     setHasToolbox(false);
     setModules([]);
-    setPreview('');
-    setGenError('');
-  };
-  const generatePreview = async () => {
-    setGenLoading(true);
-    setGenError('');
-    try {
-      const mods = modules.map((mid) => MODULES.find((m) => m.id === mid)?.en).filter(Boolean);
-      const modLabel = mods.length ? mods.join(', ') : 'no extra modules';
-      const prompt = `A premium hair styling tool tray made of ${selectedMaterial.en} in ${selectedColor.en} color${hasToolbox ? ', with an attached tool box' : ''}, including organizer modules: ${modLabel}. Studio flat-lay on soft ivory background, warm sunset lighting, minimal artisan craft aesthetic.`;
-      const res = await aiflow1974.generateImage({ prompt, size: '1024x1024', n: 1 });
-      setPreview(res.images[0].url);
-    } catch (err) {
-      setGenError(
-        err?.status === 402
-          ? 'AI 크레딧이 소진되어 지금은 미리보기를 생성할 수 없습니다.'
-          : err?.message || '이미지 생성에 실패했습니다.'
-      );
-    } finally {
-      setGenLoading(false);
-    }
   };
   const moduleSwatch = {
     roll: '#c98a4e',
@@ -263,35 +238,6 @@ export default function TrayBuilder() {
                   {hasToolbox && ' · 도구함'}
                   {modules.length > 0 && ` · 모듈 ${modules.length}종`}
                 </div>
-              </div>
-              {/* AI preview */}
-              <div className="rounded-3xl bg-white border border-[#eadfce] p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <p className="font-serif-kr font-bold text-[#2A211C] flex items-center gap-2">
-                    <ImageIcon className="w-5 h-5 text-[#D84E0B]" /> AI 완성 이미지 미리보기
-                  </p>
-                </div>
-                {preview ? (
-                  <img src={preview} alt="AI 트레이 미리보기" className="w-full rounded-2xl border border-[#eadfce] mb-4" />
-                ) : (
-                  <div className="w-full aspect-square rounded-2xl bg-[#F7F1E8] border border-dashed border-[#e0d3bd] flex flex-col items-center justify-center text-[#a98c5b] mb-4">
-                    <ImageIcon className="w-8 h-8 mb-2" />
-                    <p className="text-sm">선택한 구성으로 이미지를 생성해 보세요</p>
-                  </div>
-                )}
-                {genError && (
-                  <p className="text-sm text-red-600 flex items-center gap-1.5 mb-3">
-                    <AlertCircle className="w-4 h-4" /> {genError}
-                  </p>
-                )}
-                <button
-                  onClick={generatePreview}
-                  disabled={genLoading}
-                  className="w-full px-5 py-3 rounded-xl bg-[#2A211C] text-white font-semibold hover:bg-[#3a2e26] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
-                >
-                  {genLoading ? <><Loader2 className="w-4 h-4 animate-spin" /> 생성 중…</> : <><Sparkles className="w-4 h-4" /> AI로 미리보기 생성</>}
-                </button>
-                <p className="mt-2 text-xs text-[#a98c5b] text-center">AI 이미지는 참고용 시안이며 실제 제품과 다를 수 있습니다.</p>
               </div>
               {/* Summary */}
               <div className="rounded-3xl bg-[#2A211C] text-white p-6">

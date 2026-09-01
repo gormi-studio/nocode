@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="인사이트 이미지 1">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D84E0B"/>
+      <stop offset="100%" stop-color="#8B3A0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g1)"/>
+  <circle cx="680" cy="80" r="160" fill="#fff" opacity="0.06"/>
+  <circle cx="80" cy="380" r="120" fill="#fff" opacity="0.06"/>
+  <g stroke="#FBF7F0" stroke-width="10" stroke-linecap="round" opacity="0.85" transform="translate(340,155) rotate(-15)">
+    <circle cx="-60" cy="70" r="26" fill="none"/>
+    <circle cx="60" cy="70" r="26" fill="none"/>
+    <path d="M-45 52 L35 -70" fill="none"/>
+    <path d="M45 52 L-35 -70" fill="none"/>
+  </g>
+</svg>

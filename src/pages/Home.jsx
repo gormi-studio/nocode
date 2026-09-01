@@ -7,7 +7,7 @@ import {
 import { Product, Review, Insight } from '@/api/entities';
 import Reveal from '@/components/Reveal';
 import ProductCard from '@/components/ProductCard';
-const HERO_IMG = 'https://cdn.vibe-x.app/apps/2993f287600805ee57940d76/assets/original/hero-1-104477.png';
+const HERO_IMG = '/images/hero.svg';
 const DIFF = [
   { icon: Palette, title: '소재·색상 선택', desc: '천연가죽·합성가죽과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
   { icon: Package, title: '도구함 추가', desc: '필요한 만큼 도구함을 더해 사용하는 도구 수에 맞게 확장합니다.' },

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="브러쉬 제품 이미지">
+  <rect width="400" height="400" fill="#F1E8D8"/>
+  <circle cx="330" cy="320" r="90" fill="#D84E0B" opacity="0.10"/>
+  <g transform="translate(160,70)">
+    <rect x="20" y="0" width="40" height="150" rx="18" fill="#D84E0B"/>
+    <ellipse cx="40" cy="220" rx="70" ry="80" fill="#2A211C"/>
+    <g stroke="#FBF7F0" stroke-width="6" stroke-linecap="round">
+      <line x1="-10" y1="180" x2="-10" y2="260"/>
+      <line x1="10" y1="170" x2="10" y2="270"/>
+      <line x1="30" y1="165" x2="30" y2="275"/>
+      <line x1="50" y1="170" x2="50" y2="270"/>
+      <line x1="70" y1="180" x2="70" y2="260"/>
+      <line x1="90" y1="190" x2="90" y2="250"/>
+    </g>
+  </g>
+  <text x="200" y="370" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#a98c5b">고르미</text>
+</svg>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Package, MessageCircle, Star, FileText, Sparkles, ArrowRight } from 'lucide-react';
+import { Package, MessageCircle, Star, FileText, ArrowRight } from 'lucide-react';
 import { Product, Inquiry, Review, Insight } from '@/api/entities';
 export default function Dashboard() {
   const [stats, setStats] = useState({ products: 0, inquiries: 0, reviews: 0, insights: 0 });
@@ -53,44 +53,32 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 rounded-2xl bg-white border border-[#eadfce] p-6">
-          <div className="flex items-center justify-between mb-5">
-            <h3 className="font-serif-kr font-bold text-[#2A211C]">최근 문의</h3>
-            <Link to="/admin/inquiries" className="text-sm text-[#D84E0B] font-semibold flex items-center gap-1">
-              전체 보기 <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          {loading ? (
-            <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-14 bg-[#F7F1E8] rounded-xl animate-pulse" />)}</div>
-          ) : recent.length === 0 ? (
-            <p className="text-[#a98c5b] text-sm py-8 text-center">접수된 문의가 없습니다.</p>
-          ) : (
-            <div className="space-y-2">
-              {recent.map((iq) => (
-                <div key={iq.id} className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FBF7F0]">
-                  <div className="min-w-0">
-                    <p className="font-medium text-[#2A211C] text-sm">{iq.name}</p>
-                    <p className="text-xs text-[#a98c5b] truncate">{iq.message}</p>
-                  </div>
-                  <span className={`text-xs font-semibold px-2 py-1 rounded-full flex-shrink-0 ml-3 ${iq.type === 'b2b' ? 'bg-[#8B5E3C]/12 text-[#8B5E3C]' : 'bg-[#D84E0B]/12 text-[#D84E0B]'}`}>
-                    {iq.type === 'b2b' ? 'B2B' : '1:1'}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
+      <div className="rounded-2xl bg-white border border-[#eadfce] p-6">
+        <div className="flex items-center justify-between mb-5">
+          <h3 className="font-serif-kr font-bold text-[#2A211C]">최근 문의</h3>
+          <Link to="/admin/inquiries" className="text-sm text-[#D84E0B] font-semibold flex items-center gap-1">
+            전체 보기 <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-        <Link to="/admin/ai-settings" className="rounded-2xl bg-[#2A211C] text-white p-6 flex flex-col justify-between hover:bg-[#3a2e26] transition-colors">
-          <div>
-            <div className="w-11 h-11 rounded-xl bg-[#D84E0B]/20 flex items-center justify-center mb-4">
-              <Sparkles className="w-5 h-5 text-[#f0a97e]" />
-            </div>
-            <h3 className="font-serif-kr font-bold">AI 설정</h3>
-            <p className="text-sm text-white/60 mt-2">AI 제품 추천과 트레이 미리보기의 프롬프트·모델을 관리합니다.</p>
+        {loading ? (
+          <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-14 bg-[#F7F1E8] rounded-xl animate-pulse" />)}</div>
+        ) : recent.length === 0 ? (
+          <p className="text-[#a98c5b] text-sm py-8 text-center">접수된 문의가 없습니다.</p>
+        ) : (
+          <div className="space-y-2">
+            {recent.map((iq) => (
+              <div key={iq.id} className="flex items-center justify-between p-3 rounded-xl hover:bg-[#FBF7F0]">
+                <div className="min-w-0">
+                  <p className="font-medium text-[#2A211C] text-sm">{iq.name}</p>
+                  <p className="text-xs text-[#a98c5b] truncate">{iq.message}</p>
+                </div>
+                <span className={`text-xs font-semibold px-2 py-1 rounded-full flex-shrink-0 ml-3 ${iq.type === 'b2b' ? 'bg-[#8B5E3C]/12 text-[#8B5E3C]' : 'bg-[#D84E0B]/12 text-[#D84E0B]'}`}>
+                  {iq.type === 'b2b' ? 'B2B' : '1:1'}
+                </span>
+              </div>
+            ))}
           </div>
-          <span className="mt-6 text-sm text-[#f0a97e] font-semibold flex items-center gap-1">설정 열기 <ArrowRight className="w-4 h-4" /></span>
-        </Link>
+        )}
       </div>
     </div>
   );
