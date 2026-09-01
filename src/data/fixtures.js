@@ -18,10 +18,9 @@ function withCategory(p) {
   return { ...p, category: c ? { id: c.id, title: c.name } : null };
 }
 
-// Real, free-to-use Pexels photos (see comments in each product/insight for
-// how these were sourced) with a local hand-drawn SVG as the onError
-// fallback if a photo URL ever breaks — see components/FallbackImg.jsx.
-export const HERO_IMAGE = 'https://images.pexels.com/photos/897271/pexels-photo-897271.jpeg?auto=compress&cs=tinysrgb&w=1200';
+// Real product photos supplied by the brand owner, with a hand-drawn local
+// SVG as an onError fallback in the unlikely event a file goes missing.
+export const HERO_IMAGE = '/images/products/hero-color-pair.jpg';
 export const HERO_IMAGE_FALLBACK = '/images/hero.svg';
 
 export const products = [
@@ -29,7 +28,7 @@ export const products = [
     id: 1,
     slug: 'pro-cutting-scissors',
     name: '프로 커팅가위 세트',
-    image: 'https://images.pexels.com/photos/8468163/pexels-photo-8468163.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/scissors-pro.jpg',
     imageFallback: '/images/product-scissors.svg',
     contextCopy: '매일 다수의 고객을 응대하는 현직 디자이너를 위한 고정밀 커팅가위 세트입니다.',
     price: 128000,
@@ -45,7 +44,7 @@ export const products = [
     id: 2,
     slug: 'beginner-styling-scissors',
     name: '입문자 스타일링가위',
-    image: 'https://images.pexels.com/photos/8468163/pexels-photo-8468163.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/scissors-beginner.jpg',
     imageFallback: '/images/product-scissors.svg',
     contextCopy: '처음 가위를 잡는 분도 안전하고 편안하게 다룰 수 있도록 무게와 그립을 조정했습니다.',
     price: 45000,
@@ -61,7 +60,7 @@ export const products = [
     id: 3,
     slug: 'wide-tooth-comb',
     name: '와이드 콤 세트',
-    image: 'https://images.pexels.com/photos/3993292/pexels-photo-3993292.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/comb-set.jpg',
     imageFallback: '/images/product-comb.svg',
     contextCopy: '엉킴 없이 부드럽게 빗어지는 와이드 간격 콤으로, 일반 소비자의 데일리 헤어케어에 알맞습니다.',
     price: 18000,
@@ -77,7 +76,7 @@ export const products = [
     id: 4,
     slug: 'cutting-comb-pro',
     name: '전문가용 커팅 콤',
-    image: 'https://images.pexels.com/photos/3993292/pexels-photo-3993292.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/comb-set.jpg',
     imageFallback: '/images/product-comb.svg',
     contextCopy: '섹션 분리와 커트 라인 가이드에 최적화된 내열 소재 커팅 콤입니다.',
     price: 32000,
@@ -93,7 +92,7 @@ export const products = [
     id: 5,
     slug: 'round-styling-brush',
     name: '라운드 스타일링 브러쉬',
-    image: 'https://images.pexels.com/photos/3226385/pexels-photo-3226385.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/brush-round.jpg',
     imageFallback: '/images/product-brush.svg',
     contextCopy: '볼륨과 컬을 동시에 살리는 라운드 브러쉬로, 입문자도 쉽게 블로우 드라이를 완성할 수 있습니다.',
     price: 27000,
@@ -109,7 +108,7 @@ export const products = [
     id: 6,
     slug: 'salon-tray-basic',
     name: '살롱 정리 트레이 (기본)',
-    image: 'https://images.pexels.com/photos/7679657/pexels-photo-7679657.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/tray-basic.jpg',
     imageFallback: '/images/product-tray.svg',
     contextCopy: '자주 쓰는 도구 3~4종을 한눈에 정리할 수 있는 기본형 트레이입니다.',
     price: 39000,
@@ -125,7 +124,7 @@ export const products = [
     id: 7,
     slug: 'salon-tray-pro',
     name: '살롱 정리 트레이 (프로)',
-    image: 'https://images.pexels.com/photos/7679657/pexels-photo-7679657.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/tray-pro.jpg',
     imageFallback: '/images/product-tray.svg',
     contextCopy: '가위·빗·브러쉬·클립까지 종류별로 나눠 담는 확장형 프로 트레이입니다.',
     price: 69000,
@@ -141,7 +140,7 @@ export const products = [
     id: 8,
     slug: 'mobile-caddy',
     name: '이동식 도구 정리함',
-    image: 'https://images.pexels.com/photos/157888/pexels-photo-157888.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/caddy-mobile.jpg',
     imageFallback: '/images/product-caddy.svg',
     contextCopy: '손잡이가 달려 있어 출장·이동이 잦은 프리랜서 미용사에게 알맞은 휴대형 정리함입니다.',
     price: 58000,
@@ -157,7 +156,7 @@ export const products = [
     id: 9,
     slug: 'clip-pin-organizer',
     name: '핀·클립 정리 트레이',
-    image: 'https://images.pexels.com/photos/8468019/pexels-photo-8468019.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/images/products/clip-organizer.jpg',
     imageFallback: '/images/product-clip.svg',
     contextCopy: '흩어지기 쉬운 헤어핀·클립을 칸별로 나눠 담는 소형 정리 트레이입니다.',
     price: 15000,
@@ -234,7 +233,7 @@ export const insights = [
     slug: 'choosing-your-first-scissors',
     title: '입문자를 위한 첫 가위 고르는 법',
     excerpt: '처음 가위를 구매할 때 꼭 확인해야 할 무게, 그립, 날의 형태를 정리했습니다.',
-    image: 'https://images.pexels.com/photos/8468163/pexels-photo-8468163.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/products/scissors-pro.jpg',
     imageFallback: '/images/insight-1.svg',
     readMinutes: 4,
     content:
@@ -249,7 +248,7 @@ export const insights = [
     slug: 'salon-tray-organizing-tips',
     title: '좁은 매장에서 도구 정리하는 3가지 방법',
     excerpt: '1인 미용실 원장님들이 실제로 사용하는 공간 절약형 정리 노하우를 소개합니다.',
-    image: 'https://images.pexels.com/photos/7679657/pexels-photo-7679657.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/products/insight-organizing.jpg',
     imageFallback: '/images/insight-2.svg',
     readMinutes: 5,
     content:
@@ -264,7 +263,7 @@ export const insights = [
     slug: 'mobile-hairstylist-checklist',
     title: '출장 미용사를 위한 이동 도구함 체크리스트',
     excerpt: '이동이 잦은 프리랜서 미용사가 놓치기 쉬운 도구 관리 포인트를 짚어봅니다.',
-    image: 'https://images.pexels.com/photos/157888/pexels-photo-157888.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/products/caddy-mobile.jpg',
     imageFallback: '/images/insight-3.svg',
     readMinutes: 3,
     content:
@@ -279,7 +278,7 @@ export const insights = [
     slug: 'material-guide-natural-vs-synthetic',
     title: '천연가죽 vs 합성가죽, 트레이 소재 고르는 기준',
     excerpt: '커스텀 트레이 제작 시 가장 많이 받는 질문, 소재 선택 기준을 정리했습니다.',
-    image: 'https://images.pexels.com/photos/6045262/pexels-photo-6045262.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/products/insight-material-grid.jpg',
     imageFallback: '/images/insight-4.svg',
     readMinutes: 4,
     content:
