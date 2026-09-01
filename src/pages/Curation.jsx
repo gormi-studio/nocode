@@ -70,6 +70,14 @@ export default function Curation() {
   return (
     <div className="w-full bg-[#F2F1EE]">
       <section className="w-full bg-[#1E1B18] text-white overflow-hidden relative">
+        <img
+          src="https://images.pexels.com/photos/3356170/pexels-photo-3356170.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt=""
+          aria-hidden="true"
+          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E1B18] via-[#1E1B18]/95 to-[#1E1B18]/60" />
         <div className="absolute -top-20 right-0 w-96 h-96 rounded-full bg-[#A97C3F]/25 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20">
           <Reveal className="max-w-3xl">
