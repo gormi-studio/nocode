@@ -1,0 +1,10 @@
+import { vibex } from './vibexClient';
+export const User = vibex.entities.User;
+export const Category = vibex.entities.Category;
+export const Product = vibex.entities.Product;
+export const CurationSet = vibex.entities.CurationSet;
+export const Review = vibex.entities.Review;
+export const Insight = vibex.entities.Insight;
+export const Faq = vibex.entities.Faq;
+export const Inquiry = vibex.entities.Inquiry;
+export const Auth = vibex.auth;
