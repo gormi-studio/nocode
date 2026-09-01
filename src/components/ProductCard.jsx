@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Scissors } from 'lucide-react';
+import FallbackImg from '@/components/FallbackImg';
 export default function ProductCard({ product }) {
   const isPro = product.level === 'professional';
   const badge = isPro
@@ -10,8 +11,9 @@ export default function ProductCard({ product }) {
       <div className="rounded-3xl overflow-hidden bg-[#F7F1E8]/70 backdrop-blur-sm border border-[#e7dcc9] shadow-[0_20px_60px_-25px_rgba(216,78,11,0.25)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_70px_-25px_rgba(216,78,11,0.4)]">
         <div className="aspect-square bg-[#F1E8D8] overflow-hidden flex items-center justify-center">
           {product.image ? (
-            <img
+            <FallbackImg
               src={product.image}
+              fallback={product.imageFallback}
               alt={product.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"

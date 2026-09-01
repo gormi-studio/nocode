@@ -5,9 +5,10 @@ import {
   Search, CheckCircle, Package, ShoppingBag,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
+import { HERO_IMAGE, HERO_IMAGE_FALLBACK } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
+import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
-const HERO_IMG = '/images/hero.svg';
 const DIFF = [
   { icon: Palette, title: '소재·색상 선택', desc: '천연가죽·합성가죽과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
   { icon: Package, title: '도구함 추가', desc: '필요한 만큼 도구함을 더해 사용하는 도구 수에 맞게 확장합니다.' },
@@ -89,7 +90,7 @@ export default function Home() {
               <Reveal delay={0.2} y={30}>
                 <div className="relative">
                   <div className="rounded-[2rem] overflow-hidden bg-[#F7F1E8]/70 backdrop-blur-sm border border-[#e7dcc9] shadow-[0_30px_80px_-30px_rgba(216,78,11,0.4)]">
-                    <img src={HERO_IMG} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
+                    <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
                   </div>
                   <div className="absolute -bottom-5 -left-3 md:-left-6 bg-white rounded-2xl shadow-xl border border-[#e7dcc9] px-5 py-4">
                     <p className="text-xs text-[#a98c5b] mb-1">실시간 예상 구성</p>
@@ -292,7 +293,7 @@ export default function Home() {
                   <div className="h-full rounded-3xl overflow-hidden border border-[#eadfce] hover:-translate-y-1 hover:shadow-lg transition-all">
                     <div className="aspect-[16/10] bg-[#F1E8D8] overflow-hidden">
                       {it.image ? (
-                        <img src={it.image} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                        <FallbackImg src={it.image} fallback={it.imageFallback} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-[#c9a86f]">
                           <BookMark />

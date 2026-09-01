@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Clock, FileText } from 'lucide-react';
 import { Insight } from '@/api/entities';
 import Reveal from '@/components/Reveal';
+import FallbackImg from '@/components/FallbackImg';
 export default function InsightDetail() {
   const { slug } = useParams();
   const [insight, setInsight] = useState(null);
@@ -57,7 +58,7 @@ export default function InsightDetail() {
         {insight.image && (
           <Reveal delay={0.1}>
             <div className="mt-8 rounded-3xl overflow-hidden border border-[#e7dcc9]">
-              <img src={insight.image} alt={insight.title} className="w-full aspect-[16/9] object-cover" />
+              <FallbackImg src={insight.image} fallback={insight.imageFallback} alt={insight.title} className="w-full aspect-[16/9] object-cover" />
             </div>
           </Reveal>
         )}

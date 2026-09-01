@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Clock, ArrowRight, Sparkles } from 'lucide-react';
 import { Insight } from '@/api/entities';
 import Reveal from '@/components/Reveal';
+import FallbackImg from '@/components/FallbackImg';
 export default function Insights() {
   const [insights, setInsights] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -58,7 +59,7 @@ export default function Insights() {
                     <div className="h-full rounded-3xl overflow-hidden bg-white border border-[#eadfce] hover:-translate-y-1 hover:shadow-lg transition-all">
                       <div className="aspect-[16/10] bg-[#F1E8D8] overflow-hidden">
                         {it.image ? (
-                          <img src={it.image} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                          <FallbackImg src={it.image} fallback={it.imageFallback} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-[#c9a86f]">
                             <Sparkles className="w-10 h-10" />

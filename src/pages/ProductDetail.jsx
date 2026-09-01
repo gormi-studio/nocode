@@ -4,6 +4,7 @@ import { ArrowLeft, Check, AlertCircle, Scissors, ThumbsUp, Ban, ArrowRight } fr
 import { Product } from '@/api/entities';
 import Reveal from '@/components/Reveal';
 import ProductCard from '@/components/ProductCard';
+import FallbackImg from '@/components/FallbackImg';
 export default function ProductDetail() {
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
@@ -62,7 +63,7 @@ export default function ProductDetail() {
           <Reveal>
             <div className="rounded-3xl overflow-hidden bg-[#F1E8D8] border border-[#e7dcc9] aspect-square flex items-center justify-center">
               {product.image ? (
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                <FallbackImg src={product.image} fallback={product.imageFallback} alt={product.name} className="w-full h-full object-cover" />
               ) : (
                 <div className="flex flex-col items-center gap-3 text-[#c9a86f]">
                   <Scissors className="w-16 h-16" />
