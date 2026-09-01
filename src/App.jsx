@@ -106,13 +106,31 @@ function RootShell() {
   );
 }
 
-const router = createBrowserRouter([
-  {
-    path: "*",
-    element: <RootShell />,
-    errorElement: <RouterErrorBoundary />,
-  },
-]);
+// Normally undefined (the app is served from the domain root). Some hosting
+// contexts (e.g. an embedded preview) mount the page under a path via a
+// <base href> tag instead — detect that so routing still resolves there
+// instead of every route falling through to the 404 page.
+function detectBasename() {
+  try {
+    const baseEl = document.querySelector('base[href]');
+    if (!baseEl) return undefined;
+    const url = new URL(baseEl.getAttribute('href'), window.location.href);
+    return url.pathname.replace(/\/+$/, '') || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "*",
+      element: <RootShell />,
+      errorElement: <RouterErrorBoundary />,
+    },
+  ],
+  { basename: detectBasename() }
+);
 
 function App() {
   return (
