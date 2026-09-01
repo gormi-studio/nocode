@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
   const isProduction = env.VITE_APP_ENV === 'production';
 
   return {
+    base: env.VITE_BASE_PATH || '/',
     plugins: [
       react(),
       ...(!isProduction

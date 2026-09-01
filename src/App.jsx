@@ -107,15 +107,21 @@ function RootShell() {
 }
 
 // Normally undefined (the app is served from the domain root). Some hosting
-// contexts (e.g. an embedded preview) mount the page under a path via a
-// <base href> tag instead — detect that so routing still resolves there
-// instead of every route falling through to the 404 page.
+// contexts mount the page under a sub-path instead — a project-site host
+// like GitHub Pages (Vite's configured `base`, exposed as import.meta.env.
+// BASE_URL) or an embedded preview (a <base href> tag). Detect either so
+// routing still resolves there instead of every route falling through to
+// the 404 page.
 function detectBasename() {
   try {
     const baseEl = document.querySelector('base[href]');
-    if (!baseEl) return undefined;
-    const url = new URL(baseEl.getAttribute('href'), window.location.href);
-    return url.pathname.replace(/\/+$/, '') || undefined;
+    if (baseEl) {
+      const url = new URL(baseEl.getAttribute('href'), window.location.href);
+      const fromTag = url.pathname.replace(/\/+$/, '');
+      if (fromTag) return fromTag;
+    }
+    const fromEnv = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+    return fromEnv || undefined;
   } catch {
     return undefined;
   }
