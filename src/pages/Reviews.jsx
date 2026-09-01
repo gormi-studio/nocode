@@ -87,7 +87,7 @@ export default function Reviews() {
                     {r.productName && <p className="text-xs text-[#a98c5b] mb-4">· {r.productName}</p>}
                     <div className="flex items-center gap-3 pt-4 border-t border-[#f0e8da]">
                       {r.avatar ? (
-                        <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" />
+                        <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
                       ) : (
                         <div className="w-10 h-10 rounded-full bg-[#D84E0B]/10 flex items-center justify-center text-[#D84E0B] font-bold">{r.authorName?.[0]}</div>
                       )}

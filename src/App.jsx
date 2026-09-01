@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClientInstance } from "@/lib/query-client";
@@ -96,31 +96,41 @@ const AuthenticatedApp = () => {
   }
 
   return (
-    <Routes>
-      {/* User layout */}
-      <Route element={<LayoutWrapper currentPageName={mainPageKey} />}>
-        <Route index element={<MainPage />} />
-        {Object.entries(Pages).map(([path, Page]) => (
-          <Route key={path} path={path} element={<Page />} />
-        ))}
-      </Route>
+    <Suspense fallback={<PageFallback />}>
+      <Routes>
+        {/* User layout */}
+        <Route element={<LayoutWrapper currentPageName={mainPageKey} />}>
+          <Route index element={<MainPage />} />
+          {Object.entries(Pages).map(([path, Page]) => (
+            <Route key={path} path={path} element={<Page />} />
+          ))}
+        </Route>
 
-      {/* LOGIN ROUTE - NO LAYOUT (Standalone) */}
-      <Route path="/admin/login" element={<Login />} />
+        {/* LOGIN ROUTE - NO LAYOUT (Standalone) */}
+        <Route path="/admin/login" element={<Login />} />
 
-      {/* Admin layout */}
-      <Route path="admin" element={<AdminLayoutWrapper currentPageName={adminMainPageKey} />}>
-        <Route index element={<AdminMainPage />} />
-        {Object.entries(Admins).map(([path, Page]) => (
-          <Route key={`admin-${path}`} path={path} element={<Page />} />
-        ))}
-      </Route>
+        {/* Admin layout */}
+        <Route path="admin" element={<AdminLayoutWrapper currentPageName={adminMainPageKey} />}>
+          <Route index element={<AdminMainPage />} />
+          {Object.entries(Admins).map(([path, Page]) => (
+            <Route key={`admin-${path}`} path={path} element={<Page />} />
+          ))}
+        </Route>
 
-      {/* 404 */}
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        {/* 404 */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Suspense>
   );
 };
+
+function PageFallback() {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+    </div>
+  );
+}
 
 function RootShell() {
   return (

@@ -254,7 +254,7 @@ export default function Home() {
                   <p className="text-[#4a3f36] leading-relaxed mb-5 line-clamp-5">{r.content}</p>
                   <div className="flex items-center gap-3">
                     {r.avatar ? (
-                      <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" />
+                      <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
                     ) : (
                       <div className="w-10 h-10 rounded-full bg-[#D84E0B]/10 flex items-center justify-center text-[#D84E0B] font-bold">
                         {r.authorName?.[0]}
@@ -292,7 +292,7 @@ export default function Home() {
                   <div className="h-full rounded-3xl overflow-hidden border border-[#eadfce] hover:-translate-y-1 hover:shadow-lg transition-all">
                     <div className="aspect-[16/10] bg-[#F1E8D8] overflow-hidden">
                       {it.image ? (
-                        <img src={it.image} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        <img src={it.image} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-[#c9a86f]">
                           <BookMark />

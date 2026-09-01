@@ -1,18 +1,19 @@
+import { lazy } from 'react';
 import Layout from './Layout.jsx';
 import Home from './pages/Home.jsx';
-import BrandStory from './pages/BrandStory.jsx';
-import TrayBuilder from './pages/TrayBuilder.jsx';
-import Products from './pages/Products.jsx';
-import ProductDetail from './pages/ProductDetail.jsx';
-import Curation from './pages/Curation.jsx';
-import Insights from './pages/Insights.jsx';
-import InsightDetail from './pages/InsightDetail.jsx';
-import Reviews from './pages/Reviews.jsx';
-import Support from './pages/Support.jsx';
+const BrandStory = lazy(() => import('./pages/BrandStory.jsx'));
+const TrayBuilder = lazy(() => import('./pages/TrayBuilder.jsx'));
+const Products = lazy(() => import('./pages/Products.jsx'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail.jsx'));
+const Curation = lazy(() => import('./pages/Curation.jsx'));
+const Insights = lazy(() => import('./pages/Insights.jsx'));
+const InsightDetail = lazy(() => import('./pages/InsightDetail.jsx'));
+const Reviews = lazy(() => import('./pages/Reviews.jsx'));
+const Support = lazy(() => import('./pages/Support.jsx'));
 import AdminLayout from './pages/admin/AdminLayout.jsx';
-import Dashboard from './pages/admin/Dashboard.jsx';
-import Inquiries from './pages/admin/Inquiries.jsx';
-import AIFlowSettings from './pages/admin/AIFlowSettings.jsx';
+const Dashboard = lazy(() => import('./pages/admin/Dashboard.jsx'));
+const Inquiries = lazy(() => import('./pages/admin/Inquiries.jsx'));
+const AIFlowSettings = lazy(() => import('./pages/admin/AIFlowSettings.jsx'));
 export const PAGES = {
   Home,
   'brand-story': BrandStory,
