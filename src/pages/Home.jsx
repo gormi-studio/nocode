@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Palette, Layers, Sparkles, Eye, ArrowRight, Star, Quote,
-  Search, CheckCircle, Package, ShoppingBag,
+  Search, CheckCircle, Package, Package2, ShoppingBag,
+  Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { HERO_IMAGE, HERO_IMAGE_FALLBACK } from '@/data/fixtures';
+import { HERO_IMAGE, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
@@ -13,6 +14,28 @@ const DIFF = [
   { icon: Palette, title: '소재·색상 선택', desc: '천연가죽·합성가죽과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
   { icon: Package, title: '도구함 추가', desc: '필요한 만큼 도구함을 더해 사용하는 도구 수에 맞게 확장합니다.' },
   { icon: Layers, title: '모듈 조합', desc: '롤빗·가위 정리대 등 모듈을 조합해 나만의 정리 구성을 만듭니다.' },
+];
+const SHORTCUTS = [
+  { icon: Scissors, label: '가위', href: '/products?group=salon&category=1' },
+  { icon: Brush, label: '빗', href: '/products?group=salon&category=2' },
+  { icon: Paintbrush, label: '브러쉬', href: '/products?group=salon&category=3' },
+  { icon: Package, label: '정리 트레이', href: '/products?group=storage&category=4' },
+  { icon: Briefcase, label: '이동식 정리함', href: '/products?group=storage&category=5' },
+  { icon: Package2, label: '핀·클립 정리', href: '/products?group=storage&category=6' },
+];
+const PROMOS = [
+  {
+    eyebrow: '런칭 기념',
+    title: '프로 커팅가위 세트\n한정 할인',
+    image: PRODUCT_FIXTURES.find((p) => p.slug === 'pro-cutting-scissors')?.image,
+    href: '/products/pro-cutting-scissors',
+  },
+  {
+    eyebrow: '미용 인사이트',
+    title: '도구를 고르는\n관점 살펴보기',
+    image: INSIGHT_FIXTURES.find((i) => i.slug === 'salon-tray-organizing-tips')?.image,
+    href: '/insights',
+  },
 ];
 const STEPS = [
   { n: '01', icon: Eye, title: '보고', desc: '제품마다 추천 상황과 예외 상황을 실제 사용 맥락으로 살펴봅니다.' },
@@ -103,6 +126,25 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* CATEGORY SHORTCUTS */}
+      <section className="w-full py-10 bg-white border-b border-[#EDEAE2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-4 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:overflow-visible pb-2 sm:pb-0 -mx-1 px-1">
+            {SHORTCUTS.map((s) => (
+              <Link
+                key={s.label}
+                to={s.href}
+                className="group flex-shrink-0 w-24 sm:w-auto flex flex-col items-center gap-2.5 text-center"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#F2F1EE] group-hover:bg-[#A97C3F]/10 flex items-center justify-center transition-colors">
+                  <s.icon className="w-6 h-6 text-[#A97C3F]" />
+                </div>
+                <span className="text-xs font-medium text-[#5C574C] group-hover:text-[#1E1B18] transition-colors">{s.label}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -227,6 +269,35 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* PROMO TILES */}
+      <section className="w-full pb-16 md:pb-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PROMOS.map((p, i) => (
+              <Reveal key={p.eyebrow} delay={i * 0.1}>
+                <Link to={p.href} className="group block relative rounded-3xl overflow-hidden aspect-[16/9]">
+                  <FallbackImg
+                    src={p.image}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/85 via-[#1E1B18]/20 to-transparent" />
+                  <div className="relative h-full flex flex-col justify-end p-7">
+                    <p className="text-[#D9BE93] text-sm font-semibold mb-2">{p.eyebrow}</p>
+                    <h3 className="font-serif-kr text-xl md:text-2xl font-bold text-white whitespace-pre-line leading-snug">
+                      {p.title}
+                    </h3>
+                    <span className="mt-4 inline-flex items-center gap-1 text-white/90 text-sm font-semibold">
+                      자세히 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

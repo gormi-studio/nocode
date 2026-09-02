@@ -27,7 +27,7 @@ export default function Products() {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [group, setGroup] = useState(searchParams.get('group') || 'all');
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState(searchParams.get('category') || 'all');
   const [level, setLevel] = useState('all');
   const [sort, setSort] = useState('-id');
   const [searchInput, setSearchInput] = useState('');

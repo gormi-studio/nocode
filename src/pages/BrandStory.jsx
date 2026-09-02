@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Sparkles, Eye, ScrollText, Heart, ArrowRight, Palette } from 'lucide-react';
+import { Sparkles, Eye, ScrollText, Heart, ArrowRight, Palette, Play } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 const TIMELINE = [
   { year: '관찰', title: '현장에서 시작', desc: '미용사 인터뷰와 현장 관찰을 통해 도구 정리와 선택의 불편을 확인했습니다.' },
@@ -44,7 +44,24 @@ export default function BrandStory() {
           </div>
         </div>
       </section>
-      <section className="w-full py-16 md:py-24 bg-[#F2F1EE]">
+      {/* BRAND FILM BANNER */}
+      <a href="#story" className="group block relative w-full aspect-[21/9] overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/3356170/pexels-photo-3356170.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt=""
+          aria-hidden="true"
+          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-[#1E1B18]/45 group-hover:bg-[#1E1B18]/55 transition-colors" />
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+          <span className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+            <Play className="w-6 h-6 md:w-7 md:h-7 text-[#1E1B18] fill-[#1E1B18] ml-1" />
+          </span>
+          <p className="mt-5 text-white font-serif-kr text-lg md:text-2xl font-bold">고르미의 이야기 더 보기</p>
+        </div>
+      </a>
+      <section id="story" className="w-full py-16 md:py-24 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <Reveal>
