@@ -106,7 +106,7 @@ export default function Curation() {
                 <p className="mt-4 text-[#4F4A40] leading-relaxed">4개의 간단한 질문에 답하면 상황에 맞는 구성을 추천해 드립니다.</p>
                 <button
                   onClick={() => setStep(0)}
-                  className="mt-8 px-8 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all inline-flex items-center gap-2"
+                  className="mt-8 px-8 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2"
                 >
                   진단 시작 <ArrowRight className="w-4 h-4" />
                 </button>
@@ -189,10 +189,10 @@ export default function Curation() {
                       </div>
                     </div>
                     <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                      <Link to="/tray-builder" className="flex-1 px-6 py-3.5 rounded-xl bg-[#A97C3F] text-white text-center font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all">
+                      <Link to="/tray-builder" className="flex-1 px-6 py-3.5 text-[#A97C3F] text-center font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all">
                         세부 커스터마이징
                       </Link>
-                      <Link to="/support" className="flex-1 px-6 py-3.5 rounded-xl bg-white text-[#1E1B18] text-center font-semibold border border-[#D6D1C4] hover:bg-[#F2F1EE] transition-all">
+                      <Link to="/support" className="flex-1 px-6 py-3.5 text-[#1E1B18] text-center font-semibold hover:text-[#A97C3F] hover:scale-105 transition-all">
                         이 구성 문의
                       </Link>
                       <button onClick={restart} className="px-4 py-3.5 rounded-xl bg-[#EBE9E3] text-[#5C574C] hover:bg-[#E6E3DC] transition-colors flex items-center justify-center gap-1.5">
@@ -204,7 +204,7 @@ export default function Curation() {
               ) : (
                 <div className="rounded-3xl bg-white border border-[#DAD6CC] p-10 text-center">
                   <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">추천 구성을 불러오는 중입니다</h2>
-                  <button onClick={restart} className="mt-6 px-6 py-3 rounded-xl bg-[#A97C3F] text-white font-semibold">다시 진단하기</button>
+                  <button onClick={restart} className="mt-6 px-6 py-3 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all">다시 진단하기</button>
                 </div>
               )}
             </Reveal>

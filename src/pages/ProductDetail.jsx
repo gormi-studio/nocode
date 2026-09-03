@@ -46,7 +46,7 @@ export default function ProductDetail() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-24 text-center">
         <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">제품을 찾을 수 없습니다</h2>
-        <Link to="/products" className="inline-block mt-6 px-6 py-3 rounded-xl bg-[#A97C3F] text-white font-semibold">
+        <Link to="/products" className="inline-block mt-6 px-6 py-3 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all">
           제품 목록으로
         </Link>
       </div>
@@ -90,10 +90,10 @@ export default function ProductDetail() {
               </div>
             )}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/support" className="flex-1 px-6 py-3.5 rounded-xl bg-[#A97C3F] text-white text-center font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all">
+              <Link to="/support" className="flex-1 px-6 py-3.5 text-[#A97C3F] text-center font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all">
                 제품 문의하기
               </Link>
-              <Link to="/tray-builder" className="flex-1 px-6 py-3.5 rounded-xl bg-white text-[#1E1B18] text-center font-semibold border border-[#D6D1C4] hover:bg-[#F2F1EE] transition-all">
+              <Link to="/tray-builder" className="flex-1 px-6 py-3.5 text-[#1E1B18] text-center font-semibold hover:text-[#A97C3F] hover:scale-105 transition-all">
                 커스텀 트레이로 확장
               </Link>
             </div>

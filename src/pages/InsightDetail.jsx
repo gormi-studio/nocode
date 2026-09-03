@@ -35,7 +35,7 @@ export default function InsightDetail() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-24 text-center">
         <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">인사이트를 찾을 수 없습니다</h2>
-        <Link to="/insights" className="inline-block mt-6 px-6 py-3 rounded-xl bg-[#A97C3F] text-white font-semibold">
+        <Link to="/insights" className="inline-block mt-6 px-6 py-3 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all">
           인사이트 목록으로
         </Link>
       </div>
@@ -81,7 +81,7 @@ export default function InsightDetail() {
         <div className="mt-12 rounded-3xl bg-[#1E1B18] text-white p-8 text-center">
           <h3 className="font-serif-kr text-xl font-bold">내 상황에 맞는 도구가 궁금하다면</h3>
           <p className="mt-3 text-white/60 text-sm">진단 퀴즈로 맞는 구성을 찾아보세요.</p>
-          <Link to="/curation" className="inline-block mt-5 px-6 py-3 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] transition-colors">
+          <Link to="/curation" className="inline-block mt-5 px-6 py-3 text-white font-semibold hover:text-[#D9BE93] hover:scale-105 transition-all">
             추천 구성 진단
           </Link>
         </div>

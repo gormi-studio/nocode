@@ -184,7 +184,7 @@ export default function Support() {
             <button
               onClick={handleSubmit}
               disabled={submitting}
-              className="w-full mt-5 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
+              className="w-full mt-5 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 disabled:opacity-60 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
               {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> 접수 중…</> : <><Send className="w-4 h-4" /> 문의 접수</>}
             </button>

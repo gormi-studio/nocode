@@ -254,7 +254,7 @@ export default function TrayBuilder() {
                 <div className="mt-5 flex gap-2">
                   <Link
                     to="/support"
-                    className="flex-1 px-5 py-3 rounded-xl bg-[#A97C3F] text-white text-center font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all flex items-center justify-center gap-1.5"
+                    className="flex-1 px-5 py-3 text-white text-center font-semibold hover:text-[#D9BE93] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5"
                   >
                     구성 문의하기 <ArrowRight className="w-4 h-4" />
                   </Link>

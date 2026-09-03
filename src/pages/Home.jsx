@@ -96,13 +96,13 @@ export default function Home() {
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
                   <Link
                     to="/tray-builder"
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
                   >
                     커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
                     to="/curation"
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-transparent text-[#A97C3F] font-semibold border-2 border-[#A97C3F] hover:bg-[#A97C3F] hover:text-white transition-all text-center"
+                    className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all text-center"
                   >
                     추천 구성 진단
                   </Link>
@@ -245,7 +245,7 @@ export default function Home() {
                 </p>
                 <Link
                   to="/curation"
-                  className="inline-flex items-center gap-2 mt-7 px-6 py-3.5 rounded-xl bg-white text-[#A97C3F] font-semibold hover:bg-[#F2F1EE] active:scale-95 transition-all"
+                  className="inline-flex items-center gap-2 mt-7 px-6 py-3.5 text-white font-semibold hover:text-[#F2F1EE] hover:scale-105 active:scale-95 transition-all"
                 >
                   진단 시작하기 <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -385,10 +385,10 @@ export default function Home() {
               소재부터 모듈까지 직접 조합하고, 궁금한 점은 AI 어시스턴트와 고객센터가 함께 안내합니다.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link to="/tray-builder" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all">
+              <Link to="/tray-builder" className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all">
                 트레이 만들기
               </Link>
-              <Link to="/support" className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#1E1B18] font-semibold border border-[#D6D1C4] hover:bg-[#F2F1EE] transition-all">
+              <Link to="/support" className="w-full sm:w-auto px-7 py-3.5 text-[#1E1B18] font-semibold hover:text-[#A97C3F] hover:scale-105 transition-all">
                 고객센터 · 문의
               </Link>
             </div>

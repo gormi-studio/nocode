@@ -78,7 +78,7 @@ function Navbar() {
             <StoreLinks />
             <Link
               to="/tray-builder"
-              className="px-5 py-2.5 rounded-xl bg-[#A97C3F] text-white text-sm font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all"
+              className="px-5 py-2.5 text-[#A97C3F] text-sm font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all"
             >
               트레이 만들기
             </Link>
@@ -106,7 +106,7 @@ function Navbar() {
             ))}
             <Link
               to="/tray-builder"
-              className="mt-2 px-4 py-3 rounded-xl bg-[#A97C3F] text-white text-center font-semibold"
+              className="mt-2 px-4 py-3 text-[#A97C3F] text-center font-semibold hover:text-[#7D5D2E] transition-all"
             >
               트레이 만들기
             </Link>

@@ -79,7 +79,7 @@ export default function BrandStory() {
               </p>
               <Link
                 to="/tray-builder"
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 rounded-xl bg-[#A97C3F] text-white font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all"
               >
                 커스텀 트레이 둘러보기 <ArrowRight className="w-4 h-4" />
               </Link>
