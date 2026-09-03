@@ -27,9 +27,8 @@ function withCategory(p) {
 
 // Real product photos supplied by the brand owner, with a hand-drawn local
 // SVG as an onError fallback in the unlikely event a file goes missing.
-// The hero uses the same licensed salon-interior photo source as BrandStory,
-// with the local SVG as a fallback if the hotlinked photo fails to load.
-export const HERO_IMAGE = 'https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&w=1600';
+// Hero photo supplied directly by the brand owner (salon interior render).
+export const HERO_IMAGE = asset('/images/hero-salon.jpg');
 export const HERO_IMAGE_FALLBACK = asset('/images/hero.svg');
 
 export const products = [
