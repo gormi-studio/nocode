@@ -11,6 +11,31 @@ const NAV = [
   { to: '/insights', label: '인사이트' },
   { to: '/support', label: '고객센터' },
 ];
+// TODO: swap in the real storefront URLs once they exist.
+const EXTERNAL_STORES = [
+  { name: '쿠팡', href: '#', bg: '#0073E9', letter: 'C' },
+  { name: '네이버 스토어', href: '#', bg: '#03C75A', letter: 'N' },
+];
+function StoreLinks({ className = '' }) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      {EXTERNAL_STORES.map((s) => (
+        <a
+          key={s.name}
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`${s.name}에서 구매하기`}
+          aria-label={`${s.name}에서 구매하기`}
+          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm hover:opacity-90 hover:scale-105 active:scale-95 transition-all flex-shrink-0"
+          style={{ backgroundColor: s.bg }}
+        >
+          {s.letter}
+        </a>
+      ))}
+    </div>
+  );
+}
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -49,7 +74,8 @@ function Navbar() {
               );
             })}
           </nav>
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-4">
+            <StoreLinks />
             <Link
               to="/tray-builder"
               className="px-5 py-2.5 rounded-xl bg-[#A97C3F] text-white text-sm font-semibold hover:bg-[#7D5D2E] active:scale-95 transition-all"
@@ -84,6 +110,10 @@ function Navbar() {
             >
               트레이 만들기
             </Link>
+            <div className="mt-3 flex items-center gap-3 px-3">
+              <span className="text-xs text-[#948A76]">스토어 바로가기</span>
+              <StoreLinks />
+            </div>
           </div>
         </div>
       )}
