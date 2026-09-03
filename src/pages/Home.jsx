@@ -111,18 +111,8 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/2">
               <Reveal delay={0.2} y={30}>
-                <div className="relative">
-                  <div className="rounded-[2rem] overflow-hidden bg-[#EBE9E3]/70 backdrop-blur-sm border border-[#DCD8CE] shadow-[0_30px_80px_-30px_rgba(169,124,63,0.4)]">
-                    <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
-                  </div>
-                  <div className="absolute -bottom-5 -left-3 md:-left-6 bg-white rounded-2xl shadow-xl border border-[#DCD8CE] px-5 py-4">
-                    <p className="text-xs text-[#948A76] mb-1">실시간 예상 구성</p>
-                    <p className="font-serif-kr font-bold text-[#1E1B18]">4단계 커스터마이징</p>
-                  </div>
-                  <div className="absolute -top-4 -right-2 md:-right-5 bg-[#1E1B18] text-white rounded-2xl shadow-xl px-4 py-3">
-                    <p className="text-xs text-white/60">전문가 · 일반</p>
-                    <p className="text-sm font-semibold">구분 안내</p>
-                  </div>
+                <div className="rounded-[2rem] overflow-hidden bg-[#EBE9E3]/70 backdrop-blur-sm border border-[#DCD8CE] shadow-[0_30px_80px_-30px_rgba(169,124,63,0.4)]">
+                  <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
                 </div>
               </Reveal>
             </div>
