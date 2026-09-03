@@ -4,11 +4,12 @@ import { Menu, X, Mail, Phone, MapPin } from 'lucide-react';
 import AIChatWidget from '@/components/AIChatWidget';
 import Logo from '@/components/Logo';
 const NAV = [
+  { to: '/', label: '홈' },
   { to: '/brand-story', label: '브랜드 스토리' },
   { to: '/tray-builder', label: '커스텀 트레이' },
-  { to: '/products', label: '제품' },
-  { to: '/curation', label: '추천 구성' },
-  { to: '/insights', label: '인사이트' },
+  { to: '/products', label: '헤어살롱용품' },
+  { to: '/curation', label: '추천구성' },
+  { to: '/insights', label: '미용인사이트' },
   { to: '/support', label: '고객센터' },
 ];
 // TODO: swap in the real storefront URLs once they exist.
