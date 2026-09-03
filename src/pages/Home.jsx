@@ -111,7 +111,7 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/2">
               <Reveal delay={0.2} y={30}>
-                <div className="rounded-[2rem] overflow-hidden bg-[#EBE9E3]/70 backdrop-blur-sm border border-[#DCD8CE] shadow-[0_30px_80px_-30px_rgba(169,124,63,0.4)]">
+                <div className="overflow-hidden bg-[#F2F1EE] border border-[#E4E1DA]">
                   <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
                 </div>
               </Reveal>

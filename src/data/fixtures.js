@@ -27,7 +27,7 @@ function withCategory(p) {
 
 // Real product photos supplied by the brand owner, with a hand-drawn local
 // SVG as an onError fallback in the unlikely event a file goes missing.
-export const HERO_IMAGE = asset('/images/products/hero-color-pair.jpg');
+export const HERO_IMAGE = asset('/images/products/tray-pro.jpg');
 export const HERO_IMAGE_FALLBACK = asset('/images/hero.svg');
 
 export const products = [
