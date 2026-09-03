@@ -83,13 +83,13 @@ export default function Home() {
               </Reveal>
               <Reveal delay={0.1}>
                 <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E1B18] mt-6 leading-tight">
-                  보고 · 비교하고<br />조합하는 도구
+                  쓰는 방식에 맞춰<br />고르는 헤어미용도구
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="mt-6 text-lg text-[#4F4A40] leading-relaxed max-w-xl mx-auto md:mx-0">
-                  전문가용 미용재료를 일반 소비자도 쉽게 이해하도록.
-                  소재·색상·도구함·모듈을 직접 조합해 나에게 꼭 맞는 구성을 만들어 보세요.
+                  가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
+                  작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
