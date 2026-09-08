@@ -81,7 +81,7 @@ export default function Home() {
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] lg:h-[calc(100vh-4rem)]">
           <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pr-10 py-16 lg:py-10 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
             <Reveal>
-              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl lg:text-[4rem] leading-[1.05] tracking-tight">
+              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl lg:text-[4rem] leading-[1.05] tracking-tight origin-left transition-transform duration-300 ease-out hover:scale-105">
                 쓰는 방식에 맞춰<br />고르는 헤어미용도구
               </h1>
             </Reveal>
