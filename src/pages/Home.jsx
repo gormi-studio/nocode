@@ -6,7 +6,7 @@ import {
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
+import { HERO_IMAGE, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
@@ -23,11 +23,6 @@ const SHORTCUTS = [
   { icon: Briefcase, label: '이동식 정리함', href: '/products?group=storage&category=5' },
   { icon: Package2, label: '핀·클립 정리', href: '/products?group=storage&category=6' },
 ];
-const FILMSTRIP_SLUGS = [
-  'pro-cutting-scissors', 'wide-tooth-comb', 'round-styling-brush',
-  'salon-tray-pro', 'mobile-caddy', 'clip-pin-organizer',
-];
-const FILMSTRIP = FILMSTRIP_SLUGS.map((slug) => PRODUCT_FIXTURES.find((p) => p.slug === slug)).filter(Boolean);
 const PROMOS = [
   {
     eyebrow: '런칭 기념',
@@ -74,58 +69,55 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full">
-      {/* HERO — spacious two-line headline with a photo band between the lines */}
-      <section className="w-full bg-[#F2F1EE]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-            <Reveal className="lg:col-span-4">
-              <p className="text-sm text-[#5C574C] leading-relaxed max-w-xs">
+      {/* HERO — content left, full-bleed photo right */}
+      <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -bottom-10 left-4 sm:left-6 lg:left-8 font-serif-kr font-extrabold text-[20vw] leading-none text-transparent hidden lg:block"
+          style={{ WebkitTextStroke: '1px #DCD5C8' }}
+        >
+          GORMI
+        </span>
+        <div className="relative grid grid-cols-1 lg:grid-cols-2">
+          <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 md:py-24">
+            <Reveal>
+              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
+                쓰는 방식에 맞춰<br />고르는 헤어미용도구
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-6 text-[#5C574C] leading-relaxed max-w-md">
                 가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
                 작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
               </p>
             </Reveal>
-            <Reveal delay={0.1} className="lg:col-span-8 lg:col-start-5">
-              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl md:text-7xl lg:text-[4.5vw] leading-[0.95] tracking-tight text-right">
-                쓰는 방식에<br />맞춰
-              </h1>
-            </Reveal>
-          </div>
-        </div>
-        <Reveal delay={0.15} y={20}>
-          <div className="mt-10 md:mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-0 h-56 md:h-80">
-              {FILMSTRIP.map((p) => (
-                <div key={p.id} className="overflow-hidden">
-                  <FallbackImg src={p.image} fallback={p.imageFallback} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
-          <Reveal delay={0.2}>
-            <h2 className="mt-10 md:mt-16 font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl md:text-7xl lg:text-[4.5vw] leading-[0.95] tracking-tight text-right">
-              고르는<br />헤어미용도구
-            </h2>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div className="mt-10 md:mt-16 flex items-center justify-between flex-wrap gap-4">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
-                <Sparkles className="w-4 h-4" /> 맞춤 헤어미용도구 브랜드
-              </span>
-              <div className="flex flex-col sm:flex-row gap-3">
+            <Reveal delay={0.2}>
+              <div className="relative mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
                   to="/tray-builder"
-                  className="px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                  className="w-fit px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
                 >
                   커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/curation"
-                  className="px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all flex items-center gap-2"
+                  className="w-fit px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all flex items-center gap-2"
                 >
                   추천 구성 진단 <ArrowRight className="w-4 h-4" />
                 </Link>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15} className="order-1 lg:order-2">
+            <div className="relative h-[50vh] lg:h-full min-h-[360px] rounded-bl-[3rem] overflow-hidden">
+              <FallbackImg
+                src={HERO_IMAGE}
+                fallback={HERO_IMAGE_FALLBACK}
+                alt="작업대에 정리된 헤어 스타일링 도구"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-6 left-6 w-24 h-24 rounded-full bg-[#1E1B18] text-white flex items-center justify-center text-center shadow-xl px-2">
+                <span className="font-serif-kr font-bold text-sm leading-tight">고르미<br />커스텀</span>
               </div>
             </div>
           </Reveal>

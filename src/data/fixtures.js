@@ -27,8 +27,8 @@ function withCategory(p) {
 
 // Real product photos supplied by the brand owner, with a hand-drawn local
 // SVG as an onError fallback in the unlikely event a file goes missing.
-// Hero photo supplied directly by the brand owner (salon interior render).
-export const HERO_IMAGE = asset('/images/hero-salon.jpg');
+// Hero photo supplied directly by the brand owner (styling tools on a counter).
+export const HERO_IMAGE = asset('/images/hero-tools-counter.webp');
 export const HERO_IMAGE_FALLBACK = asset('/images/hero.svg');
 
 export const products = [
