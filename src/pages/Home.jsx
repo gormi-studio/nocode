@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Palette, Layers, Sparkles, Eye, ArrowRight, Star, Quote,
+  Palette, Layers, Sparkles, Eye, ArrowRight, ArrowUpRight, Star, Quote,
   Search, CheckCircle, Package, Package2, ShoppingBag,
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
@@ -69,58 +69,52 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full">
-      {/* HERO — content left, full-bleed photo right */}
-      <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -bottom-10 left-4 sm:left-6 lg:left-8 font-serif-kr font-extrabold text-[20vw] leading-none text-transparent hidden lg:block"
-          style={{ WebkitTextStroke: '1px #DCD5C8' }}
-        >
-          GORMI
-        </span>
-        <div className="relative grid grid-cols-1 lg:grid-cols-2">
-          <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 md:py-24">
-            <Reveal>
-              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-                쓰는 방식에 맞춰<br />고르는 헤어미용도구
-              </h1>
-            </Reveal>
+      {/* HERO — full-bleed photo, headline top-left, feature list + CTA bottom */}
+      <section className="relative w-full h-[85vh] min-h-[600px] overflow-hidden">
+        <FallbackImg
+          src={HERO_IMAGE}
+          fallback={HERO_IMAGE_FALLBACK}
+          alt="작업대에 정리된 헤어 스타일링 도구"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/90 via-[#1E1B18]/25 to-[#1E1B18]/10" />
+        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 flex flex-col justify-between">
+          <Reveal>
+            <h1 className="font-serif-kr font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight max-w-2xl">
+              쓰는 방식에 맞춰<br />고르는 헤어미용도구
+            </h1>
+          </Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-10">
             <Reveal delay={0.1}>
-              <p className="mt-6 text-[#5C574C] leading-relaxed max-w-md">
-                가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
-                작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
-              </p>
+              <div className="space-y-6 max-w-xs">
+                {DIFF.map((d) => (
+                  <div key={d.title} className="flex items-start gap-3">
+                    <d.icon className="w-5 h-5 text-white/80 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-white text-sm">{d.title}</p>
+                      <p className="text-xs text-white/60 mt-0.5 leading-relaxed">{d.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
             <Reveal delay={0.2}>
-              <div className="relative mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col items-start sm:items-end gap-4">
+                <p className="text-white text-lg font-semibold leading-snug max-w-xs">
+                  가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다.
+                </p>
                 <Link
                   to="/tray-builder"
-                  className="w-fit px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                  className="inline-flex items-center gap-3 pl-5 pr-1.5 py-1.5 rounded-full bg-[#A97C3F] hover:bg-[#7D5D2E] transition-colors"
                 >
-                  커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/curation"
-                  className="w-fit px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all flex items-center gap-2"
-                >
-                  추천 구성 진단 <ArrowRight className="w-4 h-4" />
+                  <span className="text-white text-sm font-semibold whitespace-nowrap">커스텀 트레이 만들기</span>
+                  <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                    <ArrowUpRight className="w-4 h-4 text-[#A97C3F]" />
+                  </span>
                 </Link>
               </div>
             </Reveal>
           </div>
-          <Reveal delay={0.15} className="order-1 lg:order-2">
-            <div className="relative h-[50vh] lg:h-full min-h-[360px] rounded-bl-[3rem] overflow-hidden">
-              <FallbackImg
-                src={HERO_IMAGE}
-                fallback={HERO_IMAGE_FALLBACK}
-                alt="작업대에 정리된 헤어 스타일링 도구"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-6 left-6 w-24 h-24 rounded-full bg-[#1E1B18] text-white flex items-center justify-center text-center shadow-xl px-2">
-                <span className="font-serif-kr font-bold text-sm leading-tight">고르미<br />커스텀</span>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
       {/* CATEGORY SHORTCUTS */}
