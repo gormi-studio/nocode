@@ -14,8 +14,8 @@ const NAV = [
 ];
 // TODO: swap in the real storefront URLs once they exist.
 const EXTERNAL_STORES = [
-  { name: '쿠팡', href: '#', bg: '#0073E9', letter: 'C' },
-  { name: '네이버 스토어', href: '#', bg: '#03C75A', letter: 'N' },
+  { name: '쿠팡', href: '#', color: '#0073E9', letter: 'C' },
+  { name: '네이버 스토어', href: '#', color: '#03C75A', letter: 'N' },
 ];
 function StoreLinks({ className = '' }) {
   return (
@@ -28,8 +28,8 @@ function StoreLinks({ className = '' }) {
           rel="noopener noreferrer"
           title={`${s.name}에서 구매하기`}
           aria-label={`${s.name}에서 구매하기`}
-          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm hover:opacity-90 hover:scale-105 active:scale-95 transition-all flex-shrink-0"
-          style={{ backgroundColor: s.bg }}
+          className="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-bold hover:scale-105 active:scale-95 transition-all flex-shrink-0"
+          style={{ borderColor: s.color, color: s.color }}
         >
           {s.letter}
         </a>

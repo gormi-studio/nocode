@@ -124,16 +124,16 @@ export default function Home() {
         </div>
       </section>
       {/* CATEGORY SHORTCUTS */}
-      <section className="w-full py-10 bg-white border-b border-[#EDEAE2]">
+      <section className="w-full py-14 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-4 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:overflow-visible pb-2 sm:pb-0 -mx-1 px-1">
+          <div className="flex gap-10 md:gap-12 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:overflow-visible pb-2 sm:pb-0 -mx-1 px-1">
             {SHORTCUTS.map((s) => (
               <Link
                 key={s.label}
                 to={s.href}
-                className="group flex-shrink-0 w-24 sm:w-auto flex flex-col items-center gap-2.5 text-center"
+                className="group flex-shrink-0 w-24 sm:w-auto flex flex-col items-center gap-3 text-center"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#F2F1EE] group-hover:bg-[#A97C3F]/10 flex items-center justify-center transition-colors">
+                <div className="w-16 h-16 rounded-full border border-[#E4E1DA] group-hover:border-[#A97C3F] flex items-center justify-center transition-colors">
                   <s.icon className="w-6 h-6 text-[#A97C3F]" />
                 </div>
                 <span className="text-xs font-medium text-[#5C574C] group-hover:text-[#1E1B18] transition-colors">{s.label}</span>
