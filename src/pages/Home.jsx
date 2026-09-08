@@ -6,7 +6,7 @@ import {
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { HERO_IMAGE, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
+import { products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
@@ -23,6 +23,11 @@ const SHORTCUTS = [
   { icon: Briefcase, label: '이동식 정리함', href: '/products?group=storage&category=5' },
   { icon: Package2, label: '핀·클립 정리', href: '/products?group=storage&category=6' },
 ];
+const FILMSTRIP_SLUGS = [
+  'pro-cutting-scissors', 'wide-tooth-comb', 'round-styling-brush',
+  'salon-tray-pro', 'mobile-caddy', 'clip-pin-organizer',
+];
+const FILMSTRIP = FILMSTRIP_SLUGS.map((slug) => PRODUCT_FIXTURES.find((p) => p.slug === slug)).filter(Boolean);
 const PROMOS = [
   {
     eyebrow: '런칭 기념',
@@ -69,54 +74,61 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full">
-      {/* HERO — gradient-float */}
-      <section className="relative w-full overflow-hidden bg-[#F2F1EE]">
-        <div className="absolute -top-40 -right-24 w-[34rem] h-[34rem] rounded-full bg-[#A97C3F]/15 blur-3xl" />
-        <div className="absolute top-40 -left-28 w-96 h-96 rounded-full bg-[#1E1B18]/10 blur-3xl" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-16 pb-20">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 text-center md:text-left">
-              <Reveal>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
-                  <Sparkles className="w-4 h-4" /> 맞춤 헤어미용도구 브랜드
-                </span>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E1B18] mt-6 leading-tight">
-                  쓰는 방식에 맞춰<br />고르는 헤어미용도구
-                </h1>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <p className="mt-6 text-lg text-[#4F4A40] leading-relaxed max-w-xl mx-auto md:mx-0">
-                  가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
-                  작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
-                </p>
-              </Reveal>
-              <Reveal delay={0.3}>
-                <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
-                  <Link
-                    to="/tray-builder"
-                    className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
-                  >
-                    커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to="/curation"
-                    className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all text-center"
-                  >
-                    추천 구성 진단
-                  </Link>
+      {/* HERO — spacious two-line headline with a photo band between the lines */}
+      <section className="w-full bg-[#F2F1EE]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+            <Reveal className="lg:col-span-4">
+              <p className="text-sm text-[#5C574C] leading-relaxed max-w-xs">
+                가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
+                작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-8 lg:col-start-5">
+              <h1 className="font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl md:text-7xl lg:text-[4.5vw] leading-[0.95] tracking-tight text-right">
+                쓰는 방식에<br />맞춰
+              </h1>
+            </Reveal>
+          </div>
+        </div>
+        <Reveal delay={0.15} y={20}>
+          <div className="mt-10 md:mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-0 h-56 md:h-80">
+              {FILMSTRIP.map((p) => (
+                <div key={p.id} className="overflow-hidden">
+                  <FallbackImg src={p.image} fallback={p.imageFallback} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-              </Reveal>
-            </div>
-            <div className="w-full md:w-1/2">
-              <Reveal delay={0.2} y={30}>
-                <div className="overflow-hidden bg-[#F2F1EE] border border-[#E4E1DA]">
-                  <FallbackImg src={HERO_IMAGE} fallback={HERO_IMAGE_FALLBACK} alt="고르미 커스텀 트레이" className="w-full aspect-[4/3] object-cover" />
-                </div>
-              </Reveal>
+              ))}
             </div>
           </div>
+        </Reveal>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+          <Reveal delay={0.2}>
+            <h2 className="mt-10 md:mt-16 font-serif-kr font-bold text-[#1E1B18] text-5xl sm:text-6xl md:text-7xl lg:text-[4.5vw] leading-[0.95] tracking-tight text-right">
+              고르는<br />헤어미용도구
+            </h2>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-10 md:mt-16 flex items-center justify-between flex-wrap gap-4">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
+                <Sparkles className="w-4 h-4" /> 맞춤 헤어미용도구 브랜드
+              </span>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  to="/tray-builder"
+                  className="px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  커스텀 트레이 만들기 <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/curation"
+                  className="px-2 py-1 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all flex items-center gap-2"
+                >
+                  추천 구성 진단 <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
       {/* CATEGORY SHORTCUTS */}
