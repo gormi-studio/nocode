@@ -124,16 +124,16 @@ export default function Home() {
         </div>
       </section>
       {/* CATEGORY SHORTCUTS */}
-      <section className="w-full py-14 md:py-20 bg-white">
+      <section className="w-full py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-10 md:gap-12 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:overflow-visible pb-2 sm:pb-0 -mx-1 px-1">
+          <div className="flex gap-10 md:gap-14 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:overflow-visible pb-2 sm:pb-0 -mx-1 px-1">
             {SHORTCUTS.map((s) => (
               <Link
                 key={s.label}
                 to={s.href}
                 className="group flex-shrink-0 w-24 sm:w-auto flex flex-col items-center gap-3 text-center"
               >
-                <div className="w-16 h-16 rounded-full border border-[#E4E1DA] group-hover:border-[#A97C3F] flex items-center justify-center transition-colors">
+                <div className="w-16 h-16 rounded-full border border-[#E4E1DA] group-hover:border-[#A97C3F] group-hover:scale-110 flex items-center justify-center transition-all">
                   <s.icon className="w-6 h-6 text-[#A97C3F]" />
                 </div>
                 <span className="text-xs font-medium text-[#5C574C] group-hover:text-[#1E1B18] transition-colors">{s.label}</span>
@@ -143,22 +143,22 @@ export default function Home() {
         </div>
       </section>
       {/* DIFFERENTIATOR */}
-      <section className="w-full py-16 md:py-24 bg-white">
+      <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[#A97C3F] font-semibold mb-3">핵심 차별점</p>
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">
+            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">핵심 차별점</p>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight leading-[1.1]">
               직접 조합할 수 있는 커스터마이징 시스템
             </h2>
-            <p className="mt-4 text-[#4F4A40] leading-relaxed">
+            <p className="mt-5 text-[#4F4A40] leading-relaxed">
               트레이 색상·소재부터 도구함, 정리대 모듈까지 조합해 작업 흐름에 맞춘 구성을 만듭니다.
             </p>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {DIFF.map((d, i) => (
               <Reveal key={d.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl border border-[#DAD6CC] p-8 hover:border-[#A97C3F]/40 transition-colors">
-                  <div className="w-14 h-14 rounded-2xl bg-[#A97C3F]/10 flex items-center justify-center mb-5">
+                <div className="group h-full rounded-3xl border border-[#DAD6CC] p-8 hover:-translate-y-1 hover:border-[#A97C3F]/40 hover:shadow-lg transition-all">
+                  <div className="w-14 h-14 rounded-2xl bg-[#A97C3F]/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                     <d.icon className="w-7 h-7 text-[#A97C3F]" />
                   </div>
                   <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18] mb-2">{d.title}</h3>
@@ -170,20 +170,20 @@ export default function Home() {
         </div>
       </section>
       {/* PURCHASE PROCESS — numbered steps (DOMINANT dark band) */}
-      <section className="w-full py-16 md:py-24 bg-[#1E1B18] text-white overflow-hidden relative">
+      <section className="w-full py-20 md:py-28 bg-[#1E1B18] text-white overflow-hidden relative">
         <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[#A97C3F]/20 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[#D9BE93] font-semibold mb-3">구매 프로세스</p>
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold">보고 → 비교 → 조합 → 구매</h2>
-            <p className="mt-4 text-white/60 leading-relaxed">
+            <p className="text-[#D9BE93] font-bold text-sm uppercase tracking-wider mb-4">구매 프로세스</p>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">보고 → 비교 → 조합 → 구매</h2>
+            <p className="mt-5 text-white/60 leading-relaxed">
               스펙 나열이 아니라 실제 사용 맥락을 기준으로 도구를 선택하는 흐름입니다.
             </p>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {STEPS.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 p-7">
+                <div className="h-full rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 p-7 hover:-translate-y-1 hover:bg-white/10 transition-all">
                   <div className="flex items-center justify-between mb-5">
                     <span className="font-serif-kr text-4xl font-bold text-[#A97C3F]">{s.n}</span>
                     <s.icon className="w-6 h-6 text-white/40" />
@@ -197,15 +197,15 @@ export default function Home() {
         </div>
       </section>
       {/* FEATURED PRODUCTS */}
-      <section className="w-full py-16 md:py-24 bg-[#F2F1EE]">
+      <section className="w-full py-20 md:py-28 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#A97C3F] font-semibold mb-3">대표 상품</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">현장에서 자주 선택되는 구성</h2>
+              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">대표 상품</p>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight">현장에서 자주 선택되는 구성</h2>
             </Reveal>
-            <Link to="/products" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-              전체 보기 <ArrowRight className="w-4 h-4" />
+            <Link to="/products" className="group text-[#A97C3F] font-semibold flex items-center gap-1">
+              전체 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           {loading ? (
@@ -233,14 +233,14 @@ export default function Home() {
         </div>
       </section>
       {/* CURATION PREVIEW */}
-      <section className="w-full py-16 md:py-24 bg-white">
+      <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2.5rem] bg-gradient-to-br from-[#A97C3F] to-[#6E5228] text-white p-8 md:p-14 overflow-hidden relative">
             <div className="absolute -bottom-16 -right-10 w-72 h-72 rounded-full bg-white/10 blur-2xl" />
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
-                <p className="text-white/70 font-semibold mb-3">추천 구성 · 진단 퀴즈</p>
-                <h2 className="font-serif-kr text-3xl md:text-4xl font-bold leading-tight">
+                <p className="text-white/70 font-bold text-sm uppercase tracking-wider mb-4">추천 구성 · 진단 퀴즈</p>
+                <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">
                   무엇을 골라야 할지<br />고민된다면
                 </h2>
                 <p className="mt-5 text-white/80 leading-relaxed max-w-md">
@@ -267,12 +267,12 @@ export default function Home() {
         </div>
       </section>
       {/* PROMO TILES */}
-      <section className="w-full pb-16 md:pb-24 bg-white">
+      <section className="w-full pb-20 md:pb-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROMOS.map((p, i) => (
               <Reveal key={p.eyebrow} delay={i * 0.1}>
-                <Link to={p.href} className="group block relative rounded-3xl overflow-hidden aspect-[16/9]">
+                <Link to={p.href} className="group block relative rounded-3xl overflow-hidden aspect-[16/9] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                   <FallbackImg
                     src={p.image}
                     alt=""
@@ -281,8 +281,8 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/85 via-[#1E1B18]/20 to-transparent" />
                   <div className="relative h-full flex flex-col justify-end p-7">
-                    <p className="text-[#D9BE93] text-sm font-semibold mb-2">{p.eyebrow}</p>
-                    <h3 className="font-serif-kr text-xl md:text-2xl font-bold text-white whitespace-pre-line leading-snug">
+                    <p className="text-[#D9BE93] text-sm font-bold uppercase tracking-wider mb-2">{p.eyebrow}</p>
+                    <h3 className="font-serif-kr text-2xl md:text-3xl font-bold text-white whitespace-pre-line leading-snug tracking-tight">
                       {p.title}
                     </h3>
                     <span className="mt-4 inline-flex items-center gap-1 text-white/90 text-sm font-semibold">
@@ -296,21 +296,21 @@ export default function Home() {
         </div>
       </section>
       {/* REVIEWS */}
-      <section className="w-full py-16 md:py-24 bg-[#F2F1EE]">
+      <section className="w-full py-20 md:py-28 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#A97C3F] font-semibold mb-3">고객 후기</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">전문가와 일반 소비자의 이야기</h2>
+              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">고객 후기</p>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight">전문가와 일반 소비자의 이야기</h2>
             </Reveal>
-            <Link to="/reviews" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-              전체 후기 <ArrowRight className="w-4 h-4" />
+            <Link to="/reviews" className="group text-[#A97C3F] font-semibold flex items-center gap-1">
+              전체 후기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
               <Reveal key={r.id} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-white border border-[#DAD6CC] p-7 shadow-[0_20px_60px_-30px_rgba(169,124,63,0.25)]">
+                <div className="h-full rounded-3xl bg-white border border-[#DAD6CC] p-7 shadow-[0_20px_60px_-30px_rgba(169,124,63,0.25)] hover:-translate-y-1 hover:shadow-[0_24px_70px_-30px_rgba(169,124,63,0.35)] transition-all">
                   <Quote className="w-8 h-8 text-[#A97C3F]/30 mb-4" />
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: 5 }).map((_, k) => (
@@ -340,15 +340,15 @@ export default function Home() {
         </div>
       </section>
       {/* INSIGHTS */}
-      <section className="w-full py-16 md:py-24 bg-white">
+      <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
-              <p className="text-[#A97C3F] font-semibold mb-3">미용 인사이트</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">도구를 고르는 관점</h2>
+              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">미용 인사이트</p>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight">도구를 고르는 관점</h2>
             </Reveal>
-            <Link to="/insights" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-              전체 보기 <ArrowRight className="w-4 h-4" />
+            <Link to="/insights" className="group text-[#A97C3F] font-semibold flex items-center gap-1">
+              전체 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -378,17 +378,17 @@ export default function Home() {
         </div>
       </section>
       {/* CTA */}
-      <section className="w-full py-16 md:py-24 bg-[#EBE9E3]">
+      <section className="w-full py-20 md:py-28 bg-[#EBE9E3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
-            <Sparkles className="w-10 h-10 text-[#A97C3F] mx-auto mb-5" />
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">
+            <Sparkles className="w-10 h-10 text-[#A97C3F] mx-auto mb-6" />
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight leading-[1.1]">
               나에게 맞는 구성을 지금 만들어 보세요
             </h2>
             <p className="mt-5 text-[#4F4A40] leading-relaxed">
               소재부터 모듈까지 직접 조합하고, 궁금한 점은 AI 어시스턴트와 고객센터가 함께 안내합니다.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link to="/tray-builder" className="w-full sm:w-auto px-7 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all">
                 트레이 만들기
               </Link>
