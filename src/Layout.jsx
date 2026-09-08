@@ -8,33 +8,20 @@ const NAV = [
   { to: '/brand-story', label: '브랜드 스토리' },
   { to: '/tray-builder', label: '커스텀 트레이' },
   { to: '/products', label: '헤어살롱용품' },
-  { to: '/curation', label: '추천구성' },
   { to: '/insights', label: '미용인사이트' },
   { to: '/support', label: '고객센터' },
 ];
-// TODO: swap in the real storefront URLs once they exist.
-const EXTERNAL_STORES = [
-  { name: '쿠팡', href: '#', color: '#0073E9', letter: 'C' },
-  { name: '네이버 스토어', href: '#', color: '#03C75A', letter: 'N' },
-];
+// TODO: swap in the real storefront URL once it exists.
 function StoreLinks({ className = '' }) {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      {EXTERNAL_STORES.map((s) => (
-        <a
-          key={s.name}
-          href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={`${s.name}에서 구매하기`}
-          aria-label={`${s.name}에서 구매하기`}
-          className="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-bold hover:scale-105 active:scale-95 transition-all flex-shrink-0"
-          style={{ borderColor: s.color, color: s.color }}
-        >
-          {s.letter}
-        </a>
-      ))}
-    </div>
+    <a
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`text-sm font-semibold text-[#A97C3F] hover:text-[#7D5D2E] transition-colors ${className}`}
+    >
+      스토어 연결
+    </a>
   );
 }
 function Navbar() {
@@ -75,14 +62,8 @@ function Navbar() {
               );
             })}
           </nav>
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center">
             <StoreLinks />
-            <Link
-              to="/tray-builder"
-              className="px-5 py-2.5 text-[#A97C3F] text-sm font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all"
-            >
-              트레이 만들기
-            </Link>
           </div>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -105,14 +86,7 @@ function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/tray-builder"
-              className="mt-2 px-4 py-3 text-[#A97C3F] text-center font-semibold hover:text-[#7D5D2E] transition-all"
-            >
-              트레이 만들기
-            </Link>
-            <div className="mt-3 flex items-center gap-3 px-3">
-              <span className="text-xs text-[#948A76]">스토어 바로가기</span>
+            <div className="mt-3 px-3">
               <StoreLinks />
             </div>
           </div>
