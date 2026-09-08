@@ -42,11 +42,11 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
-          <Link to="/" className="flex items-center">
+        <div className="flex items-center h-16 md:h-18">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <Logo />
           </Link>
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex flex-1 items-center justify-center gap-1 pl-10">
             {NAV.map((item) => {
               const active = location.pathname === item.to || location.pathname.startsWith(item.to + '/');
               return (
@@ -62,9 +62,10 @@ function Navbar() {
               );
             })}
           </nav>
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <StoreLinks />
           </div>
+          <div className="flex-1 lg:hidden" />
           <button
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-[#433E36] hover:bg-[#A97C3F]/5"

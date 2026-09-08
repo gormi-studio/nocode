@@ -78,7 +78,7 @@ export default function Home() {
         >
           GORMI
         </span>
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 lg:h-[calc(100vh-4rem)]">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 lg:h-[calc(100vh-4rem)]">
           <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-10">
             <Reveal>
               <h1 className="font-serif-kr font-bold text-[#1E1B18] text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
