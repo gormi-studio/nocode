@@ -146,8 +146,8 @@ export default function Home() {
       <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">핵심 차별점</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-[#1E1B18] tracking-tight leading-[1.1]">
+            <p className="text-[#A97C3F] font-semibold mb-3">핵심 차별점</p>
+            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">
               직접 조합할 수 있는 커스터마이징 시스템
             </h2>
             <p className="mt-5 text-[#4F4A40] leading-relaxed">
