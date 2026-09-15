@@ -15,33 +15,32 @@ const VALUES = [
 export default function BrandStory() {
   return (
     <div className="w-full">
-      <section className="w-full bg-[#1E1B18] text-white overflow-hidden relative">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#A97C3F]/25 blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 md:pt-20 md:pb-28">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+      <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2">
+          <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-24">
             <Reveal className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#D9BE93] text-sm font-semibold">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
                 <Sparkles className="w-4 h-4" /> 브랜드 스토리
               </span>
-              <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight">
+              <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-[#1E1B18]">
                 도구를 고르는 일이<br />어렵지 않도록
               </h1>
-              <p className="mt-6 text-lg text-white/70 leading-relaxed max-w-2xl">
+              <p className="mt-6 text-lg text-[#5C574C] leading-relaxed max-w-2xl">
                 고르미는 헤어디자이너와 전문가용 제품을 찾는 일반 소비자 모두를 위한 맞춤 헤어미용도구 브랜드입니다.
                 보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
               </p>
             </Reveal>
-            <Reveal delay={0.15} className="w-full lg:w-[420px] flex-shrink-0">
-              <div className="rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
-                <img
-                  src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&w=1000"
-                  alt="고급스러운 헤어 살롱 인테리어"
-                  onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Reveal>
           </div>
+          <Reveal delay={0.15} className="order-1 lg:order-2">
+            <div className="relative h-[45vh] lg:h-full lg:min-h-[600px] overflow-hidden">
+              <img
+                src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="고급스러운 헤어 살롱 인테리어"
+                onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
       {/* BRAND FILM BANNER */}
