@@ -33,6 +33,7 @@ export const HERO_IMAGE_FALLBACK = asset('/images/hero.svg');
 // Brand story hero photo, cropped from the brand owner's reference to remove
 // the storefront signage in the background (had an incorrect "GOREMI" spelling).
 export const BRAND_STORY_IMAGE = asset('/images/brandstory-salon-counter.webp');
+export const BRAND_STORY_VIDEO = asset('/videos/brand-story-loop.mp4');
 
 export const products = [
   {
