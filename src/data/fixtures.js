@@ -30,6 +30,9 @@ function withCategory(p) {
 // Hero photo supplied directly by the brand owner (styling tools on a counter).
 export const HERO_IMAGE = asset('/images/hero-tools-counter.webp');
 export const HERO_IMAGE_FALLBACK = asset('/images/hero.svg');
+// Brand story hero photo, cropped from the brand owner's reference to remove
+// the storefront signage in the background (had an incorrect "GOREMI" spelling).
+export const BRAND_STORY_IMAGE = asset('/images/brandstory-salon-counter.webp');
 
 export const products = [
   {

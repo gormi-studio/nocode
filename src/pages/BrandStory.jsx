@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Sparkles, Eye, ScrollText, Heart, ArrowRight, Palette, Play } from 'lucide-react';
+import { BRAND_STORY_IMAGE } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 const TIMELINE = [
   { year: '관찰', title: '현장에서 시작', desc: '미용사 인터뷰와 현장 관찰을 통해 도구 정리와 선택의 불편을 확인했습니다.' },
@@ -34,8 +35,8 @@ export default function BrandStory() {
           <Reveal delay={0.15} className="order-1 lg:order-2">
             <div className="relative h-[45vh] lg:h-full lg:min-h-[600px] overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="고급스러운 헤어 살롱 인테리어"
+                src={BRAND_STORY_IMAGE}
+                alt="고급스러운 헤어 살롱 카운터에 정리된 헤어 스타일링 도구"
                 onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                 className="w-full h-full object-cover"
               />
