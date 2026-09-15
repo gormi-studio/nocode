@@ -6,7 +6,7 @@ import {
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { HERO_IMAGE, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
+import { HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
@@ -37,6 +37,10 @@ const PROMOS = [
     href: '/insights',
   },
 ];
+const HERO_IMAGES = [
+  { src: HERO_IMAGE, alt: '작업대에 정리된 헤어 스타일링 도구' },
+  { src: HERO_IMAGE_2, alt: '살롱 카운터에 정리된 헤어 스타일링 도구' },
+];
 const STEPS = [
   { n: '01', icon: Eye, title: '보고', desc: '제품마다 추천 상황과 예외 상황을 실제 사용 맥락으로 살펴봅니다.' },
   { n: '02', icon: Search, title: '비교하고', desc: '전문가용·입문자용 구분과 용도별 필터로 나에게 맞는 도구를 비교합니다.' },
@@ -48,6 +52,13 @@ export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [insights, setInsights] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [heroIdx, setHeroIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIdx((i) => (i + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
   useEffect(() => {
     (async () => {
       setLoading(true);
@@ -71,13 +82,19 @@ export default function Home() {
     <div className="w-full">
       {/* HERO — content left, full-bleed photo right */}
       <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -bottom-10 left-4 sm:left-6 lg:left-8 font-serif-kr font-extrabold text-[20vw] leading-none text-transparent hidden lg:block"
-          style={{ WebkitTextStroke: '1px #DCD5C8' }}
-        >
-          GORMI
-        </span>
+        <div aria-hidden="true" className="pointer-events-none select-none absolute -bottom-10 left-0 w-full overflow-hidden hidden lg:block">
+          <div className="flex w-max animate-marquee">
+            {[0, 1].map((i) => (
+              <span
+                key={i}
+                className="font-serif-kr font-extrabold text-[20vw] leading-none text-transparent pr-8 whitespace-nowrap"
+                style={{ WebkitTextStroke: '1px #DCD5C8' }}
+              >
+                GORMI
+              </span>
+            ))}
+          </div>
+        </div>
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] lg:h-[calc(100vh-4rem)]">
           <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pr-10 py-16 lg:py-10 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
             <Reveal>
@@ -110,12 +127,17 @@ export default function Home() {
           </div>
           <Reveal delay={0.15} className="order-1 lg:order-2">
             <div className="relative h-[45vh] lg:h-full rounded-bl-[3rem] overflow-hidden">
-              <FallbackImg
-                src={HERO_IMAGE}
-                fallback={HERO_IMAGE_FALLBACK}
-                alt="작업대에 정리된 헤어 스타일링 도구"
-                className="w-full h-full object-cover"
-              />
+              {HERO_IMAGES.map((img, i) => (
+                <FallbackImg
+                  key={img.src}
+                  src={img.src}
+                  fallback={HERO_IMAGE_FALLBACK}
+                  alt={img.alt}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    i === heroIdx ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              ))}
               <div className="absolute bottom-6 left-6 w-24 h-24 rounded-full bg-[#1E1B18] text-white flex items-center justify-center text-center shadow-xl px-2">
                 <span className="font-serif-kr font-bold text-sm leading-tight">고르미<br />커스텀</span>
               </div>
