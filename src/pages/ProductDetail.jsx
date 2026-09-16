@@ -30,13 +30,13 @@ export default function ProductDetail() {
   }, [slug]);
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-12 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 animate-pulse">
-          <div className="aspect-square bg-[#E6E3DC] rounded-3xl" />
+          <div className="aspect-square bg-[#F4F4F4] rounded-[20px]" />
           <div className="space-y-4">
-            <div className="h-4 bg-[#E6E3DC] rounded w-1/4" />
-            <div className="h-8 bg-[#E6E3DC] rounded w-2/3" />
-            <div className="h-24 bg-[#E6E3DC] rounded" />
+            <div className="h-4 bg-[#F4F4F4] rounded w-1/4" />
+            <div className="h-8 bg-[#F4F4F4] rounded w-2/3" />
+            <div className="h-24 bg-[#F4F4F4] rounded" />
           </div>
         </div>
       </div>
@@ -44,9 +44,9 @@ export default function ProductDetail() {
   }
   if (!product) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-24 text-center">
-        <h2 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">제품을 찾을 수 없습니다</h2>
-        <Link to="/products" className="inline-block mt-6 px-6 py-3 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 transition-all">
+      <div className="max-w-3xl mx-auto px-5 py-24 text-center">
+        <h2 className="font-serif-kr text-2xl font-bold text-black">제품을 찾을 수 없습니다</h2>
+        <Link to="/products" className="inline-flex items-center justify-center mt-6 h-11 px-6 rounded-full bg-black text-white font-semibold hover:bg-[#333333] transition-colors">
           제품 목록으로
         </Link>
       </div>
@@ -54,46 +54,46 @@ export default function ProductDetail() {
   }
   const isPro = product.level === 'professional';
   return (
-    <div className="w-full bg-[#F2F1EE]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <Link to="/products" className="inline-flex items-center gap-2 text-[#5C574C] hover:text-[#A97C3F] mb-8 text-sm font-medium">
-          <ArrowLeft className="w-4 h-4" /> 제품 목록
+    <div className="w-full bg-white">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-12 py-8 md:py-12">
+        <Link to="/products" className="inline-flex items-center gap-2 text-[#575757] hover:text-black mb-8 text-sm font-medium">
+          <ArrowLeft className="w-4 h-4" strokeWidth={1.75} /> 제품 목록
         </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
           <Reveal>
-            <div className="rounded-3xl overflow-hidden bg-[#E4E1DA] border border-[#DCD8CE] aspect-square flex items-center justify-center">
+            <div className="rounded-[20px] overflow-hidden bg-[#F4F4F4] aspect-square flex items-center justify-center">
               {product.image ? (
                 <FallbackImg src={product.image} fallback={product.imageFallback} alt={product.name} className="w-full h-full object-cover" />
               ) : (
-                <div className="flex flex-col items-center gap-3 text-[#B3A489]">
-                  <Scissors className="w-16 h-16" />
-                  <span className="font-medium text-[#948A76]">고르미</span>
+                <div className="flex flex-col items-center gap-3 text-[#767676]">
+                  <Scissors className="w-16 h-16" strokeWidth={1.75} />
+                  <span className="font-medium text-[#767676]">고르미</span>
                 </div>
               )}
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="flex items-center gap-2 mb-4">
-              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${isPro ? 'bg-[#A97C3F]/12 text-[#A97C3F]' : 'bg-[#6E6155]/12 text-[#6E6155]'}`}>
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${isPro ? 'bg-black text-white' : 'bg-[#F4F4F4] text-[#575757]'}`}>
                 {isPro ? '전문가용' : '입문자용'}
               </span>
-              {product.category?.title && <span className="text-sm text-[#948A76]">{product.category.title}</span>}
+              {product.category?.title && <span className="text-sm text-[#767676]">{product.category.title}</span>}
             </div>
-            <h1 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">{product.name}</h1>
-            <p className="mt-5 text-lg text-[#433E36] leading-relaxed">{product.contextCopy}</p>
-            <p className="mt-6 text-2xl font-bold text-[#A97C3F]">{Number(product.price || 0).toLocaleString('ko-KR')}원</p>
+            <h1 className="font-serif-kr text-3xl md:text-4xl font-bold text-black tracking-tight leading-[1.2]">{product.name}</h1>
+            <p className="mt-5 text-lg text-[#575757] leading-[1.55]">{product.contextCopy}</p>
+            <p className="mt-6 text-2xl font-bold text-black">{Number(product.price || 0).toLocaleString('ko-KR')}원</p>
             {Array.isArray(product.tags) && product.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-5">
                 {product.tags.map((t) => (
-                  <span key={t} className="px-3 py-1 rounded-full bg-[#EBE9E3] border border-[#DCD8CE] text-sm text-[#5C574C]">#{t}</span>
+                  <span key={t} className="px-3 py-1 rounded-full bg-[#F4F4F4] text-sm text-[#575757]">#{t}</span>
                 ))}
               </div>
             )}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/support" className="flex-1 px-6 py-3.5 text-[#A97C3F] text-center font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all">
+              <Link to="/support" className="flex-1 inline-flex items-center justify-center h-12 px-6 rounded-full bg-black text-white font-semibold hover:bg-[#333333] transition-colors">
                 제품 문의하기
               </Link>
-              <Link to="/tray-builder" className="flex-1 px-6 py-3.5 text-[#1E1B18] text-center font-semibold hover:text-[#A97C3F] hover:scale-105 transition-all">
+              <Link to="/tray-builder" className="flex-1 inline-flex items-center justify-center h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors">
                 커스텀 트레이로 확장
               </Link>
             </div>
@@ -102,30 +102,30 @@ export default function ProductDetail() {
         {/* recommend / except */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14">
           <Reveal>
-            <div className="rounded-3xl bg-white border border-[#DAD6CC] p-7 h-full">
+            <div className="rounded-[20px] bg-[#F7F7F7] p-7 h-full">
               <div className="flex items-center gap-2 mb-4">
-                <ThumbsUp className="w-5 h-5 text-[#A97C3F]" />
-                <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18]">추천 상황</h3>
+                <ThumbsUp className="w-5 h-5 text-black" strokeWidth={1.75} />
+                <h3 className="font-serif-kr text-xl font-bold text-black leading-[1.3]">추천 상황</h3>
               </div>
               <ul className="space-y-3">
                 {(product.recommendSituations || []).map((s, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-[#433E36] leading-relaxed">
-                    <Check className="w-5 h-5 text-[#A97C3F] mt-0.5 flex-shrink-0" /> {s}
+                  <li key={i} className="flex items-start gap-2.5 text-[#575757] leading-[1.6]">
+                    <Check className="w-5 h-5 text-black mt-0.5 flex-shrink-0" strokeWidth={1.75} /> {s}
                   </li>
                 ))}
               </ul>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-3xl bg-[#EBE9E3]/70 border border-[#DCD8CE] p-7 h-full">
+            <div className="rounded-[20px] bg-[#F7F7F7] p-7 h-full">
               <div className="flex items-center gap-2 mb-4">
-                <Ban className="w-5 h-5 text-[#6E6155]" />
-                <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18]">예외·비추천 상황</h3>
+                <Ban className="w-5 h-5 text-black" strokeWidth={1.75} />
+                <h3 className="font-serif-kr text-xl font-bold text-black leading-[1.3]">예외·비추천 상황</h3>
               </div>
               <ul className="space-y-3">
                 {(product.exceptSituations || []).map((s, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-[#433E36] leading-relaxed">
-                    <AlertCircle className="w-5 h-5 text-[#6E6155] mt-0.5 flex-shrink-0" /> {s}
+                  <li key={i} className="flex items-start gap-2.5 text-[#575757] leading-[1.6]">
+                    <AlertCircle className="w-5 h-5 text-black mt-0.5 flex-shrink-0" strokeWidth={1.75} /> {s}
                   </li>
                 ))}
               </ul>
@@ -136,9 +136,9 @@ export default function ProductDetail() {
         {related.length > 0 && (
           <div className="mt-16">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="font-serif-kr text-2xl font-bold text-[#1E1B18]">함께 보면 좋은 제품</h3>
-              <Link to="/products" className="text-[#A97C3F] font-semibold flex items-center gap-1 hover:gap-2 transition-all text-sm">
-                더 보기 <ArrowRight className="w-4 h-4" />
+              <h3 className="font-serif-kr text-2xl font-bold text-black leading-[1.2]">함께 보면 좋은 제품</h3>
+              <Link to="/products" className="group text-black font-semibold flex items-center gap-1 text-sm">
+                더 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

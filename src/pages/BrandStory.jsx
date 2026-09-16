@@ -21,18 +21,17 @@ export default function BrandStory() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   return (
     <div className="w-full">
-      <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
+      <section className="relative w-full bg-white overflow-hidden">
         <div className="relative grid grid-cols-1 lg:grid-cols-2">
-          <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-24">
+          <div className="order-2 lg:order-1 flex flex-col justify-center px-5 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-24">
             <Reveal className="max-w-2xl">
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
-                브랜드 스토리
-              </span>
-              <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-[#1E1B18]">
+              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">브랜드 스토리</p>
+              <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-2 leading-[1.2] tracking-tight text-black">
                 도구를 고르는 일이<br />어렵지 않도록
               </h1>
-              <p className="mt-6 text-lg text-[#5C574C] leading-relaxed max-w-2xl">
-                고르미는 헤어디자이너와 전문가용 제품을 찾는 일반 소비자 모두를 위한 맞춤 헤어미용도구 브랜드입니다.
+              <p className="mt-6 text-lg text-[#575757] leading-[1.55] max-w-2xl">
+                고르미는 헤어디자이너와 전문가용 제품을 찾는<br />
+                일반 소비자 모두를 위한 맞춤 헤어미용도구 브랜드입니다.<br />
                 보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
               </p>
             </Reveal>
@@ -63,22 +62,22 @@ export default function BrandStory() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-[#1E1B18]/45 group-hover:bg-[#1E1B18]/55 transition-colors" />
+        <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-colors" />
         <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
           <p className="text-white font-serif-kr text-lg md:text-2xl font-bold">고르미의 이야기 더 보기</p>
         </div>
       </button>
       <Dialog open={showVideoModal} onOpenChange={setShowVideoModal}>
-        <DialogContent className="max-w-md bg-[#F2F1EE] border-[#DAD6CC] rounded-3xl">
+        <DialogContent className="max-w-md bg-white border-0 rounded-[24px]">
           <DialogHeader>
-            <DialogTitle className="font-serif-kr text-[#1E1B18]">유튜브로 이동합니다</DialogTitle>
-            <DialogDescription className="text-[#5C574C]">
+            <DialogTitle className="font-serif-kr text-black">유튜브로 이동합니다</DialogTitle>
+            <DialogDescription className="text-[#575757]">
               '고르미의 이야기 더 보기'를 누르면 고르미 유튜브 채널로 이동합니다.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <DialogClose asChild>
-              <button type="button" className="px-4 py-2 text-sm text-[#5C574C] hover:text-[#1E1B18] transition-colors">
+              <button type="button" className="px-4 py-2 text-sm text-[#575757] hover:text-black transition-colors">
                 닫기
               </button>
             </DialogClose>
@@ -87,46 +86,46 @@ export default function BrandStory() {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-[#A97C3F] text-white text-sm font-semibold text-center hover:bg-[#96692F] transition-colors"
+              className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-black text-white text-sm font-semibold hover:bg-[#333333] transition-colors"
             >
               유튜브로 이동
             </a>
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <section id="story" className="w-full py-16 md:py-24 bg-[#F2F1EE]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="story" className="w-full py-20 md:py-28 bg-white">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <Reveal>
-              <p className="text-[#A97C3F] font-semibold mb-3">창업 배경</p>
-              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18] leading-tight">
+              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">창업 배경</p>
+              <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-black tracking-tight leading-[1.2]">
                 전문가의 도구를<br />누구나 이해하도록
               </h2>
-              <p className="mt-6 text-[#4F4A40] leading-relaxed">
+              <p className="mt-6 text-[#575757] leading-[1.6]">
                 전문가용 미용재료는 종류가 많고 차이를 파악하기 어렵습니다. 고르미는 각 제품에 사용 대상과
                 추천·예외 상황을 함께 표기해, 처음 방문한 소비자도 자신의 상황에 맞는 도구를 고를 수 있도록 구성했습니다.
               </p>
-              <p className="mt-4 text-[#4F4A40] leading-relaxed">
+              <p className="mt-4 text-[#575757] leading-[1.6]">
                 또한 트레이 색상·소재부터 도구함, 정리대 모듈까지 조합할 수 있는 커스터마이징 시스템으로,
                 고정된 완제품 대신 작업 흐름에 맞춘 구성을 직접 만들 수 있게 했습니다.
               </p>
               <Link
                 to="/tray-builder"
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 text-[#A97C3F] font-semibold hover:text-[#7D5D2E] hover:scale-105 active:scale-95 transition-all"
+                className="group inline-flex items-center gap-2 mt-8 text-black font-semibold hover:text-[#A97C3F] transition-colors"
               >
-                커스텀 트레이 둘러보기 <ArrowRight className="w-4 h-4" />
+                커스텀 트레이 둘러보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Reveal>
             <Reveal delay={0.15}>
               <div className="space-y-4">
                 {TIMELINE.map((t, i) => (
-                  <div key={i} className="flex gap-5 rounded-2xl bg-white border border-[#DAD6CC] p-6">
+                  <div key={i} className="flex gap-5 rounded-[20px] bg-[#F7F7F7] p-6">
                     <div className="flex-shrink-0 w-16 text-center">
                       <span className="font-serif-kr text-[#A97C3F] font-bold">{t.year}</span>
                     </div>
                     <div>
-                      <h3 className="font-serif-kr font-bold text-[#1E1B18] mb-1">{t.title}</h3>
-                      <p className="text-sm text-[#5C574C] leading-relaxed">{t.desc}</p>
+                      <h3 className="font-serif-kr font-bold text-black mb-1 leading-[1.3]">{t.title}</h3>
+                      <p className="text-sm text-[#575757] leading-[1.5]">{t.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -135,21 +134,21 @@ export default function BrandStory() {
           </div>
         </div>
       </section>
-      <section className="w-full py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal className="max-w-2xl mb-12">
-            <p className="text-[#A97C3F] font-semibold mb-3">핵심차별점</p>
-            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">고르미가 지키는 것</h2>
+            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">핵심차별점</p>
+            <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-black tracking-tight leading-[1.2]">고르미가 지키는 것</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.1}>
-                <div className="h-full rounded-3xl bg-[#EBE9E3]/70 border border-[#DCD8CE] p-8">
-                  <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
-                    <v.icon className="w-7 h-7 text-[#A97C3F]" />
+                <div className="h-full rounded-[20px] bg-white p-8 hover:-translate-y-0.5 transition-transform">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] flex items-center justify-center mb-5">
+                    <v.icon className="w-7 h-7 text-black" strokeWidth={1.75} />
                   </div>
-                  <h3 className="font-serif-kr text-xl font-bold text-[#1E1B18] mb-2">{v.title}</h3>
-                  <p className="text-[#5C574C] leading-relaxed">{v.desc}</p>
+                  <h3 className="font-serif-kr text-xl font-bold text-black mb-2 leading-[1.3]">{v.title}</h3>
+                  <p className="text-[#575757] leading-[1.6]">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
