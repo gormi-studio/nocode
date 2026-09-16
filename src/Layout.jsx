@@ -101,9 +101,9 @@ function Footer() {
     <footer className="w-full bg-[#1E1B18] text-[#DAD6CC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 md:flex md:flex-col">
             <Logo variant="inverted" className="mb-4" />
-            <p className="text-sm text-white/60 leading-relaxed max-w-md">
+            <p className="mt-auto text-sm text-white/60 leading-relaxed max-w-lg">
               헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
               보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
             </p>
