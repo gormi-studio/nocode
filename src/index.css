@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* COLORS — Samsung-inspired system; accent is Gormi's own brass, not Samsung blue */
+  --color-black: #000000;
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #575757;
+  --color-text-tertiary: #767676;
+  --color-white: #FFFFFF;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F7F7;
+  --color-bg-tertiary: #F4F4F4;
+  --color-border: #D9D9D9;
+  --color-accent: #A97C3F;
+
+  /* SPACING — 8px system */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --space-40: 160px;
+
+  /* LAYOUT */
+  --container-wide: 1440px;
+  --container-main: 1280px;
+  --container-text: 720px;
+
+  /* RADIUS */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* TRANSITION */
+  --transition-fast: 200ms ease;
+  --transition-normal: 400ms ease;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
