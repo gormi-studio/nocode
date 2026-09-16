@@ -21,30 +21,27 @@ export default function BrandStory() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   return (
     <div className="w-full">
-      <section className="relative w-full bg-white overflow-hidden">
-        <div className="relative grid grid-cols-1 lg:grid-cols-2">
-          <div className="order-2 lg:order-1 flex flex-col justify-center px-5 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-24">
-            <Reveal className="max-w-2xl">
-              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">브랜드 스토리</p>
-              <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-2 leading-[1.2] tracking-tight text-black">
-                도구를 고르는 일이<br />어렵지 않도록
-              </h1>
-              <p className="mt-6 text-lg text-[#575757] leading-[1.55] max-w-2xl">
-                고르미는 헤어디자이너와 전문가용 제품을 찾는<br />
-                일반 소비자 모두를 위한 맞춤 헤어미용도구 브랜드입니다.<br />
-                보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
-              </p>
-            </Reveal>
-          </div>
-          <Reveal delay={0.15} className="order-1 lg:order-2">
-            <div className="relative h-[45vh] lg:h-full lg:min-h-[600px] overflow-hidden">
-              <img
-                src={BRAND_STORY_IMAGE}
-                alt="고급스러운 헤어 살롱 카운터에 정리된 헤어 스타일링 도구"
-                onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
-                className="w-full h-full object-cover"
-              />
-            </div>
+      <section className="relative w-full h-[480px] sm:h-[560px] lg:h-[680px] overflow-hidden">
+        <img
+          src={BRAND_STORY_IMAGE}
+          alt="고급스러운 헤어 살롱 카운터에 정리된 헤어 스타일링 도구"
+          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/10" />
+        <div className="relative h-full max-w-[1280px] mx-auto px-5 md:px-12 flex flex-col justify-center">
+          <Reveal className="max-w-lg">
+            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">브랜드 스토리</p>
+            <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight text-black">
+              도구를 고르는 일이<br />어렵지 않도록
+            </h1>
+            <p className="mt-6 text-lg text-[#575757] leading-[1.55] max-w-md">
+              고르미는 헤어디자이너와 전문가용 제품을 찾는<br />
+              일반 소비자 모두를 위한<br />
+              맞춤 헤어미용도구 브랜드입니다.<br />
+              보고 · 비교하고 · 조합하는<br />
+              커스터마이징 경험을 제안합니다.
+            </p>
           </Reveal>
         </div>
       </section>
