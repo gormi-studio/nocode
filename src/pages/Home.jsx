@@ -25,8 +25,8 @@ const SHORTCUTS = [
 ];
 const PROMOS = [
   {
-    eyebrow: '런칭 기념',
-    title: '프로 커팅가위 세트\n한정 할인',
+    eyebrow: '신제품 출시',
+    title: '하이브리드 이동 트레이\n지금 만나보세요',
     image: PRODUCT_FIXTURES.find((p) => p.slug === 'pro-cutting-scissors')?.image,
     href: '/products/pro-cutting-scissors',
   },
