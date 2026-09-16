@@ -98,17 +98,18 @@ function Navbar() {
 }
 function Footer() {
   return (
-    <footer className="w-full bg-[#1E1B18] text-[#DAD6CC]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2 md:flex md:flex-col">
-            <Logo variant="inverted" className="mb-4" />
-            <p className="mt-auto text-sm text-white/60 leading-relaxed max-w-lg">
-              헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
-              보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
-            </p>
+    <footer className="w-full bg-[#1E1B18] text-[#DAD6CC] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          <div>
+            <Logo variant="inverted" className="mb-5" />
+            <ul className="space-y-2.5 text-sm text-white/60">
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</li>
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</li>
+            </ul>
           </div>
-          <div className="hidden md:block">
+          <div>
             <h4 className="font-serif-kr font-semibold text-white mb-4">둘러보기</h4>
             <ul className="space-y-2.5 text-sm text-white/60">
               <li><Link to="/tray-builder" className="hover:text-[#D9BE93]">커스텀 트레이</Link></li>
@@ -118,29 +119,37 @@ function Footer() {
               <li><Link to="/reviews" className="hover:text-[#D9BE93]">고객 후기</Link></li>
             </ul>
           </div>
-          <div>
-            <h4 className="font-serif-kr font-semibold text-white mb-4">고객센터</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</li>
-              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</li>
-            </ul>
-            <Link
-              to="/support"
-              className="inline-block mt-4 px-4 py-2 rounded-lg border border-white/20 text-sm text-white/80 hover:bg-white/5"
-            >
-              1:1 · B2B 문의
-            </Link>
-          </div>
         </div>
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">© 2026 고르미 (GORMI). All rights reserved.</p>
-          <div className="flex items-center gap-4 text-xs text-white/40">
+        <div className="relative mt-12">
+          <div className="border-t border-white/15" />
+          <Link
+            to="/support"
+            className="absolute right-0 top-1/2 -translate-y-1/2 px-6 py-3 rounded-full bg-[#A97C3F] text-white text-sm font-semibold shadow-lg hover:bg-[#96692F] transition-colors"
+          >
+            1:1 · B2B 문의
+          </Link>
+        </div>
+        <div className="mt-10 pb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <p className="text-xs text-white/40 max-w-md leading-relaxed">
+            헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
+            보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
+          </p>
+          <div className="flex items-center gap-4 text-xs text-white/40 flex-shrink-0">
             <span>이용약관</span>
             <span>개인정보처리방침</span>
-            <Link to="/admin/login" className="text-white/40 hover:text-white/70">관리자</Link>
+            <Link to="/admin/login" className="hover:text-white/70">관리자</Link>
           </div>
         </div>
+      </div>
+      <p
+        aria-hidden="true"
+        className="select-none pointer-events-none font-serif-kr font-extrabold text-transparent text-[18vw] leading-none pl-4 sm:pl-6 lg:pl-8 whitespace-nowrap"
+        style={{ WebkitTextStroke: '1px rgba(255,255,255,0.12)' }}
+      >
+        GORMI
+      </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+        <p className="text-xs text-white/30">© 2026 고르미 (GORMI). All rights reserved.</p>
       </div>
     </footer>
   );
