@@ -11,7 +11,7 @@ import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
 const DIFF = [
-  { icon: Palette, title: '소재·색상 선택', desc: '천연가죽·합성가죽과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
+  { icon: Palette, title: '소재·색상 선택', desc: '옵션상품과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
   { icon: Package, title: '도구함 추가', desc: '필요한 만큼 도구함을 더해 사용하는 도구 수에 맞게 확장합니다.' },
   { icon: Layers, title: '모듈 조합', desc: '롤빗·가위 정리대 등 모듈을 조합해 나만의 정리 구성을 만듭니다.' },
 ];
