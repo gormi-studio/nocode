@@ -13,9 +13,9 @@ const TIMELINE = [
   { year: '연결', title: '일반인도 전문가의 도구를', desc: '전문가가 쓰는 품질 좋은 도구를 일반 소비자도 쉽게 발견하고 사용할 수 있도록 안내합니다.' },
 ];
 const VALUES = [
-  { icon: Eye, title: '현장 기반', desc: '미용사 인터뷰·현장 사실 기반 데이터를 우선 반영합니다.' },
-  { icon: ScrollText, title: '상황 중심', desc: '스펙 나열이 아닌 실제 사용 맥락으로 제품을 설명합니다.' },
-  { icon: Heart, title: '담백한 표현', desc: '과장·효과 보장·근거 없는 비교 표현을 지양하고 사실에 기반합니다.' },
+  { icon: Eye, title: '현장을 봅니다', desc: '실제 미용인의 작업환경과 사용방식을 기준으로 제품을 살펴봅니다.' },
+  { icon: ScrollText, title: '쓰임을 봅니다', desc: '기능과 디자인이 실제 작업에 도움이 되는지 먼저 확인합니다.' },
+  { icon: Heart, title: '있는 그대로 설명합니다', desc: '필요한 정보는 쉽게, 장점은 과장하지 않고 전달합니다.' },
 ];
 export default function BrandStory() {
   const [showVideoModal, setShowVideoModal] = useState(false);
