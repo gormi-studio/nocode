@@ -30,17 +30,14 @@ export default function BrandStory() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/10" />
         <div className="relative h-full max-w-[1280px] mx-auto px-5 md:px-12 flex flex-col justify-center">
-          <Reveal className="max-w-lg">
+          <Reveal className="max-w-3xl">
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">브랜드 스토리</p>
             <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight text-black">
               도구를 고르는 일이<br />어렵지 않도록
             </h1>
-            <p className="mt-6 text-lg text-[#575757] leading-[1.55] max-w-md">
-              고르미는 헤어디자이너와 전문가용 제품을 찾는<br />
-              일반 소비자 모두를 위한<br />
-              맞춤 헤어미용도구 브랜드입니다.<br />
-              보고 · 비교하고 · 조합하는<br />
-              커스터마이징 경험을 제안합니다.
+            <p className="mt-6 text-lg text-[#575757] leading-[1.55] break-keep">
+              고르미는 헤어디자이너와 전문가용 제품을 찾는 일반 소비자 모두를 위한 맞춤 헤어미용도구 브랜드입니다.
+              보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
             </p>
           </Reveal>
         </div>
