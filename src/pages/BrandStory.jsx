@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Sparkles, Eye, ScrollText, Heart, ArrowRight, Palette } from 'lucide-react';
+import { Eye, ScrollText, Heart, ArrowRight } from 'lucide-react';
 import { BRAND_STORY_IMAGE, BRAND_STORY_VIDEO } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 const TIMELINE = [
@@ -20,8 +20,8 @@ export default function BrandStory() {
         <div className="relative grid grid-cols-1 lg:grid-cols-2">
           <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 lg:pl-8 lg:pr-14 py-16 lg:py-24">
             <Reveal className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
-                <Sparkles className="w-4 h-4" /> 브랜드 스토리
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#A97C3F]/10 text-[#A97C3F] text-sm font-semibold">
+                브랜드 스토리
               </span>
               <h1 className="font-serif-kr text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-[#1E1B18]">
                 도구를 고르는 일이<br />어렵지 않도록
@@ -119,27 +119,6 @@ export default function BrandStory() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={0.2}>
-            <div className="mt-12 rounded-3xl border border-[#DAD6CC] p-8 flex flex-col md:flex-row items-start gap-5">
-              <Palette className="w-8 h-8 text-[#A97C3F] flex-shrink-0" />
-              <div>
-                <h3 className="font-serif-kr font-bold text-[#1E1B18] mb-2">브랜드 컬러</h3>
-                <p className="text-[#5C574C] leading-relaxed">
-                  차분한 차콜과 은은한 브라스. 공예 감성과 신뢰감을 함께 담았습니다.
-                </p>
-                <div className="mt-4 flex gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full" style={{ backgroundColor: '#A97C3F' }} />
-                    <span className="text-sm text-[#5C574C]">#A97C3F</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full border border-[#D6D1C4]" style={{ backgroundColor: '#EBE9E3' }} />
-                    <span className="text-sm text-[#5C574C]">#EBE9E3</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
     </div>

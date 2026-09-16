@@ -107,9 +107,6 @@ function Footer() {
               헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
               보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
             </p>
-            <p className="mt-4 text-xs text-white/40">
-              과장·효과 보장·근거 없는 비교 표현을 지양하고, 사실에 기반한 정보를 제공합니다.
-            </p>
           </div>
           <div className="hidden md:block">
             <h4 className="font-serif-kr font-semibold text-white mb-4">둘러보기</h4>
