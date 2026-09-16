@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail, Phone, MapPin } from 'lucide-react';
+import { Menu, X, Mail, Phone, MapPin, Instagram, Youtube } from 'lucide-react';
 import AIChatWidget from '@/components/AIChatWidget';
 import Logo from '@/components/Logo';
 const NAV = [
@@ -99,45 +99,42 @@ function Navbar() {
 function Footer() {
   return (
     <footer className="w-full bg-[#1E1B18] text-[#DAD6CC]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10 md:pt-20">
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
-          <div>
-            <Logo variant="inverted" className="mb-5" />
-            <p className="text-sm text-white/60 leading-relaxed max-w-xs">
-              헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
-              보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-serif-kr font-semibold text-white mb-4">메뉴</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              <li><Link to="/tray-builder" className="hover:text-[#D9BE93]">커스텀 트레이</Link></li>
-              <li><Link to="/products" className="hover:text-[#D9BE93]">헤어 살롱 용품</Link></li>
-              <li><Link to="/curation" className="hover:text-[#D9BE93]">추천 구성</Link></li>
-              <li><Link to="/insights" className="hover:text-[#D9BE93]">미용 인사이트</Link></li>
-              <li><Link to="/reviews" className="hover:text-[#D9BE93]">고객 후기</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-serif-kr font-semibold text-white mb-4">고객센터</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</li>
-              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</li>
-              <li><Link to="/support" className="hover:text-[#D9BE93]">1:1 · B2B 문의</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-serif-kr font-semibold text-white mb-4">안내</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              <li>이용약관</li>
-              <li>개인정보처리방침</li>
-              <li><Link to="/admin/login" className="hover:text-[#D9BE93]">관리자</Link></li>
-            </ul>
-          </div>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col items-center text-center">
+        <Logo variant="inverted" className="mb-6" />
+        <p className="text-sm text-white/60 leading-relaxed max-w-lg">
+          헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
+          보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
+        </p>
+        <nav className="mt-9 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-sm text-white/70">
+          <Link to="/tray-builder" className="px-3 hover:text-[#D9BE93] transition-colors">커스텀 트레이</Link>
+          <span className="text-white/15">·</span>
+          <Link to="/products" className="px-3 hover:text-[#D9BE93] transition-colors">헤어 살롱 용품</Link>
+          <span className="text-white/15">·</span>
+          <Link to="/curation" className="px-3 hover:text-[#D9BE93] transition-colors">추천 구성</Link>
+          <span className="text-white/15">·</span>
+          <Link to="/insights" className="px-3 hover:text-[#D9BE93] transition-colors">미용 인사이트</Link>
+          <span className="text-white/15">·</span>
+          <Link to="/reviews" className="px-3 hover:text-[#D9BE93] transition-colors">고객 후기</Link>
+          <span className="text-white/15">·</span>
+          <Link to="/support" className="px-3 hover:text-[#D9BE93] transition-colors">고객센터</Link>
+        </nav>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm text-white/45">
+          <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</span>
+          <span className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</span>
+          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</span>
         </div>
-        <div className="mt-14 pt-6 border-t border-white/10">
-          <p className="text-xs text-white/40">© 2026 고르미 (GORMI). All rights reserved.</p>
+        {/* TODO: swap in the real social URLs once they exist. */}
+        <div className="mt-7 flex items-center justify-center gap-5 text-white/50">
+          <a href="#" aria-label="인스타그램" className="hover:text-[#D9BE93] transition-colors"><Instagram className="w-5 h-5" /></a>
+          <a href="#" aria-label="유튜브" className="hover:text-[#D9BE93] transition-colors"><Youtube className="w-5 h-5" /></a>
+          <a href="#" aria-label="X (트위터)" className="hover:text-[#D9BE93] transition-colors"><X className="w-5 h-5" /></a>
+        </div>
+        <div className="mt-10 pt-6 w-full border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-xs text-white/35">
+          <span>© 2026 고르미 (GORMI). All rights reserved.</span>
+          <span className="hidden sm:inline text-white/15">|</span>
+          <span>이용약관</span>
+          <span>개인정보처리방침</span>
+          <Link to="/admin/login" className="hover:text-white/60 transition-colors">관리자</Link>
         </div>
       </div>
     </footer>
