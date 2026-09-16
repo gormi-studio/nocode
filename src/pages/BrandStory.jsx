@@ -9,9 +9,9 @@ const TIMELINE = [
   { year: '연결', title: '전문가와 일반의 다리', desc: '전문가용과 일반용을 함께 안내해 처음 방문한 소비자도 비교·선택할 수 있게 했습니다.' },
 ];
 const VALUES = [
-  { icon: Eye, title: '현장 기반', desc: '미용사 인터뷰·현장 사진·실측 데이터를 공공 통계보다 우선 배치합니다.' },
-  { icon: ScrollText, title: '맥락 중심', desc: '스펙 나열이 아닌 실제 사용 맥락으로 제품을 설명합니다.' },
-  { icon: Heart, title: '정확한 표현', desc: '과장·효과 보장·근거 없는 비교 표현을 지양하고 사실에 기반합니다.' },
+  { icon: Eye, title: '현장 기반', desc: '미용사 인터뷰·현장 사실 기반 데이터를 우선 반영합니다.' },
+  { icon: ScrollText, title: '상황 중심', desc: '스펙 나열이 아닌 실제 사용 맥락으로 제품을 설명합니다.' },
+  { icon: Heart, title: '담백한 표현', desc: '과장·효과 보장·근거 없는 비교 표현을 지양하고 사실에 기반합니다.' },
 ];
 export default function BrandStory() {
   return (
@@ -103,7 +103,7 @@ export default function BrandStory() {
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-12">
-            <p className="text-[#A97C3F] font-semibold mb-3">핵심 차별점 요약</p>
+            <p className="text-[#A97C3F] font-semibold mb-3">핵심차별점</p>
             <h2 className="font-serif-kr text-3xl md:text-4xl font-bold text-[#1E1B18]">고르미가 지키는 것</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
