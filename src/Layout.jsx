@@ -97,44 +97,59 @@ function Navbar() {
   );
 }
 function Footer() {
+  const socialIconClass =
+    'w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#D9BE93] hover:text-[#D9BE93] transition-colors';
   return (
     <footer className="w-full bg-[#1E1B18] text-[#DAD6CC]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col items-center text-center">
-        <Logo variant="inverted" className="mb-6" />
-        <p className="text-sm text-white/60 leading-relaxed max-w-lg">
-          헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드.
-          보고 · 비교하고 · 조합하는 커스터마이징 경험을 제안합니다.
-        </p>
-        <nav className="mt-9 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-sm text-white/70">
-          <Link to="/tray-builder" className="px-3 hover:text-[#D9BE93] transition-colors">커스텀 트레이</Link>
-          <span className="text-white/15">·</span>
-          <Link to="/products" className="px-3 hover:text-[#D9BE93] transition-colors">헤어 살롱 용품</Link>
-          <span className="text-white/15">·</span>
-          <Link to="/curation" className="px-3 hover:text-[#D9BE93] transition-colors">추천 구성</Link>
-          <span className="text-white/15">·</span>
-          <Link to="/insights" className="px-3 hover:text-[#D9BE93] transition-colors">미용 인사이트</Link>
-          <span className="text-white/15">·</span>
-          <Link to="/reviews" className="px-3 hover:text-[#D9BE93] transition-colors">고객 후기</Link>
-          <span className="text-white/15">·</span>
-          <Link to="/support" className="px-3 hover:text-[#D9BE93] transition-colors">고객센터</Link>
-        </nav>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm text-white/45">
-          <span className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</span>
-          <span className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</span>
-          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8 md:pt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+          <div className="col-span-2 md:col-span-1">
+            <Logo variant="inverted" className="mb-4" />
+            <p className="text-sm text-white/60 leading-relaxed max-w-xs">
+              헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드
+            </p>
+          </div>
+          <div>
+            <h4 className="font-serif-kr font-semibold text-white mb-4">둘러보기</h4>
+            <ul className="space-y-2.5 text-sm text-white/60">
+              <li><Link to="/brand-story" className="hover:text-[#D9BE93]">브랜드 스토리</Link></li>
+              <li><Link to="/products" className="hover:text-[#D9BE93]">헤어살롱용품</Link></li>
+              <li><Link to="/tray-builder" className="hover:text-[#D9BE93]">커스텀 트레이</Link></li>
+              <li><Link to="/insights" className="hover:text-[#D9BE93]">미용 인사이트</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-serif-kr font-semibold text-white mb-4">고객센터</h4>
+            <ul className="space-y-2.5 text-sm text-white/60 mb-5">
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</li>
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</li>
+            </ul>
+            <Link
+              to="/support"
+              className="inline-block px-4 py-2 rounded-full border border-white/25 text-sm text-white/80 hover:border-[#D9BE93] hover:text-[#D9BE93] transition-colors"
+            >
+              1:1 · B2B 문의
+            </Link>
+          </div>
+          <div>
+            <h4 className="font-serif-kr font-semibold text-white mb-4">스토어 바로가기</h4>
+            <a href="#" className="block text-sm text-white/60 hover:text-[#D9BE93] mb-5">스토어 연결</a>
+            {/* TODO: swap in the real social URLs once they exist. */}
+            <div className="flex items-center gap-3">
+              <a href="#" aria-label="인스타그램" className={socialIconClass}><Instagram className="w-4 h-4" /></a>
+              <a href="#" aria-label="유튜브" className={socialIconClass}><Youtube className="w-4 h-4" /></a>
+              <a href="#" aria-label="X" className={socialIconClass}><X className="w-4 h-4" /></a>
+            </div>
+          </div>
         </div>
-        {/* TODO: swap in the real social URLs once they exist. */}
-        <div className="mt-7 flex items-center justify-center gap-5 text-white/50">
-          <a href="#" aria-label="인스타그램" className="hover:text-[#D9BE93] transition-colors"><Instagram className="w-5 h-5" /></a>
-          <a href="#" aria-label="유튜브" className="hover:text-[#D9BE93] transition-colors"><Youtube className="w-5 h-5" /></a>
-          <a href="#" aria-label="X (트위터)" className="hover:text-[#D9BE93] transition-colors"><X className="w-5 h-5" /></a>
-        </div>
-        <div className="mt-10 pt-6 w-full border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-xs text-white/35">
-          <span>© 2026 고르미 (GORMI). All rights reserved.</span>
-          <span className="hidden sm:inline text-white/15">|</span>
-          <span>이용약관</span>
-          <span>개인정보처리방침</span>
-          <Link to="/admin/login" className="hover:text-white/60 transition-colors">관리자</Link>
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-white/40">© 2026 고르미 (GORMI). All rights reserved.</p>
+          <div className="flex items-center gap-4 text-xs text-white/40">
+            <span>이용약관</span>
+            <span>개인정보처리방침</span>
+            <Link to="/admin/login" className="hover:text-white/70">관리자</Link>
+          </div>
         </div>
       </div>
     </footer>
