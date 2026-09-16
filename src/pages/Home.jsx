@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Palette, Layers, Sparkles, Eye, ArrowRight, Star, Quote,
-  Search, CheckCircle, Package, Package2, ShoppingBag,
+  CheckCircle, Package, Package2,
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
@@ -42,10 +42,10 @@ const HERO_IMAGES = [
   { src: HERO_IMAGE_2, alt: '살롱 카운터에 정리된 헤어 스타일링 도구' },
 ];
 const STEPS = [
-  { n: '01', icon: Eye, title: '보고', desc: '제품마다 추천 상황과 예외 상황을 실제 사용 맥락으로 살펴봅니다.' },
-  { n: '02', icon: Search, title: '비교하고', desc: '전문가용·입문자용 구분과 용도별 필터로 나에게 맞는 도구를 비교합니다.' },
-  { n: '03', icon: Layers, title: '조합하고', desc: '커스텀 트레이 빌더에서 소재·색상·모듈을 직접 조합합니다.' },
-  { n: '04', icon: ShoppingBag, title: '구매', desc: '실시간 미리보기로 완성 구성을 확인하고 문의로 이어집니다.' },
+  { n: '01', icon: Palette, title: '고르기', desc: '기본 트레이 형태와 원하는 색상을 선택합니다.' },
+  { n: '02', icon: Layers, title: '조합하기', desc: '가위꽂이·롤빗 거치대·수납함 등 필요한 옵션을 추가합니다.' },
+  { n: '03', icon: Eye, title: '확인하기', desc: '선택한 옵션과 색상, 전체 구성을 주문 전 다시 확인합니다.' },
+  { n: '04', icon: Package, title: '제작·배송', desc: '주문 내용을 바탕으로 제작하고 검수 후 발송합니다.' },
 ];
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -198,10 +198,10 @@ export default function Home() {
         <div className="relative max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal className="max-w-[800px]">
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">구매 프로세스</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.2]">보고 → 비교 → 조합 → 구매</h2>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.2] break-keep">고르고 → 조합하고 → 확인하고 → 제작</h2>
             <p className="mt-5 text-[#CCCCCC] leading-[1.6]">
-              스펙 나열이 아니라 실제 사용 맥락을 기준으로<br />
-              도구를 선택하는 흐름입니다.
+              내 작업 방식에 맞게 트레이 옵션을 선택하면<br />
+              구성을 확인한 뒤 주문제작이 진행됩니다.
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
