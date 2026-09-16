@@ -73,7 +73,7 @@ function Navbar() {
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full text-black hover:bg-[#F4F4F4]"
             aria-label="메뉴 열기"
           >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {open ? <X className="w-6 h-6" strokeWidth={1.75} /> : <Menu className="w-6 h-6" strokeWidth={1.75} />}
           </button>
         </div>
       </div>
@@ -107,8 +107,10 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           <div className="col-span-2 md:col-span-1">
             <Logo variant="inverted" className="mb-4" />
-            <p className="text-sm text-[#CCCCCC] leading-relaxed max-w-xs">
-              헤어디자이너와 전문가용 제품을 찾는 일반 소비자를 위한 맞춤 헤어미용도구 브랜드
+            <p className="text-sm text-[#CCCCCC] leading-[1.5] max-w-xs">
+              헤어디자이너와 전문가용 제품을 찾는<br />
+              일반 소비자를 위한<br />
+              맞춤 헤어미용도구 브랜드
             </p>
           </div>
           <div>
@@ -123,9 +125,9 @@ function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-white mb-4">고객센터</h4>
             <ul className="space-y-2.5 text-sm text-[#CCCCCC] mb-5">
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> 1544-0000</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> help@gormi.co.kr</li>
-              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> 서울특별시</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4" strokeWidth={1.75} /> 1544-0000</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4" strokeWidth={1.75} /> help@gormi.co.kr</li>
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" strokeWidth={1.75} /> 서울특별시</li>
             </ul>
             <Link
               to="/support"
@@ -139,9 +141,9 @@ function Footer() {
             <a href="#" className="block text-sm text-[#CCCCCC] hover:text-[#A97C3F] mb-5">스토어 연결</a>
             {/* TODO: swap in the real social URLs once they exist. */}
             <div className="flex items-center gap-3">
-              <a href="#" aria-label="인스타그램" className={socialIconClass}><Instagram className="w-4 h-4" /></a>
-              <a href="#" aria-label="유튜브" className={socialIconClass}><Youtube className="w-4 h-4" /></a>
-              <a href="#" aria-label="X" className={socialIconClass}><X className="w-4 h-4" /></a>
+              <a href="#" aria-label="인스타그램" className={socialIconClass}><Instagram className="w-4 h-4" strokeWidth={1.75} /></a>
+              <a href="#" aria-label="유튜브" className={socialIconClass}><Youtube className="w-4 h-4" strokeWidth={1.75} /></a>
+              <a href="#" aria-label="X" className={socialIconClass}><X className="w-4 h-4" strokeWidth={1.75} /></a>
             </div>
           </div>
         </div>

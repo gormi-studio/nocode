@@ -98,14 +98,16 @@ export default function Home() {
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] lg:min-h-[820px]">
           <div className="order-2 lg:order-1 flex flex-col justify-center px-5 sm:px-6 lg:pr-10 py-16 lg:py-10 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
             <Reveal>
-              <h1 className="font-serif-kr font-bold text-black text-5xl sm:text-6xl lg:text-[4rem] leading-[1.05] tracking-tight max-w-[800px]">
+              <h1 className="font-serif-kr font-bold text-black text-5xl sm:text-6xl lg:text-[4rem] leading-[1.2] tracking-tight max-w-[800px]">
                 쓰는 방식에 맞춰<br />고르는 헤어미용도구
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-6 text-[#575757] leading-relaxed max-w-md text-lg">
-                가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다. 소재·색상·도구함·모듈을 직접 골라
-                작업대에 맞는 트레이를 구성하고, 현장에서 쓰는 헤어용품을 함께 준비하세요.
+              <p className="mt-6 text-[#575757] leading-[1.55] max-w-md text-lg">
+                가위와 브러쉬를 어디에 놓고 쓰는지에서 시작합니다.<br />
+                소재·색상·도구함·모듈을 직접 골라<br />
+                작업대에 맞는 트레이를 구성하고,<br />
+                현장에서 쓰는 헤어용품을 함께 준비하세요.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
@@ -156,7 +158,7 @@ export default function Home() {
                 className="group flex-shrink-0 w-24 sm:w-auto flex flex-col items-center gap-3 text-center"
               >
                 <div className="w-16 h-16 rounded-full border border-[#D9D9D9] group-hover:border-black flex items-center justify-center transition-colors">
-                  <s.icon className="w-6 h-6 text-black" />
+                  <s.icon className="w-6 h-6 text-black" strokeWidth={1.75} />
                 </div>
                 <span className="text-xs font-semibold text-[#575757] group-hover:text-black transition-colors">{s.label}</span>
               </Link>
@@ -169,10 +171,10 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal className="max-w-[800px]">
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">핵심 차별점</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight">
-              직접 조합할 수 있는 커스터마이징 시스템
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">
+              직접 조합할 수 있는<br />커스터마이징 시스템
             </h2>
-            <p className="mt-5 text-[#575757] leading-relaxed max-w-[680px]">
+            <p className="mt-5 text-[#575757] leading-[1.6] max-w-[680px]">
               트레이 색상·소재부터 도구함, 정리대 모듈까지 조합해 작업 흐름에 맞춘 구성을 만듭니다.
             </p>
           </Reveal>
@@ -181,10 +183,10 @@ export default function Home() {
               <Reveal key={d.title} delay={i * 0.1}>
                 <div className="h-full rounded-[20px] bg-[#F7F7F7] p-8 hover:-translate-y-0.5 transition-transform">
                   <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-5">
-                    <d.icon className="w-7 h-7 text-black" />
+                    <d.icon className="w-7 h-7 text-black" strokeWidth={1.75} />
                   </div>
-                  <h3 className="font-serif-kr text-xl font-bold text-black mb-2">{d.title}</h3>
-                  <p className="text-[#575757] leading-relaxed">{d.desc}</p>
+                  <h3 className="font-serif-kr text-xl font-bold text-black mb-2 leading-[1.3]">{d.title}</h3>
+                  <p className="text-[#575757] leading-[1.6]">{d.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -196,9 +198,10 @@ export default function Home() {
         <div className="relative max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal className="max-w-[800px]">
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">구매 프로세스</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">보고 → 비교 → 조합 → 구매</h2>
-            <p className="mt-5 text-[#CCCCCC] leading-relaxed">
-              스펙 나열이 아니라 실제 사용 맥락을 기준으로 도구를 선택하는 흐름입니다.
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.2]">보고 → 비교 → 조합 → 구매</h2>
+            <p className="mt-5 text-[#CCCCCC] leading-[1.6]">
+              스펙 나열이 아니라 실제 사용 맥락을 기준으로<br />
+              도구를 선택하는 흐름입니다.
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -207,10 +210,10 @@ export default function Home() {
                 <div className="h-full rounded-[20px] bg-white/5 p-7 hover:bg-white/10 transition-colors">
                   <div className="flex items-center justify-between mb-5">
                     <span className="font-serif-kr text-4xl font-bold text-[#A97C3F]">{s.n}</span>
-                    <s.icon className="w-6 h-6 text-white/40" />
+                    <s.icon className="w-6 h-6 text-white/50" strokeWidth={1.75} />
                   </div>
-                  <h3 className="font-serif-kr text-xl font-bold mb-2">{s.title}</h3>
-                  <p className="text-sm text-[#CCCCCC] leading-relaxed">{s.desc}</p>
+                  <h3 className="font-serif-kr text-xl font-bold mb-2 leading-[1.3]">{s.title}</h3>
+                  <p className="text-sm text-[#CCCCCC] leading-[1.5]">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -223,7 +226,7 @@ export default function Home() {
           <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
               <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">대표 상품</p>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight">현장에서 자주 선택되는 구성</h2>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">현장에서 자주 선택되는 구성</h2>
             </Reveal>
             <Link to="/products" className="group text-black font-semibold flex items-center gap-1">
               전체 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -260,11 +263,12 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">추천 구성 · 진단 퀴즈</p>
-                <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">
+                <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.2]">
                   무엇을 골라야 할지<br />고민된다면
                 </h2>
-                <p className="mt-5 text-[#CCCCCC] leading-relaxed max-w-md">
-                  3~4문항에 답하면 1인 미용실용 · 출장미용용 · 홈케어용 세트를 매칭해 드립니다.
+                <p className="mt-5 text-[#CCCCCC] leading-[1.6] max-w-md">
+                  3~4문항에 답하면 1인 미용실용 · 출장미용용 · 홈케어용<br />
+                  세트를 매칭해 드립니다.<br />
                   이후 세부 커스터마이징도 이어서 조정할 수 있어요.
                 </p>
                 <Link
@@ -277,7 +281,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-3">
                 {['1인 미용실용', '출장미용용', '홈케어용'].map((t) => (
                   <div key={t} className="rounded-2xl bg-white/5 p-4 text-center">
-                    <CheckCircle className="w-6 h-6 mx-auto mb-2 text-[#A97C3F]" />
+                    <CheckCircle className="w-6 h-6 mx-auto mb-2 text-[#A97C3F]" strokeWidth={1.75} />
                     <p className="text-sm font-medium">{t}</p>
                   </div>
                 ))}
@@ -302,7 +306,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
                   <div className="relative h-full flex flex-col justify-end p-7">
                     <p className="text-[#A97C3F] text-sm font-bold uppercase tracking-wider mb-2">{p.eyebrow}</p>
-                    <h3 className="font-serif-kr text-2xl md:text-3xl font-bold text-white whitespace-pre-line leading-snug tracking-tight">
+                    <h3 className="font-serif-kr text-2xl md:text-3xl font-bold text-white whitespace-pre-line leading-[1.25] tracking-tight">
                       {p.title}
                     </h3>
                     <span className="mt-4 inline-flex items-center gap-1 text-white text-sm font-semibold">
@@ -321,7 +325,7 @@ export default function Home() {
           <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
               <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">고객 후기</p>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight">전문가와 일반 소비자의 이야기</h2>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">전문가와 일반 소비자의 이야기</h2>
             </Reveal>
             <Link to="/reviews" className="group text-black font-semibold flex items-center gap-1">
               전체 후기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -331,13 +335,13 @@ export default function Home() {
             {reviews.map((r, i) => (
               <Reveal key={r.id} delay={i * 0.1}>
                 <div className="h-full rounded-[20px] bg-white p-7">
-                  <Quote className="w-8 h-8 text-[#D9D9D9] mb-4" />
+                  <Quote className="w-8 h-8 text-[#D9D9D9] mb-4" strokeWidth={1.75} />
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: 5 }).map((_, k) => (
                       <Star key={k} className={`w-4 h-4 ${k < (r.rating || 5) ? 'text-[#A97C3F] fill-[#A97C3F]' : 'text-[#D9D9D9]'}`} />
                     ))}
                   </div>
-                  <p className="text-[#1D1D1F] leading-relaxed mb-5 line-clamp-5">{r.content}</p>
+                  <p className="text-[#1D1D1F] leading-[1.6] mb-5 line-clamp-5">{r.content}</p>
                   <div className="flex items-center gap-3">
                     {r.avatar ? (
                       <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
@@ -365,7 +369,7 @@ export default function Home() {
           <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
             <Reveal>
               <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">미용 인사이트</p>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight">도구를 고르는 관점</h2>
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">도구를 고르는 관점</h2>
             </Reveal>
             <Link to="/insights" className="group text-black font-semibold flex items-center gap-1">
               전체 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -387,8 +391,8 @@ export default function Home() {
                     </div>
                     <div className="p-6">
                       <span className="text-xs font-semibold text-[#A97C3F]">{it.category}</span>
-                      <h3 className="font-serif-kr text-lg font-bold text-black mt-2 mb-2 line-clamp-2">{it.title}</h3>
-                      <p className="text-sm text-[#575757] leading-relaxed line-clamp-2">{it.excerpt}</p>
+                      <h3 className="font-serif-kr text-lg font-bold text-black mt-2 mb-2 leading-[1.3] line-clamp-2">{it.title}</h3>
+                      <p className="text-sm text-[#575757] leading-[1.5] line-clamp-2">{it.excerpt}</p>
                     </div>
                   </div>
                 </Link>
@@ -399,12 +403,12 @@ export default function Home() {
       </section>
       {/* CTA */}
       <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
-        <div className="max-w-[800px] mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-[1040px] mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <Reveal>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.1]">
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] lg:whitespace-nowrap">
               나에게 맞는 구성을 지금 만들어 보세요
             </h2>
-            <p className="mt-5 text-[#575757] leading-relaxed">
+            <p className="mt-5 text-[#575757] leading-[1.6] lg:whitespace-nowrap">
               소재부터 모듈까지 직접 조합하고, 궁금한 점은 AI 어시스턴트와 고객센터가 함께 안내합니다.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
