@@ -266,7 +266,7 @@ export const insights = [
     slug: 'choosing-your-first-scissors',
     title: '입문자를 위한 첫 가위 고르는 법',
     excerpt: '처음 가위를 구매할 때 꼭 확인해야 할 무게, 그립, 날의 형태를 정리했습니다.',
-    image: asset('/images/products/scissors-pro.jpg'),
+    image: asset('/images/products/scissors-beginner.jpg'),
     imageFallback: asset('/images/insight-1.svg'),
     readMinutes: 4,
     content:
