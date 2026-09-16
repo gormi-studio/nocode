@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, ScrollText, Heart, ArrowRight } from 'lucide-react';
 import { BRAND_STORY_IMAGE, BRAND_STORY_VIDEO } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
+import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose,
+} from '@/components/ui/dialog';
 const TIMELINE = [
   { year: '관찰', title: '현장에서 시작', desc: '미용사 인터뷰와 현장 관찰을 통해 도구 정리와 선택의 불편을 확인했습니다.' },
   { year: '기획', title: '맥락 중심 콘텐츠', desc: '수치·규격 나열 대신 실제 사용 상황으로 제품을 설명하는 원칙을 세웠습니다.' },
@@ -14,6 +18,7 @@ const VALUES = [
   { icon: Heart, title: '담백한 표현', desc: '과장·효과 보장·근거 없는 비교 표현을 지양하고 사실에 기반합니다.' },
 ];
 export default function BrandStory() {
+  const [showVideoModal, setShowVideoModal] = useState(false);
   return (
     <div className="w-full">
       <section className="relative w-full bg-[#F2F1EE] overflow-hidden">
@@ -45,7 +50,11 @@ export default function BrandStory() {
         </div>
       </section>
       {/* BRAND FILM BANNER */}
-      <a href="#story" className="group block relative w-full aspect-[21/9] overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setShowVideoModal(true)}
+        className="group block relative w-full aspect-[21/9] overflow-hidden text-left appearance-none bg-transparent p-0 border-0 cursor-pointer"
+      >
         <video
           src={BRAND_STORY_VIDEO}
           autoPlay
@@ -58,7 +67,33 @@ export default function BrandStory() {
         <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
           <p className="text-white font-serif-kr text-lg md:text-2xl font-bold">고르미의 이야기 더 보기</p>
         </div>
-      </a>
+      </button>
+      <Dialog open={showVideoModal} onOpenChange={setShowVideoModal}>
+        <DialogContent className="max-w-md bg-[#F2F1EE] border-[#DAD6CC] rounded-3xl">
+          <DialogHeader>
+            <DialogTitle className="font-serif-kr text-[#1E1B18]">유튜브로 이동합니다</DialogTitle>
+            <DialogDescription className="text-[#5C574C]">
+              '고르미의 이야기 더 보기'를 누르면 고르미 유튜브 채널로 이동합니다.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose asChild>
+              <button type="button" className="px-4 py-2 text-sm text-[#5C574C] hover:text-[#1E1B18] transition-colors">
+                닫기
+              </button>
+            </DialogClose>
+            {/* TODO: swap in the real YouTube channel URL once it exists. */}
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-full bg-[#A97C3F] text-white text-sm font-semibold text-center hover:bg-[#96692F] transition-colors"
+            >
+              유튜브로 이동
+            </a>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <section id="story" className="w-full py-16 md:py-24 bg-[#F2F1EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
