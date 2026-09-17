@@ -38,6 +38,9 @@ export const BRAND_STORY_IMAGE = asset('/images/brandstory-salon-counter.webp');
 export const BRAND_STORY_VIDEO = asset('/videos/brand-story-loop.mp4');
 // Custom tray cart render used on the Home "커스터마이징 시스템" section.
 export const TRAY_CART_RENDER = asset('/images/products/tray-cart-render.png');
+// Photos used only by the Home "미용인사이트 뉴스" promo tiles (brand-supplied).
+export const PROMO_SALON_COUNTER_IMAGE = asset('/images/products/promo-salon-counter.jpg');
+export const PROMO_CABINET_CLOSEUP_IMAGE = asset('/images/products/promo-cabinet-closeup.jpg');
 
 export const products = [
   {

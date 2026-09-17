@@ -6,7 +6,10 @@ import {
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
+import {
+  HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER,
+  PROMO_SALON_COUNTER_IMAGE, PROMO_CABINET_CLOSEUP_IMAGE,
+} from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
@@ -22,13 +25,13 @@ const PROMOS = [
   {
     eyebrow: '이달의 추천',
     title: '하이브리드 이동 트레이\n지금 만나보세요',
-    image: PRODUCT_FIXTURES.find((p) => p.slug === 'pro-cutting-scissors')?.image,
+    image: PROMO_SALON_COUNTER_IMAGE,
     href: '/products/pro-cutting-scissors',
   },
   {
     eyebrow: '칼럼',
     title: '도구를 고르는\n관점 살펴보기',
-    image: INSIGHT_FIXTURES.find((i) => i.slug === 'salon-tray-organizing-tips')?.image,
+    image: PROMO_CABINET_CLOSEUP_IMAGE,
     href: '/insights',
   },
 ];
@@ -298,7 +301,7 @@ export default function Home() {
       <section className="w-full pb-20 md:pb-28 bg-white">
         <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal>
-            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-8">미용 인사이트</p>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] mb-8">미용인사이트 뉴스</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROMOS.map((p, i) => (
