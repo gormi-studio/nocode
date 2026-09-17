@@ -178,14 +178,6 @@ export default function Home() {
                 기타 옵션
               </span>
             </div>
-            <div className="mt-3 flex items-center justify-center">
-              <Link
-                to="/tray-builder"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
-              >
-                나만의 트레이 구성하기 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
           </Reveal>
           <Reveal delay={0.2}>
             <img
@@ -193,6 +185,16 @@ export default function Home() {
               alt="가위와 빗을 담은 이동식 헤어살롱 트레이 카트 렌더링"
               className="mt-14 w-full max-w-md mx-auto"
             />
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-9 flex items-center justify-center">
+              <Link
+                to="/tray-builder"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
+              >
+                나만의 트레이 구성하기 <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
