@@ -46,6 +46,10 @@ export const PROMO_CABINET_CLOSEUP_IMAGE = asset('/images/products/promo-cabinet
 export const PROCESS_SEE_IMAGE = asset('/images/products/proc-see.jpg');
 export const PROCESS_COMPARE_IMAGE = asset('/images/products/proc-compare.jpg');
 export const PROCESS_COMBINE_IMAGE = asset('/images/products/proc-combine.jpg');
+// Pre-styled "04 추천 구성" / "05 바로 구매" cards (brand-supplied finished
+// image tiles — no HTML card chrome needed, just render them as photos).
+export const PROCESS_RECOMMEND_IMAGE = asset('/images/products/proc-recommend.jpg');
+export const PROCESS_BUY_IMAGE = asset('/images/products/proc-buy.jpg');
 
 export const products = [
   {

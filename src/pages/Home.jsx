@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Layers, Sparkles, ArrowRight, Star,
-  CheckCircle, Package, Package2, ShoppingBag,
+  Sparkles, ArrowRight, Star,
+  CheckCircle, Package, Package2,
   Scissors, Waves, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Insight } from '@/api/entities';
@@ -10,6 +10,7 @@ import {
   HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER,
   PROMO_SALON_COUNTER_IMAGE, PROMO_CABINET_CLOSEUP_IMAGE,
   PROCESS_SEE_IMAGE, PROCESS_COMPARE_IMAGE, PROCESS_COMBINE_IMAGE,
+  PROCESS_RECOMMEND_IMAGE, PROCESS_BUY_IMAGE,
 } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
@@ -200,8 +201,8 @@ export default function Home() {
       </section>
       {/* PURCHASE PROCESS — photo-based bento grid */}
       <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
-          <Reveal className="max-w-[800px]">
+        <div className="max-w-[840px] mx-auto px-5 md:px-12">
+          <Reveal>
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">구매 프로세스</p>
             <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] break-keep">
               필요한 도구를 더 쉽게 찾아보세요
@@ -213,7 +214,7 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROCESS_PHOTOS.slice(0, 2).map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}>
-                <Link to={s.href} className="group block relative rounded-[20px] overflow-hidden aspect-[6/7]">
+                <Link to={s.href} className="group block relative rounded-[20px] overflow-hidden aspect-square">
                   <img
                     src={s.image}
                     alt={s.title}
@@ -224,7 +225,7 @@ export default function Home() {
               </Reveal>
             ))}
             <Reveal delay={0.2} className="md:col-span-2">
-              <Link to={PROCESS_PHOTOS[2].href} className="group block relative rounded-[20px] overflow-hidden aspect-[2.1/1]">
+              <Link to={PROCESS_PHOTOS[2].href} className="group block relative rounded-[20px] overflow-hidden aspect-[2.4/1]">
                 <img
                   src={PROCESS_PHOTOS[2].image}
                   alt={PROCESS_PHOTOS[2].title}
@@ -234,36 +235,40 @@ export default function Home() {
               </Link>
             </Reveal>
             <Reveal delay={0.3}>
-              <Link
-                to="/curation"
-                className="group flex flex-col justify-between rounded-[20px] aspect-[6/7] bg-[#A26749] p-7 hover:bg-[#95593F] transition-colors"
-              >
-                <div className="flex items-center justify-between">
+              <Link to="/curation" className="group block relative rounded-[20px] overflow-hidden aspect-[1.2/1]">
+                <img
+                  src={PROCESS_RECOMMEND_IMAGE}
+                  alt="추천 구성"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="relative h-full p-7 flex flex-col justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-white">04</span>
-                  <Layers className="w-16 h-16 text-white" strokeWidth={1.25} />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-serif-kr text-xl font-bold text-white">추천 구성</h3>
-                  <span className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#A26749] transition-colors">
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-serif-kr text-xl font-bold text-white">추천 구성</h3>
+                    <span className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#A26749] transition-colors">
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             </Reveal>
             <Reveal delay={0.4}>
-              <Link
-                to="/products"
-                className="group flex flex-col justify-between rounded-[20px] aspect-[6/7] bg-[#F4ECE5] p-7 hover:bg-[#EFE1D6] transition-colors"
-              >
-                <div className="flex items-center justify-between">
+              <Link to="/products" className="group block relative rounded-[20px] overflow-hidden aspect-[1.2/1]">
+                <img
+                  src={PROCESS_BUY_IMAGE}
+                  alt="바로 구매"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="relative h-full p-7 flex flex-col justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-[#A97C3F]">05</span>
-                  <ShoppingBag className="w-16 h-16 text-[#A97C3F]" strokeWidth={1.25} />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-serif-kr text-xl font-bold text-black">바로 구매</h3>
-                  <span className="w-10 h-10 rounded-full border border-black/30 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-serif-kr text-xl font-bold text-black">바로 구매</h3>
+                    <span className="w-10 h-10 rounded-full border border-black/30 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             </Reveal>
