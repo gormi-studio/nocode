@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Palette, Layers, Sparkles, Eye, ArrowRight, Star, Quote,
-  CheckCircle, Package, Package2,
+  Layers, Sparkles, ArrowRight, Star, Quote,
+  CheckCircle, Package, Package2, ShoppingBag,
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Review, Insight } from '@/api/entities';
 import {
   HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER,
   PROMO_SALON_COUNTER_IMAGE, PROMO_CABINET_CLOSEUP_IMAGE,
+  PROCESS_SEE_IMAGE, PROCESS_COMPARE_IMAGE, PROCESS_COMBINE_IMAGE,
 } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
@@ -38,11 +39,10 @@ const HERO_IMAGES = [
   { src: HERO_IMAGE, alt: '작업대에 정리된 헤어 스타일링 도구' },
   { src: HERO_IMAGE_2, alt: '살롱 카운터에 정리된 헤어 스타일링 도구' },
 ];
-const STEPS = [
-  { n: '01', icon: Palette, title: '고르기', desc: '기본 트레이 형태와 원하는 색상을 선택합니다.' },
-  { n: '02', icon: Layers, title: '조합하기', desc: '가위꽂이·롤빗 거치대·수납함 등 필요한 옵션을 추가합니다.' },
-  { n: '03', icon: Eye, title: '확인하기', desc: '선택한 옵션과 색상, 전체 구성을 주문 전 다시 확인합니다.' },
-  { n: '04', icon: Package, title: '제작·배송', desc: '주문 내용을 바탕으로 제작하고 검수 후 발송합니다.' },
+const PROCESS_PHOTOS = [
+  { n: '01', title: '보고', image: PROCESS_SEE_IMAGE, href: '/products' },
+  { n: '02', title: '비교하고', image: PROCESS_COMPARE_IMAGE, href: '/products' },
+  { n: '03', title: '조합하고', image: PROCESS_COMBINE_IMAGE, href: '/tray-builder' },
 ];
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -200,30 +200,75 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-      {/* PURCHASE PROCESS — numbered steps (dark section) */}
-      <section className="w-full py-20 md:py-28 bg-black text-white overflow-hidden relative">
-        <div className="relative max-w-[1280px] mx-auto px-5 md:px-12">
+      {/* PURCHASE PROCESS — photo-based bento grid */}
+      <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal className="max-w-[800px]">
             <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">구매 프로세스</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold tracking-tight leading-[1.2] break-keep">고르고 → 조합하고 → 확인하고 → 제작</h2>
-            <p className="mt-5 text-[#CCCCCC] leading-[1.6]">
-              내 작업 방식에 맞게 트레이 옵션을 선택하면<br />
-              구성을 확인한 뒤 주문제작이 진행됩니다.
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] break-keep">
+              필요한 도구를 더 쉽게 찾아보세요
+            </h2>
+            <p className="mt-5 text-[#575757] leading-[1.6]">
+              보고, 비교하고, 조합하고, 한 번에 만나보세요.
             </p>
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {STEPS.map((s, i) => (
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PROCESS_PHOTOS.slice(0, 2).map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}>
-                <div className="h-full rounded-[20px] bg-white/5 p-7 hover:bg-white/10 transition-colors">
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="font-serif-kr text-4xl font-bold text-[#A97C3F]">{s.n}</span>
-                    <s.icon className="w-6 h-6 text-white/50" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="font-serif-kr text-xl font-bold mb-2 leading-[1.3]">{s.title}</h3>
-                  <p className="text-sm text-[#CCCCCC] leading-[1.5]">{s.desc}</p>
-                </div>
+                <Link to={s.href} className="group block relative rounded-[20px] overflow-hidden aspect-square">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </Link>
               </Reveal>
             ))}
+            <Reveal delay={0.2} className="md:col-span-2">
+              <Link to={PROCESS_PHOTOS[2].href} className="group block relative rounded-[20px] overflow-hidden aspect-[2.4/1]">
+                <img
+                  src={PROCESS_PHOTOS[2].image}
+                  alt={PROCESS_PHOTOS[2].title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </Link>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <Link
+                to="/curation"
+                className="group flex flex-col justify-between rounded-[20px] aspect-[16/9] bg-[#A26749] p-7 hover:bg-[#95593F] transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-serif-kr text-3xl font-bold text-white">04</span>
+                  <Layers className="w-9 h-9 text-white/40" strokeWidth={1.5} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-serif-kr text-xl font-bold text-white">추천 구성</h3>
+                  <span className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#A26749] transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <Link
+                to="/products"
+                className="group flex flex-col justify-between rounded-[20px] aspect-[16/9] bg-[#F4ECE5] p-7 hover:bg-[#EFE1D6] transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-serif-kr text-3xl font-bold text-[#A97C3F]">05</span>
+                  <ShoppingBag className="w-9 h-9 text-[#A97C3F]/40" strokeWidth={1.5} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-serif-kr text-xl font-bold text-black">바로 구매</h3>
+                  <span className="w-10 h-10 rounded-full border border-black/30 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -41,6 +41,11 @@ export const TRAY_CART_RENDER = asset('/images/products/tray-cart-render.png');
 // Photos used only by the Home "미용인사이트 뉴스" promo tiles (brand-supplied).
 export const PROMO_SALON_COUNTER_IMAGE = asset('/images/products/promo-salon-counter.jpg');
 export const PROMO_CABINET_CLOSEUP_IMAGE = asset('/images/products/promo-cabinet-closeup.jpg');
+// Photos for the Home "필요한 도구를 더 쉽게 찾아보세요" process section (brand-supplied,
+// each already has its step number/title baked into the photo).
+export const PROCESS_SEE_IMAGE = asset('/images/products/proc-see.jpg');
+export const PROCESS_COMPARE_IMAGE = asset('/images/products/proc-compare.jpg');
+export const PROCESS_COMBINE_IMAGE = asset('/images/products/proc-combine.jpg');
 
 export const products = [
   {
