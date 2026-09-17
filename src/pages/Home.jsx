@@ -177,17 +177,23 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <span className="inline-flex items-center h-12 px-6 rounded-full bg-black text-white font-semibold">
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-black text-white font-semibold hover:bg-[#333333] transition-colors">
                 색상 선택
               </span>
-              <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold">
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold hover:bg-[#E5E5E5] transition-colors">
                 도구함 구성
+              </span>
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold hover:bg-[#E5E5E5] transition-colors">
+                러그 선택
+              </span>
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold hover:bg-[#E5E5E5] transition-colors">
+                기타 옵션
               </span>
               <Link
                 to="/tray-builder"
-                className="group inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
               >
-                나만의 트레이 구성하기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                나만의 트레이 구성하기 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
