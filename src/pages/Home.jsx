@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Layers, Sparkles, ArrowRight, Star, Quote,
+  Layers, Sparkles, ArrowRight, Star,
   CheckCircle, Package, Package2, ShoppingBag,
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
-import { Review, Insight } from '@/api/entities';
+import { Insight } from '@/api/entities';
 import {
   HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER,
   PROMO_SALON_COUNTER_IMAGE, PROMO_CABINET_CLOSEUP_IMAGE,
@@ -13,6 +13,7 @@ import {
 } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
+import ReviewsCarousel from '@/components/ReviewsCarousel';
 const SHORTCUTS = [
   { icon: Scissors, label: '가위', href: '/products?group=salon&category=1' },
   { icon: Brush, label: '빗', href: '/products?group=salon&category=2' },
@@ -45,7 +46,6 @@ const PROCESS_PHOTOS = [
   { n: '03', title: '조합하고', image: PROCESS_COMBINE_IMAGE, href: '/tray-builder' },
 ];
 export default function Home() {
-  const [reviews, setReviews] = useState([]);
   const [insights, setInsights] = useState([]);
   const [heroIdx, setHeroIdx] = useState(0);
   useEffect(() => {
@@ -57,11 +57,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       try {
-        const [r, i] = await Promise.all([
-          Review.paging({ page: 1, limit: 3, sort: '-id' }),
-          Insight.paging({ page: 1, limit: 3, sort: '-id' }),
-        ]);
-        setReviews(r.data.data);
+        const i = await Insight.paging({ page: 1, limit: 3, sort: '-id' });
         setInsights(i.data.data);
       } catch (e) {
         console.error(e);
@@ -339,47 +335,25 @@ export default function Home() {
         </div>
       </section>
       {/* REVIEWS */}
-      <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
-          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-            <Reveal>
-              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">고객 후기</p>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">전문가와 일반 소비자의 이야기</h2>
-            </Reveal>
-            <Link to="/reviews" className="group text-black font-semibold flex items-center gap-1">
-              전체 후기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {reviews.map((r, i) => (
-              <Reveal key={r.id} delay={i * 0.1}>
-                <div className="h-full rounded-[20px] bg-white p-7">
-                  <Quote className="w-8 h-8 text-[#D9D9D9] mb-4" strokeWidth={1.75} />
-                  <div className="flex gap-0.5 mb-3">
-                    {Array.from({ length: 5 }).map((_, k) => (
-                      <Star key={k} className={`w-4 h-4 ${k < (r.rating || 5) ? 'text-[#A97C3F] fill-[#A97C3F]' : 'text-[#D9D9D9]'}`} />
-                    ))}
-                  </div>
-                  <p className="text-[#1D1D1F] leading-[1.6] mb-5 line-clamp-5">{r.content}</p>
-                  <div className="flex items-center gap-3">
-                    {r.avatar ? (
-                      <img src={r.avatar} alt={r.authorName} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                    ) : (
-                      <div className="w-10 h-10 rounded-full bg-[#F4F4F4] flex items-center justify-center text-black font-bold">
-                        {r.authorName?.[0]}
-                      </div>
-                    )}
-                    <div>
-                      <p className="font-semibold text-black text-sm">{r.authorName}</p>
-                      <p className="text-xs text-[#767676]">
-                        {r.authorType === 'professional' ? '전문가' : '일반 소비자'} · {r.authorRole}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      <section className="w-full py-20 md:py-28 bg-[#F7F7F7] overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12 text-center mb-12">
+          <Reveal>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">전문가와 일반 소비자의 진짜 후기</h2>
+            <p className="mt-4 flex items-center justify-center gap-2 text-[#575757] font-semibold">
+              만족도 4.9점
+              <span className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, k) => (
+                  <Star key={k} className="w-4 h-4 text-[#A97C3F] fill-[#A97C3F]" />
+                ))}
+              </span>
+            </p>
+          </Reveal>
+        </div>
+        <ReviewsCarousel />
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12 mt-10 text-center">
+          <Link to="/reviews" className="group inline-flex items-center gap-1 text-black font-semibold">
+            전체 후기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
       {/* INSIGHTS */}
