@@ -243,13 +243,13 @@ export default function Home() {
                   loading="lazy"
                 />
                 <div className="relative h-full p-7 flex flex-col justify-between">
-                  <span className="font-serif-kr text-3xl font-bold text-white">04</span>
-                  <div className="flex items-center justify-between">
+                  <div>
+                    <span className="block font-serif-kr text-3xl font-bold text-white mb-2">04</span>
                     <h3 className="font-serif-kr text-xl font-bold text-white">추천 구성</h3>
-                    <span className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#A26749] transition-colors">
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
+                  <span className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#A26749] transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </Link>
             </Reveal>
@@ -262,13 +262,13 @@ export default function Home() {
                   loading="lazy"
                 />
                 <div className="relative h-full p-7 flex flex-col justify-between">
-                  <span className="font-serif-kr text-3xl font-bold text-[#A97C3F]">05</span>
-                  <div className="flex items-center justify-between">
+                  <div>
+                    <span className="block font-serif-kr text-3xl font-bold text-[#A97C3F] mb-2">05</span>
                     <h3 className="font-serif-kr text-xl font-bold text-black">바로 구매</h3>
-                    <span className="w-10 h-10 rounded-full border border-black/30 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
+                  <span className="w-10 h-10 rounded-full border border-black/30 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </Link>
             </Reveal>
