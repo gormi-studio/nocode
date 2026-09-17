@@ -5,14 +5,13 @@ import {
   CheckCircle, Package, Package2,
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
-import { Product, Review, Insight } from '@/api/entities';
+import { Review, Insight } from '@/api/entities';
 import {
   HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER,
   PROMO_SALON_COUNTER_IMAGE, PROMO_CABINET_CLOSEUP_IMAGE,
 } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
-import ProductCard from '@/components/ProductCard';
 const SHORTCUTS = [
   { icon: Scissors, label: '가위', href: '/products?group=salon&category=1' },
   { icon: Brush, label: '빗', href: '/products?group=salon&category=2' },
@@ -46,10 +45,8 @@ const STEPS = [
   { n: '04', icon: Package, title: '제작·배송', desc: '주문 내용을 바탕으로 제작하고 검수 후 발송합니다.' },
 ];
 export default function Home() {
-  const [products, setProducts] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [insights, setInsights] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [heroIdx, setHeroIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => {
@@ -59,20 +56,15 @@ export default function Home() {
   }, []);
   useEffect(() => {
     (async () => {
-      setLoading(true);
       try {
-        const [p, r, i] = await Promise.all([
-          Product.paging({ page: 1, limit: 4, filter: { isFeatured: true }, sort: '-id' }),
+        const [r, i] = await Promise.all([
           Review.paging({ page: 1, limit: 3, sort: '-id' }),
           Insight.paging({ page: 1, limit: 3, sort: '-id' }),
         ]);
-        setProducts(p.data.data);
         setReviews(r.data.data);
         setInsights(i.data.data);
       } catch (e) {
         console.error(e);
-      } finally {
-        setLoading(false);
       }
     })();
   }, []);
@@ -233,42 +225,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-      {/* FEATURED PRODUCTS */}
-      <section className="w-full py-20 md:py-28 bg-[#F7F7F7]">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
-          <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-            <Reveal>
-              <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">대표 상품</p>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">현장에서 자주 선택되는 구성</h2>
-            </Reveal>
-            <Link to="/products" className="group text-black font-semibold flex items-center gap-1">
-              전체 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-          {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="rounded-[20px] overflow-hidden bg-white animate-pulse">
-                  <div className="aspect-square bg-[#F4F4F4]" />
-                  <div className="p-5 space-y-3">
-                    <div className="h-3 bg-[#F4F4F4] rounded w-1/3" />
-                    <div className="h-4 bg-[#F4F4F4] rounded w-2/3" />
-                    <div className="h-4 bg-[#F4F4F4] rounded w-1/2" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.map((p, i) => (
-                <Reveal key={p.id} delay={i * 0.08}>
-                  <ProductCard product={p} />
-                </Reveal>
-              ))}
-            </div>
-          )}
         </div>
       </section>
       {/* CURATION PREVIEW */}
