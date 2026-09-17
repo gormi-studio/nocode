@@ -189,6 +189,8 @@ export default function Home() {
               <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold hover:bg-[#E5E5E5] transition-colors">
                 기타 옵션
               </span>
+            </div>
+            <div className="mt-3 flex items-center justify-center">
               <Link
                 to="/tray-builder"
                 className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
