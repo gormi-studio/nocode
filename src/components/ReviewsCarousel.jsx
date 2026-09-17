@@ -115,16 +115,23 @@ export default function ReviewsCarousel() {
         }}
       >
         <div
-          className={skipTransition ? '' : 'transition-transform duration-700 ease-in-out'}
-          style={{ display: 'flex', gap: `${GAP}px`, transform: `translateX(${offsetPx}px)` }}
+          style={{
+            display: 'flex',
+            gap: `${GAP}px`,
+            transform: `translateX(${offsetPx}px)`,
+            transition: skipTransition ? 'none' : 'transform 1100ms cubic-bezier(0.65, 0, 0.35, 1)',
+          }}
         >
           {LOOP_ITEMS.map((r, i) => {
             const isActive = i === index;
             return (
               <div
                 key={i}
-                style={{ width: `${CARD_WIDTH}px` }}
-                className={`relative flex-shrink-0 h-[280px] rounded-[20px] overflow-hidden transition-transform duration-700 ease-in-out ${
+                style={{
+                  width: `${CARD_WIDTH}px`,
+                  transition: skipTransition ? 'none' : 'transform 1100ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 1100ms ease',
+                }}
+                className={`relative flex-shrink-0 h-[280px] rounded-[20px] overflow-hidden ${
                   isActive ? 'scale-[1.18] z-10 shadow-xl' : 'scale-100 bg-white'
                 }`}
               >
