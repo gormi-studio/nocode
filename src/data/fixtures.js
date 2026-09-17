@@ -52,6 +52,17 @@ export const PROCESS_RECOMMEND_IMAGE = asset('/images/products/proc-recommend.jp
 export const PROCESS_BUY_IMAGE = asset('/images/products/proc-buy.jpg');
 // Support page hero background (brand-supplied "Always with you" wall shadow photo).
 export const SUPPORT_HERO_IMAGE = asset('/images/support/support-hero-bg.jpg');
+// Tray-builder: real per-material cabinet renders (used for the left preview)
+// and matching "도구함" attachment renders (used as small material-card icons).
+export const TRAY_HYBRID_CABINET = asset('/images/tray-builder/tray-hybrid-cabinet.png');
+export const TRAY_HYBRID_BOX = asset('/images/tray-builder/tray-hybrid-box.png');
+export const TRAY_WOOD_CABINET = asset('/images/tray-builder/tray-wood-cabinet.png');
+export const TRAY_WOOD_BOX = asset('/images/tray-builder/tray-wood-box.png');
+export const TRAY_STAINLESS_CABINET = asset('/images/tray-builder/tray-stainless-cabinet.png');
+export const TRAY_STAINLESS_BOX = asset('/images/tray-builder/tray-stainless-box.png');
+// Shared "가위꽂이·롤빗꽂이" attachment photo and "밍크털" fabric swatch photo.
+export const TRAY_HOLDER_RACK = asset('/images/tray-builder/tray-holder-rack.png');
+export const TRAY_FUR_SWATCH = asset('/images/tray-builder/tray-fur-swatch.png');
 
 export const products = [
   {
