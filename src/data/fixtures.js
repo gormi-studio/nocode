@@ -50,6 +50,8 @@ export const PROCESS_COMBINE_IMAGE = asset('/images/products/proc-combine.jpg');
 // image tiles — no HTML card chrome needed, just render them as photos).
 export const PROCESS_RECOMMEND_IMAGE = asset('/images/products/proc-recommend.jpg');
 export const PROCESS_BUY_IMAGE = asset('/images/products/proc-buy.jpg');
+// Support page hero background (brand-supplied "Always with you" wall shadow photo).
+export const SUPPORT_HERO_IMAGE = asset('/images/support/support-hero-bg.jpg');
 
 export const products = [
   {

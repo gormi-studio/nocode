@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, Truck, RefreshCw, Package, Send, CheckCircle, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { ChevronDown, Truck, RefreshCw, Package, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Faq, Inquiry } from '@/api/entities';
+import { SUPPORT_HERO_IMAGE } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 const SHIPPING = [
   { icon: Package, title: '기본 배송', desc: '기본 구성 상품은 통상적인 배송 일정으로 발송됩니다.' },
@@ -46,14 +47,17 @@ export default function Support() {
   };
   return (
     <div className="w-full bg-white">
-      <section className="w-full bg-black text-white overflow-hidden relative">
+      <section className="w-full text-black overflow-hidden relative">
+        <img
+          src={SUPPORT_HERO_IMAGE}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="relative max-w-[1280px] mx-auto px-5 md:px-12 pt-14 pb-16 md:pt-20">
           <Reveal className="max-w-3xl">
-            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4" strokeWidth={1.75} /> 고객센터
-            </p>
-            <h1 className="font-serif-kr text-3xl md:text-5xl font-bold tracking-tight leading-[1.2]">무엇이든 물어보세요</h1>
-            <p className="mt-5 text-[#CCCCCC] leading-[1.6] max-w-2xl">
+            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">고객센터</p>
+            <h1 className="font-serif-kr text-3xl md:text-5xl font-bold tracking-tight leading-[1.2] text-black">무엇이든 물어보세요</h1>
+            <p className="mt-5 text-black leading-[1.6] max-w-2xl">
               자주 묻는 질문과 배송·교환·반품 안내, 그리고 1:1 · B2B 문의를 한 곳에 모았습니다.
             </p>
           </Reveal>
