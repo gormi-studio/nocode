@@ -242,7 +242,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-white">04</span>
-                  <Layers className="w-9 h-9 text-white/40" strokeWidth={1.5} />
+                  <Layers className="w-9 h-9 text-white" strokeWidth={1.5} />
                 </div>
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif-kr text-xl font-bold text-white">추천 구성</h3>
@@ -259,7 +259,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-[#A97C3F]">05</span>
-                  <ShoppingBag className="w-9 h-9 text-[#A97C3F]/40" strokeWidth={1.5} />
+                  <ShoppingBag className="w-9 h-9 text-[#A97C3F]" strokeWidth={1.5} />
                 </div>
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif-kr text-xl font-bold text-black">바로 구매</h3>
