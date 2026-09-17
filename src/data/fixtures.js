@@ -36,6 +36,8 @@ export const HERO_IMAGE_2 = asset('/images/hero-salon-tray.webp');
 // the storefront signage in the background (had an incorrect "GOREMI" spelling).
 export const BRAND_STORY_IMAGE = asset('/images/brandstory-salon-counter.webp');
 export const BRAND_STORY_VIDEO = asset('/videos/brand-story-loop.mp4');
+// Custom tray cart render used on the Home "커스터마이징 시스템" section.
+export const TRAY_CART_RENDER = asset('/images/products/tray-cart-render.png');
 
 export const products = [
   {

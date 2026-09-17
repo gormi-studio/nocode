@@ -6,15 +6,10 @@ import {
   Scissors, Brush, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Product, Review, Insight } from '@/api/entities';
-import { HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
+import { HERO_IMAGE, HERO_IMAGE_2, HERO_IMAGE_FALLBACK, TRAY_CART_RENDER, products as PRODUCT_FIXTURES, insights as INSIGHT_FIXTURES } from '@/data/fixtures';
 import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import ProductCard from '@/components/ProductCard';
-const DIFF = [
-  { icon: Palette, title: '소재·색상 선택', desc: '옵션상품과 색상을 취향과 작업 환경에 맞춰 고를 수 있습니다.' },
-  { icon: Package, title: '도구함 추가', desc: '필요한 만큼 도구함을 더해 사용하는 도구 수에 맞게 확장합니다.' },
-  { icon: Layers, title: '모듈 조합', desc: '롤빗·가위 정리대 등 모듈을 조합해 나만의 정리 구성을 만듭니다.' },
-];
 const SHORTCUTS = [
   { icon: Scissors, label: '가위', href: '/products?group=salon&category=1' },
   { icon: Brush, label: '빗', href: '/products?group=salon&category=2' },
@@ -168,29 +163,38 @@ export default function Home() {
       </section>
       {/* DIFFERENTIATOR */}
       <section className="w-full py-20 md:py-28 bg-white">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-12">
-          <Reveal className="max-w-[800px]">
-            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">핵심 차별점</p>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2]">
-              직접 조합할 수 있는<br />커스터마이징 시스템
+        <div className="max-w-[1280px] mx-auto px-5 md:px-12 text-center">
+          <Reveal className="max-w-[720px] mx-auto">
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] break-keep">
+              미용실 트레이 직접 제작 시스템
             </h2>
-            <p className="mt-5 text-[#575757] leading-[1.6] max-w-[680px]">
-              트레이 색상·소재부터 도구함, 정리대 모듈까지 조합해 작업 흐름에 맞춘 구성을 만듭니다.
+            <p className="mt-5 text-[#575757] leading-[1.6] break-keep">
+              색상·소재부터 도구함, 정리대까지 직접 조합해 만듭니다.
             </p>
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {DIFF.map((d, i) => (
-              <Reveal key={d.title} delay={i * 0.1}>
-                <div className="h-full rounded-[20px] bg-[#F7F7F7] p-8 hover:-translate-y-0.5 transition-transform">
-                  <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-5">
-                    <d.icon className="w-7 h-7 text-black" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="font-serif-kr text-xl font-bold text-black mb-2 leading-[1.3]">{d.title}</h3>
-                  <p className="text-[#575757] leading-[1.6]">{d.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.1}>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-black text-white font-semibold">
+                색상 선택
+              </span>
+              <span className="inline-flex items-center h-12 px-6 rounded-full bg-[#F4F4F4] text-black font-semibold">
+                도구함 구성
+              </span>
+              <Link
+                to="/tray-builder"
+                className="group inline-flex items-center gap-2 h-12 px-6 rounded-full border border-black text-black font-semibold hover:bg-black hover:text-white transition-colors"
+              >
+                나만의 트레이 구성하기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <img
+              src={TRAY_CART_RENDER}
+              alt="가위와 빗을 담은 이동식 헤어살롱 트레이 카트 렌더링"
+              className="mt-14 w-full max-w-md mx-auto"
+            />
+          </Reveal>
         </div>
       </section>
       {/* PURCHASE PROCESS — numbered steps (dark section) */}
