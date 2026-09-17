@@ -203,7 +203,7 @@ export const products = [
     id: 9,
     slug: 'clip-pin-organizer',
     name: '핀·클립 정리 트레이',
-    image: asset('/images/products/clip-organizer.png'),
+    image: asset('/images/products/clip-organizer.jpg'),
     imageFallback: asset('/images/product-clip.svg'),
     contextCopy: '흩어지기 쉬운 헤어핀·클립을 칸별로 나눠 담는 소형 정리 트레이입니다.',
     price: 15000,
