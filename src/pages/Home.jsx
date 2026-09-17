@@ -221,6 +221,13 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
+                  <div className="absolute top-7 left-7">
+                    <span className="block font-serif-kr text-3xl font-bold text-[#A97C3F] mb-2">{s.n}</span>
+                    <h3 className="font-serif-kr text-xl font-bold text-black">{s.title}</h3>
+                  </div>
+                  <span className="absolute bottom-7 left-7 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </Link>
               </Reveal>
             ))}
@@ -232,6 +239,13 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
+                <div className="absolute top-7 left-7">
+                  <span className="block font-serif-kr text-3xl font-bold text-[#A97C3F] mb-2">{PROCESS_PHOTOS[2].n}</span>
+                  <h3 className="font-serif-kr text-xl font-bold text-black">{PROCESS_PHOTOS[2].title}</h3>
+                </div>
+                <span className="absolute bottom-7 left-7 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
+                  <ArrowRight className="w-4 h-4" />
+                </span>
               </Link>
             </Reveal>
             <Reveal delay={0.3}>
