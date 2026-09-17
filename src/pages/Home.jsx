@@ -215,7 +215,7 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROCESS_PHOTOS.slice(0, 2).map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}>
-                <Link to={s.href} className="group block relative rounded-[20px] overflow-hidden aspect-square">
+                <Link to={s.href} className="group block relative rounded-[20px] overflow-hidden aspect-[6/7]">
                   <img
                     src={s.image}
                     alt={s.title}
@@ -226,7 +226,7 @@ export default function Home() {
               </Reveal>
             ))}
             <Reveal delay={0.2} className="md:col-span-2">
-              <Link to={PROCESS_PHOTOS[2].href} className="group block relative rounded-[20px] overflow-hidden aspect-[2.4/1]">
+              <Link to={PROCESS_PHOTOS[2].href} className="group block relative rounded-[20px] overflow-hidden aspect-[2.1/1]">
                 <img
                   src={PROCESS_PHOTOS[2].image}
                   alt={PROCESS_PHOTOS[2].title}
@@ -238,7 +238,7 @@ export default function Home() {
             <Reveal delay={0.3}>
               <Link
                 to="/curation"
-                className="group flex flex-col justify-between rounded-[20px] aspect-[16/9] bg-[#A26749] p-7 hover:bg-[#95593F] transition-colors"
+                className="group flex flex-col justify-between rounded-[20px] aspect-[6/7] bg-[#A26749] p-7 hover:bg-[#95593F] transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-white">04</span>
@@ -255,7 +255,7 @@ export default function Home() {
             <Reveal delay={0.4}>
               <Link
                 to="/products"
-                className="group flex flex-col justify-between rounded-[20px] aspect-[16/9] bg-[#F4ECE5] p-7 hover:bg-[#EFE1D6] transition-colors"
+                className="group flex flex-col justify-between rounded-[20px] aspect-[6/7] bg-[#F4ECE5] p-7 hover:bg-[#EFE1D6] transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif-kr text-3xl font-bold text-[#A97C3F]">05</span>
