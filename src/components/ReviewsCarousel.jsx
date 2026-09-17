@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, StarHalf } from 'lucide-react';
 import {
   HERO_IMAGE, HERO_IMAGE_2, BRAND_STORY_IMAGE, PROMO_SALON_COUNTER_IMAGE,
 } from '@/data/fixtures';
 
 // Curated testimonial pool — large enough that the infinite carousel below
-// doesn't visibly repeat within a couple of loops.
+// doesn't visibly repeat within a couple of loops. Ratings are mixed
+// (4/4.5/5) rather than a flat 5 across the board, for realism.
 const REVIEWS = [
-  { name: '조아라', role: '1인 미용실 운영', content: '정리함 하나 바꿨을 뿐인데 매장 인상이 달라졌어요.' },
-  { name: '배수민', role: '헤어디자이너', content: '수납이 넉넉해서 자주 쓰는 제품을 한 번에 관리할 수 있어요. 동선도 좋아졌어요.' },
-  { name: '오세린', role: '일반 소비자', content: '집에서도 전문가용 도구를 깔끔하게 보관할 수 있어서 만족합니다.' },
-  { name: '강도윤', role: '프리랜서 헤어디자이너', content: '보기 좋게 정리되니 사용하는 시간도 더 즐거워졌어요. 실용성과 분위기를 둘 다 잡았어요.' },
-  { name: '임채원', role: '헤어디자이너', content: '색상과 구성을 골라 맞출 수 있어서 제 작업 방식에 잘 맞아요.' },
-  { name: '한소미', role: '일반 소비자', content: '브러시, 핀클립, 소도구까지 구분해서 넣기 좋아요.' },
-  { name: '이현서', role: '일반 소비자', content: '매일 쓰는 제품이라 더 만족스러워요.' },
-  { name: '이수진', role: '헤어디자이너', content: '작업대가 한결 깔끔해졌어요. 툴 정리가 쉬워져서 시술에만 집중할 수 있었어요.' },
-  { name: '박지훈', role: '1인 미용실 운영', content: '튼튼하고 마감이 정말 깔끔해요. 매일 쓰는 제품인데 디테일이 달라요. 역시 전문가용은 다르네요.' },
-  { name: '김은지', role: '프리랜서 헤어디자이너', content: '정리된 공간이 더 좋은 스타일을 만듭니다. 이제는 필수템이에요.' },
-  { name: '최민서', role: '헤어디자이너', content: '트레이 하나로 시술 동선이 정말 편해졌어요. 컬러약, 브러시, 클립까지 한눈에 정리되니까 시간도 절약돼요.' },
-  { name: '정하은', role: '1인 미용실 운영', content: '손이 자주 가는 도구들이 항상 제자리에 있어서 너무 좋아요. 수납력이 좋으면서도 디자인이 예뻐서 매장 분위기까지 살아요.' },
-  { name: '한소민', role: '일반 소비자', content: '집에서도 전문가처럼 관리할 수 있어요. 퀄리티가 정말 좋아서 오래 사용할 것 같아요.' },
+  { name: '조아라', role: '1인 미용실 운영', rating: 5, content: '정리함 하나 바꿨을 뿐인데 매장 인상이 달라졌어요.' },
+  { name: '배수민', role: '헤어디자이너', rating: 5, content: '수납이 넉넉해서 자주 쓰는 제품을 한 번에 관리할 수 있어요. 동선도 좋아졌어요.' },
+  { name: '오세린', role: '일반 소비자', rating: 4.5, content: '집에서도 전문가용 도구를 깔끔하게 보관할 수 있어서 만족합니다.' },
+  { name: '강도윤', role: '프리랜서 헤어디자이너', rating: 5, content: '보기 좋게 정리되니 사용하는 시간도 더 즐거워졌어요. 실용성과 분위기를 둘 다 잡았어요.' },
+  { name: '임채원', role: '헤어디자이너', rating: 4.5, content: '색상과 구성을 골라 맞출 수 있어서 제 작업 방식에 잘 맞아요.' },
+  { name: '한소미', role: '일반 소비자', rating: 4, content: '브러시, 핀클립, 소도구까지 구분해서 넣기 좋아요.' },
+  { name: '이현서', role: '일반 소비자', rating: 5, content: '매일 쓰는 제품이라 더 만족스러워요.' },
+  { name: '이수진', role: '헤어디자이너', rating: 4.5, content: '작업대가 한결 깔끔해졌어요. 툴 정리가 쉬워져서 시술에만 집중할 수 있었어요.' },
+  { name: '박지훈', role: '1인 미용실 운영', rating: 5, content: '튼튼하고 마감이 정말 깔끔해요. 매일 쓰는 제품인데 디테일이 달라요. 역시 전문가용은 다르네요.' },
+  { name: '김은지', role: '프리랜서 헤어디자이너', rating: 5, content: '정리된 공간이 더 좋은 스타일을 만듭니다. 이제는 필수템이에요.' },
+  { name: '최민서', role: '헤어디자이너', rating: 4.5, content: '트레이 하나로 시술 동선이 정말 편해졌어요. 컬러약, 브러시, 클립까지 한눈에 정리되니까 시간도 절약돼요.' },
+  { name: '정하은', role: '1인 미용실 운영', rating: 5, content: '손이 자주 가는 도구들이 항상 제자리에 있어서 너무 좋아요. 수납력이 좋으면서도 디자인이 예뻐서 매장 분위기까지 살아요.' },
+  { name: '한소민', role: '일반 소비자', rating: 4, content: '집에서도 전문가처럼 관리할 수 있어요. 퀄리티가 정말 좋아서 오래 사용할 것 같아요.' },
 ];
 
 // Small rotating pool of real salon photos to fill whichever review lands in
@@ -35,15 +36,16 @@ const N = REVIEWS.length;
 const LOOP_ITEMS = Array.from({ length: N * LOOPS }, (_, i) => REVIEWS[i % N]);
 const START_INDEX = N * Math.floor(LOOPS / 2);
 
-function Stars({ active }) {
+function Stars({ active, rating = 5 }) {
+  const color = active ? 'text-[#E5C48C] fill-[#E5C48C]' : 'text-[#A97C3F] fill-[#A97C3F]';
+  const empty = active ? 'text-white/30 fill-white/30' : 'text-[#D9D9D9] fill-[#D9D9D9]';
   return (
     <div className="flex gap-0.5 mb-3">
-      {Array.from({ length: 5 }).map((_, k) => (
-        <Star
-          key={k}
-          className={`w-4 h-4 ${active ? 'text-[#E5C48C] fill-[#E5C48C]' : 'text-[#A97C3F] fill-[#A97C3F]'}`}
-        />
-      ))}
+      {Array.from({ length: 5 }).map((_, k) => {
+        if (rating >= k + 1) return <Star key={k} className={`w-4 h-4 ${color}`} />;
+        if (rating > k) return <StarHalf key={k} className={`w-4 h-4 ${color}`} />;
+        return <Star key={k} className={`w-4 h-4 ${empty}`} />;
+      })}
     </div>
   );
 }
@@ -142,7 +144,7 @@ export default function ReviewsCarousel() {
                   </>
                 )}
                 <div className={`relative h-full p-6 flex flex-col ${isActive ? 'text-white' : 'text-[#1D1D1F]'}`}>
-                  <Stars active={isActive} />
+                  <Stars active={isActive} rating={r.rating} />
                   <p className={`text-sm leading-[1.6] line-clamp-5 flex-1 ${isActive ? 'font-medium' : ''}`}>{r.content}</p>
                   <div className="flex items-center gap-2 mt-4">
                     <div

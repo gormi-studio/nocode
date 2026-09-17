@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Layers, Sparkles, ArrowRight, Star,
   CheckCircle, Package, Package2, ShoppingBag,
-  Scissors, Brush, Paintbrush, Briefcase,
+  Scissors, Waves, Paintbrush, Briefcase,
 } from 'lucide-react';
 import { Insight } from '@/api/entities';
 import {
@@ -16,7 +16,7 @@ import FallbackImg from '@/components/FallbackImg';
 import ReviewsCarousel from '@/components/ReviewsCarousel';
 const SHORTCUTS = [
   { icon: Scissors, label: '가위', href: '/products?group=salon&category=1' },
-  { icon: Brush, label: '빗', href: '/products?group=salon&category=2' },
+  { icon: Waves, label: '빗', href: '/products?group=salon&category=2' },
   { icon: Paintbrush, label: '브러쉬', href: '/products?group=salon&category=3' },
   { icon: Package, label: '정리 트레이', href: '/products?group=storage&category=4' },
   { icon: Briefcase, label: '이동식 정리함', href: '/products?group=storage&category=5' },
@@ -311,22 +311,25 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROMOS.map((p, i) => (
               <Reveal key={p.eyebrow} delay={i * 0.1}>
-                <Link to={p.href} className="group block relative rounded-[20px] overflow-hidden aspect-[16/9]">
-                  <FallbackImg
-                    src={p.image}
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-                  <div className="relative h-full flex flex-col justify-end p-7">
-                    <p className="text-[#A97C3F] text-sm font-bold uppercase tracking-wider mb-2">{p.eyebrow}</p>
-                    <h3 className="font-serif-kr text-2xl md:text-3xl font-bold text-white whitespace-pre-line leading-[1.25] tracking-tight">
-                      {p.title}
-                    </h3>
-                    <span className="mt-4 inline-flex items-center gap-1 text-white text-sm font-semibold">
-                      자세히 보기 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                <Link to={p.href} className="group block h-full">
+                  <div className="h-full rounded-[20px] overflow-hidden bg-[#F7F7F7]">
+                    <div className="aspect-[16/10] bg-[#F4F4F4] overflow-hidden">
+                      <FallbackImg
+                        src={p.image}
+                        alt=""
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <span className="text-xs font-semibold text-[#A97C3F]">{p.eyebrow}</span>
+                      <h3 className="font-serif-kr text-lg font-bold text-black mt-2 mb-2 leading-[1.3] whitespace-pre-line">
+                        {p.title}
+                      </h3>
+                      <span className="inline-flex items-center gap-1 text-sm text-[#575757] group-hover:text-black transition-colors">
+                        자세히 보기 <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </Reveal>
