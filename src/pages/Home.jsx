@@ -306,7 +306,8 @@ export default function Home() {
       <section className="w-full pb-20 md:pb-28 bg-white">
         <div className="max-w-[1280px] mx-auto px-5 md:px-12">
           <Reveal>
-            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] mb-8">미용인사이트 뉴스</h2>
+            <p className="text-[#A97C3F] font-bold text-sm uppercase tracking-wider mb-4">칼럼</p>
+            <h2 className="font-serif-kr text-4xl md:text-5xl font-bold text-black tracking-tight leading-[1.2] mb-8">미용인사이트</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROMOS.map((p, i) => (
