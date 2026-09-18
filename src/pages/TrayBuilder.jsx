@@ -4,9 +4,9 @@ import Reveal from '@/components/Reveal';
 import FallbackImg from '@/components/FallbackImg';
 import {
   TRAY_CART_RENDER,
-  TRAY_HYBRID_CABINET, TRAY_HYBRID_BOX,
-  TRAY_WOOD_CABINET, TRAY_WOOD_BOX,
-  TRAY_STAINLESS_CABINET, TRAY_STAINLESS_BOX,
+  TRAY_HYBRID_CABINET,
+  TRAY_WOOD_CABINET,
+  TRAY_STAINLESS_CABINET,
   TRAY_HOLDER_RACK, TRAY_FUR_SWATCH,
 } from '@/data/fixtures';
 
@@ -14,7 +14,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const MATERIALS = [
   {
-    id: 'wood', name: '우드', cabinet: TRAY_WOOD_CABINET, box: TRAY_WOOD_BOX,
+    id: 'wood', name: '우드', cabinet: TRAY_WOOD_CABINET,
     colors: [
       { id: 'pink', name: '핑크', hex: '#e8a3aa' },
       { id: 'white', name: '화이트', hex: '#f2f0e9' },
@@ -24,14 +24,14 @@ const MATERIALS = [
     ],
   },
   {
-    id: 'hybrid', name: '하이브리드', cabinet: TRAY_HYBRID_CABINET, box: TRAY_HYBRID_BOX,
+    id: 'hybrid', name: '하이브리드', cabinet: TRAY_HYBRID_CABINET,
     colors: [
       { id: 'white', name: '화이트', hex: '#f1efe8' },
       { id: 'silver', name: '실버', hex: '#aaaaaa' },
     ],
   },
   {
-    id: 'stainless', name: '스테인리스', cabinet: TRAY_STAINLESS_CABINET, box: TRAY_STAINLESS_BOX,
+    id: 'stainless', name: '스테인리스', cabinet: TRAY_STAINLESS_CABINET,
     colors: [
       { id: 'silver', name: '실버', hex: '#aaaaaa' },
     ],
@@ -164,9 +164,9 @@ export default function TrayBuilder() {
                       key={m.id}
                       selected={material === m.id}
                       onClick={() => handleMaterialSelect(m.id)}
-                      className="h-[120px] sm:h-[190px] p-[18px] flex flex-row sm:flex-col items-center justify-center gap-2.5"
+                      className="h-[160px] sm:h-[260px] p-[18px] flex flex-row sm:flex-col items-center justify-center gap-2.5"
                     >
-                      <img src={m.box} alt={m.name} className="w-[70px] h-[70px] sm:w-[90px] sm:h-[90px] object-contain mix-blend-multiply flex-shrink-0" />
+                      <img src={m.cabinet} alt={m.name} className="w-[100px] h-[100px] sm:w-full sm:h-[190px] object-contain mix-blend-multiply flex-shrink-0" />
                       <strong className="text-[17px] font-semibold">{m.name}</strong>
                     </OptionButton>
                   ))}
@@ -214,6 +214,22 @@ export default function TrayBuilder() {
                 {scissorHolder && (
                   <div className="mt-[22px]">
                     <div>
+                      <h4 className="text-[17px] font-bold mb-3.5">가위꽂이 색상</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {HOLDER_COLORS.map((c) => (
+                          <OptionButton
+                            key={c.id}
+                            selected={holderColor === c.id}
+                            onClick={() => setHolderColor(c.id)}
+                            className="min-w-[150px] h-[52px] px-4 flex items-center gap-3 text-[15px]"
+                          >
+                            <span className="w-7 h-7 rounded-full border border-[#ddd] flex-shrink-0" style={{ backgroundColor: c.hex }} />
+                            <span>{c.name}</span>
+                          </OptionButton>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-7">
                       <h4 className="flex items-center gap-2 text-[17px] font-bold mb-3.5">
                         <img src={TRAY_FUR_SWATCH} alt="" className="w-6 h-6 rounded object-cover flex-shrink-0" />
                         밍크털 색상
@@ -221,14 +237,6 @@ export default function TrayBuilder() {
                       <div className="grid grid-cols-5 sm:grid-cols-6 gap-x-4 gap-y-4 sm:w-[440px]">
                         {FUR_COLORS.map((c) => (
                           <ColorSwatch key={c.id} selected={furColor === c.id} onClick={() => setFurColor(c.id)} hex={c.hex} name={c.name} />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="mt-7">
-                      <h4 className="text-[17px] font-bold mb-3.5">가위꽂이함 색상</h4>
-                      <div className="grid grid-cols-5 sm:grid-cols-6 gap-x-4 gap-y-4 sm:w-[440px]">
-                        {HOLDER_COLORS.map((c) => (
-                          <ColorSwatch key={c.id} selected={holderColor === c.id} onClick={() => setHolderColor(c.id)} hex={c.hex} name={c.name} />
                         ))}
                       </div>
                     </div>
