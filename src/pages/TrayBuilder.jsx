@@ -213,38 +213,34 @@ export default function TrayBuilder() {
 
                 {scissorHolder && (
                   <div className="mt-[22px]">
-                    <div>
-                      <h4 className="text-[17px] font-bold mb-3.5">가위꽂이 색상</h4>
-                      <div className="flex flex-wrap gap-3">
-                        {HOLDER_COLORS.map((c) => (
-                          <OptionButton
-                            key={c.id}
-                            selected={holderColor === c.id}
-                            onClick={() => setHolderColor(c.id)}
-                            className="min-w-[150px] h-[52px] px-4 flex items-center gap-3 text-[15px]"
-                          >
-                            <span className="w-7 h-7 rounded-full border border-[#ddd] flex-shrink-0" style={{ backgroundColor: c.hex }} />
-                            <span>{c.name}</span>
-                          </OptionButton>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="mt-7">
-                      <h4 className="flex items-center gap-2 text-[17px] font-bold mb-3.5">
-                        <img src={TRAY_FUR_SWATCH} alt="" className="w-6 h-6 rounded object-cover flex-shrink-0" />
-                        밍크털 색상
-                      </h4>
-                      <div className="grid grid-cols-5 sm:grid-cols-6 gap-x-4 gap-y-4 sm:w-[440px]">
-                        {FUR_COLORS.map((c) => (
-                          <ColorSwatch key={c.id} selected={furColor === c.id} onClick={() => setFurColor(c.id)} hex={c.hex} name={c.name} />
-                        ))}
-                      </div>
+                    <h4 className="text-[17px] font-bold mb-3.5">가위꽂이 색상</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {HOLDER_COLORS.map((c) => (
+                        <OptionButton
+                          key={c.id}
+                          selected={holderColor === c.id}
+                          onClick={() => setHolderColor(c.id)}
+                          className="min-w-[150px] h-[52px] px-4 flex items-center gap-3 text-[15px]"
+                        >
+                          <span className="w-7 h-7 rounded-full border border-[#ddd] flex-shrink-0" style={{ backgroundColor: c.hex }} />
+                          <span>{c.name}</span>
+                        </OptionButton>
+                      ))}
                     </div>
                   </div>
                 )}
               </OptionSection>
 
-              <OptionSection n="05" title="롤빗꽂이">
+              <OptionSection n="05" title="밍크털 색상">
+                <img src={TRAY_FUR_SWATCH} alt="" className="w-14 h-14 rounded object-cover mb-4" />
+                <div className="grid grid-cols-5 sm:grid-cols-6 gap-x-4 gap-y-4 sm:w-[440px]">
+                  {FUR_COLORS.map((c) => (
+                    <ColorSwatch key={c.id} selected={furColor === c.id} onClick={() => setFurColor(c.id)} hex={c.hex} name={c.name} />
+                  ))}
+                </div>
+              </OptionSection>
+
+              <OptionSection n="06" title="롤빗꽂이">
                 <div className="grid grid-cols-2 gap-3.5 max-w-full sm:max-w-[434px]">
                   <OptionButton selected={rollBrushHolder} onClick={() => setRollBrushHolder(true)} className="h-[52px] flex items-center justify-center text-[16px] font-medium">
                     있음
