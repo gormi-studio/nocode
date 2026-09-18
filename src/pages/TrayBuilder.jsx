@@ -201,7 +201,14 @@ export default function TrayBuilder() {
               </OptionSection>
 
               <OptionSection n="04" title="가위꽂이">
-                <img src={TRAY_HOLDER_RACK} alt="가위꽂이함" className="w-full max-w-[280px] h-auto object-contain mix-blend-multiply mb-4" />
+                {scissorHolder && (
+                  <FallbackImg
+                    src={BASE + `/images/tray-builder/scissor-${holderColor}.png`}
+                    fallback={TRAY_HOLDER_RACK}
+                    alt="가위꽂이 색상 미리보기"
+                    className="w-[220px] h-[110px] object-contain mix-blend-multiply mb-5"
+                  />
+                )}
                 <div className="grid grid-cols-2 gap-3.5 max-w-full sm:max-w-[434px]">
                   <OptionButton selected={scissorHolder} onClick={() => setScissorHolder(true)} className="h-[52px] flex items-center justify-center text-[16px] font-medium">
                     있음
@@ -232,7 +239,12 @@ export default function TrayBuilder() {
               </OptionSection>
 
               <OptionSection n="05" title="밍크털 색상">
-                <img src={TRAY_FUR_SWATCH} alt="" className="w-14 h-14 rounded object-cover mb-4" />
+                <FallbackImg
+                  src={BASE + `/images/tray-builder/fur-${furColor}.png`}
+                  fallback={TRAY_FUR_SWATCH}
+                  alt="밍크털 색상 미리보기"
+                  className="w-[220px] h-[110px] object-contain mix-blend-multiply mb-5"
+                />
                 <div className="grid grid-cols-5 sm:grid-cols-6 gap-x-4 gap-y-4 sm:w-[440px]">
                   {FUR_COLORS.map((c) => (
                     <ColorSwatch key={c.id} selected={furColor === c.id} onClick={() => setFurColor(c.id)} hex={c.hex} name={c.name} />
