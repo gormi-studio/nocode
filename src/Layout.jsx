@@ -110,7 +110,7 @@ function Footer() {
             <p className="text-sm text-[#CCCCCC] leading-[1.5] max-w-xs">
               헤어디자이너와 전문가용 제품을 찾는<br />
               일반 소비자를 위한<br />
-              맞춤 헤어미용도구 브랜드
+              맞춤 헤어미용도구 전문몰
             </p>
           </div>
           <div>
